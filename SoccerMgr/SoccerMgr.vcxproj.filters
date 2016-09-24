@@ -1,0 +1,120 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Header Files\tools">
+      <UniqueIdentifier>{62a631ae-22bd-4809-be17-6cc158251b65}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Tools">
+      <UniqueIdentifier>{56fb7535-1411-4863-9f6f-6a7c0ac755e7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Main">
+      <UniqueIdentifier>{797638f3-7124-44ff-862d-b37cc25bddb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Soccer">
+      <UniqueIdentifier>{d746c0d7-4cac-4fbb-85e9-79bd633d240d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Soccer">
+      <UniqueIdentifier>{5cce93f9-4a32-4963-b446-7faf19de4327}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Screen.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Saisie.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Date.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Club.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Parcours.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Personne.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Stade.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Staff.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Titre.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Entraineur.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Ligue.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="enum.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+    <ClInclude Include="Starter.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Date.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Saisie.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Screen.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="LigueApp.cpp">
+      <Filter>Source Files\Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Stade.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Personne.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Parcours.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Joueur.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Staff.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Entraineur.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Club.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Ligue.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Titre.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Starter.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
