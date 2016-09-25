@@ -11,6 +11,10 @@ Club::Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, stri
 	adresse = adr;
 }
 
+Club::Club() {
+
+}
+
 void Club::ajouter_joueur(Joueur * j)
 {
 	effectif.push_back(j);
@@ -39,9 +43,22 @@ void Club::afficher_joueurs()
 	}
 }
 
+void Club::afficher_palmares()
+{
+	for (size_t i = 0; i < palmares.size(); ++i) {
+		palmares.at(i)->afficher();
+		cout << endl;
+	}
+}
+
 string * Club::getNom()
 {
 	return &nom;
+}
+
+vector<Titre*>* Club::getPalmares()
+{
+	return &palmares;
 }
 
 Entraineur * Club::getTrainer()

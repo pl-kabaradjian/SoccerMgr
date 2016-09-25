@@ -210,8 +210,9 @@ void Screen::menuBestTrainer(Ligue* l)
 	best_trainer = &Entraineur("", "", 1);
 
 	for (size_t i = 0; i < l->getListeClub()->size();++i) {
-		
-		if (l->getListeClub()->at(i)->getTrainer()->getPalmares()->size() > best_trainer->getPalmares()->size()) {
+		size_t tbest = best_trainer->getPalmares()->size();
+		size_t tcurrent = l->getListeClub()->at(i)->getTrainer()->getPalmares()->size();
+		if (tcurrent > tbest) {
 			best_trainer = l->getListeClub()->at(i)->getTrainer();
 		}
 	}
@@ -225,6 +226,21 @@ void Screen::menuBestTrainer(Ligue* l)
 void Screen::menuBestclub(Ligue* l)
 {
 	system("CLS");
-	cout << "Meilleur club: " << endl;
+	
+	Club* best_club;
+	best_club = &Club();
+
+	for (size_t i = 0; i < l->getListeClub()->size(); ++i) {
+		size_t tbest = best_club->getPalmares()->size();
+		size_t tcurrent = l->getListeClub()->at(i)->getPalmares()->size();
+		if (tcurrent > tbest) {
+			best_club = l->getListeClub()->at(i);
+		}
+	}
+
+	cout << "Le club avec le plus de titres est : " << *best_club->getNom() << endl;
+	cout << "Liste des titres :" << endl;
+	best_club->afficher_palmares();
+
 	system("PAUSE");
 }

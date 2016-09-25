@@ -20,7 +20,7 @@ void Joueur::afficher()
 
 Joueur::Joueur(string nom, string prenom, int age,float t, int p, string vn):Personne(nom,prenom,age){
 	taille = t;
-	poids = poids;
+	poids = p;
 	ville_naissance = vn;
 }
 

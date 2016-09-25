@@ -28,16 +28,35 @@ void Starter::load(Ligue* ligue)
 	ligue->getListeClub()->at(2)->ajouter_joueur(new Joueur("Bafetimbi", "Gomis",26, 1.76f, 74, "Montpellier"));
 	ligue->getListeClub()->at(2)->ajouter_joueur(new Joueur("Machache", "Zinedine",26, 1.76f, 78, "Aubagne"));
 	ligue->getListeClub()->at(2)->ajouter_joueur(new Joueur("Vainqueur", "William",29, 1.77f, 86, "Vitrolles"));
+		
+	//Creation des titres
+	Titre* t1 = new Titre("Coupe de France", Date(1998));
+	Titre* t2 = new Titre("Coupe d'Europe", Date(2002));
+	Titre* t3 = new Titre("Ligue 2", Date(2012));
+	Titre* t4 = new Titre("Coupe du monde", Date(1994));
+	Titre* t5 = new Titre("Coupe du Japon", Date(2003));
+	Titre* t6 = new Titre("Coupe de budget", Date(2005));
+	Titre* t7 = new Titre("Coupe de Russie", Date(2009));
 
 	//Ajout des titres aux entraineurs
-	ligue->getListeClub()->at(0)->getTrainer()->ajouter_titre(Titre("Coupe de France", Date(1998)));
-	ligue->getListeClub()->at(0)->getTrainer()->ajouter_titre(Titre("Coupe d'Europe", Date(2002)));
-	ligue->getListeClub()->at(0)->getTrainer()->ajouter_titre(Titre("Ligue 2", Date(2012)));
+	ligue->getListeClub()->at(0)->getTrainer()->ajouter_titre(t1);
+	ligue->getListeClub()->at(0)->getTrainer()->ajouter_titre(t2);
+	ligue->getListeClub()->at(0)->getTrainer()->ajouter_titre(t3);
 
-	ligue->getListeClub()->at(1)->getTrainer()->ajouter_titre(Titre("Coupe du monde", Date(1994)));
-	ligue->getListeClub()->at(1)->getTrainer()->ajouter_titre(Titre("Coupe du Japon", Date(2003)));
+	ligue->getListeClub()->at(1)->getTrainer()->ajouter_titre(t4);
+	ligue->getListeClub()->at(1)->getTrainer()->ajouter_titre(t5);
 
-	ligue->getListeClub()->at(2)->getTrainer()->ajouter_titre(Titre("Coupe de budget", Date(2005)));
-	ligue->getListeClub()->at(2)->getTrainer()->ajouter_titre(Titre("Coupe de Russie", Date(2009)));
+	ligue->getListeClub()->at(2)->getTrainer()->ajouter_titre(t6);
+	ligue->getListeClub()->at(2)->getTrainer()->ajouter_titre(t7);
 
+	//Ajout des titres aux clubs
+	ligue->getListeClub()->at(1)->ajouter_titre(t7);
+	ligue->getListeClub()->at(1)->ajouter_titre(t6);
+	ligue->getListeClub()->at(1)->ajouter_titre(t5);
+
+	ligue->getListeClub()->at(0)->ajouter_titre(t4);
+	ligue->getListeClub()->at(0)->ajouter_titre(t3);
+
+	ligue->getListeClub()->at(2)->ajouter_titre(t2);
+	ligue->getListeClub()->at(2)->ajouter_titre(t1);
 }

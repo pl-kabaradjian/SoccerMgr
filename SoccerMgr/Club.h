@@ -29,12 +29,15 @@ class Club {
 
 public:
 	Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, string adr);
+	Club();
 	void ajouter_joueur(Joueur* j);
 	void ajouter_titre(Titre* t);
 	void ajouter_staff(Staff* s);
 	void ajouter_entraineur(Entraineur* e);
 	void afficher_joueurs();
+	void afficher_palmares();
 	string* getNom();
+	vector<Titre*>* getPalmares();
 	Entraineur* getTrainer();
 
 	~Club();
