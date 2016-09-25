@@ -7,8 +7,12 @@ class Date {
 
 public:
 	Date(int y, int m, int d);
+	Date(int y);
 	Date();
 	~Date();
 	static Date getDate();
+	int getYear();
+	int getMonth();
+	int getDay();
 };
 #endif

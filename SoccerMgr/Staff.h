@@ -9,7 +9,8 @@ enum Role {
 	recruteur,
 };
 
-class Staff : Personne {
+class Staff : public Personne {
+protected:
 	Role role;
 
 public:

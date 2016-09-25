@@ -13,5 +13,6 @@ class Titre {
 public:
 	~Titre();
 	Titre(string n, Date d);
+	void afficher();
 };
 #endif

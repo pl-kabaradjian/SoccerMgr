@@ -10,5 +10,5 @@ Staff::Staff(string nom, string prenom, int age, Role r) :Personne(nom, prenom, 
 
 Staff::~Staff()
 {
-	cout << "Membre du staff detruit" << endl;
+	//cout << "Membre du staff detruit" << endl;
 }

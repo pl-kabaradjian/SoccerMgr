@@ -7,6 +7,7 @@
 #include "Joueur.h"
 #include "Titre.h"
 #include "Staff.h"
+#include "Entraineur.h"
 
 using namespace std;
 
@@ -24,13 +25,17 @@ class Club {
 	string ville;
 	string adresse;
 	vector<Staff*> staff;
+	Entraineur* trainer;
 
 public:
 	Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, string adr);
 	void ajouter_joueur(Joueur* j);
 	void ajouter_titre(Titre* t);
 	void ajouter_staff(Staff* s);
+	void ajouter_entraineur(Entraineur* e);
+	void afficher_joueurs();
 	string* getNom();
+	Entraineur* getTrainer();
 
 	~Club();
 };

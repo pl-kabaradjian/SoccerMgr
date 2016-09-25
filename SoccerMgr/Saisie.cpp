@@ -6,7 +6,7 @@
 #include "enum.h"
 
 int Saisie::safe_int_cin(){
-	int res;
+	int res = -1;
 	bool is_an_int = false;
 
 	while (!is_an_int)

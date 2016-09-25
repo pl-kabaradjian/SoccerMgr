@@ -7,13 +7,14 @@
 
 class Joueur : public Personne {
 	float taille;
-	float poids;
+	int poids;
 	string ville_naissance;
 	vector<Parcours*> liste_parcours;
 
 public :
 	void ajoute_parcours(Parcours* p);
-	Joueur(string nom, string prenom, int age, float t, float poids, string vn);
+	void afficher();
+	Joueur(string nom, string prenom, int age, float t, int poids, string vn);
 	Joueur();
 	~Joueur();
 };

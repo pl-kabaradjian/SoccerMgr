@@ -4,11 +4,17 @@
 
 using namespace std;
 
-Date::Date(int y = 2000, int m = 1, int d = 1)
+Date::Date(int y, int m, int d)
 {
 	year = y;
 	month = m;
 	day = d;
+}
+
+Date::Date(int y) {
+	year = y;
+	month = 1;
+	day = 1;
 }
 
 Date::Date()
@@ -35,4 +41,19 @@ Date Date::getDate()
 		<< now.tm_mday
 		<< endl;*/
 	return Date(now.tm_year + 1900, now.tm_mon + 1, now.tm_mday);
+}
+
+int Date::getYear()
+{
+	return year;
+}
+
+int Date::getMonth()
+{
+	return month;
+}
+
+int Date::getDay()
+{
+	return day;
 }

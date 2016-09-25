@@ -20,5 +20,5 @@ Personne::Personne()
 
 Personne::~Personne()
 {
-	cout << "Peronne detruite" << endl;
+	//cout << "Peronne detruite" << endl;
 }

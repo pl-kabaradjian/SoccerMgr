@@ -26,9 +26,27 @@ void Club::ajouter_staff(Staff * s)
 	staff.push_back(s);
 }
 
+void Club::ajouter_entraineur(Entraineur* e)
+{
+	trainer = e;
+}
+
+void Club::afficher_joueurs()
+{
+	for (size_t i = 0; i < effectif.size(); ++i) {
+		effectif.at(i)->afficher();
+		cout << endl;
+	}
+}
+
 string * Club::getNom()
 {
 	return &nom;
+}
+
+Entraineur * Club::getTrainer()
+{
+	return trainer;
 }
 
 Club::~Club()

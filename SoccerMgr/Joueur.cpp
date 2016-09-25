@@ -8,7 +8,17 @@ void Joueur::ajoute_parcours(Parcours * p)
 	liste_parcours.push_back(p);
 }
 
-Joueur::Joueur(string nom, string prenom, int age,float t, float p, string vn):Personne(nom,prenom,age){
+void Joueur::afficher()
+{
+	cout << "Nom :" << lastname;
+	cout << ", Prenom :" << firstname;
+	cout << ", Ville de naissance : " << ville_naissance;
+	cout << ", Age : " << age;
+	cout << ", Poids : " << poids;
+	cout << ", Taille :" << taille;
+}
+
+Joueur::Joueur(string nom, string prenom, int age,float t, int p, string vn):Personne(nom,prenom,age){
 	taille = t;
 	poids = poids;
 	ville_naissance = vn;
