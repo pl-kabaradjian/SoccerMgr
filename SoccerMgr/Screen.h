@@ -7,6 +7,7 @@ using namespace std;
 #ifndef _SCREEN_H
 #define _SCREEN_H
 class Screen {
+	static void affiche_choix_liste_club(Ligue * l);
 public:
 	static void menuPrincipal(Ligue* l);
 	static void menuCreaClub(Ligue* l);

@@ -30,6 +30,7 @@ void Screen::menuPrincipal(Ligue* l)
 	cout << "5 : " << choix5 << endl;
 	cout << "0 : " << choix0 << endl;
 	
+	//Recuperation du choix de l'utilisateur
 	int reponse = 0;
 	bool choix;
 	do {
@@ -52,7 +53,7 @@ void Screen::menuPrincipal(Ligue* l)
 			break;
 		case 5:
 			Screen::menuBestclub(l);
-						break;
+			break;
 		case 0:
 			exit(-1);
 			break;
@@ -82,8 +83,6 @@ void Screen::menuCreaClub(Ligue* l){
 	//Couleur
 	cout << "Couleur du club ?" << endl;
 	c = Saisie::saisie_couleur();
-	////Date (auto ?)
-	//d = Date::getDate();
 	//Ville
 	cout << "Ville du club ?" << endl;
 	ville = Saisie::saisie_string();
@@ -120,6 +119,7 @@ void Screen::menuSupprClub(Ligue* l)
 	cout << "Menu de suppression de club. Choisissez le club que vous souhaitez supprimer: " << endl << endl;
 	int reponse = 0;
 	
+	//Affichage de la liste de choix
 	if (l->getListeClub()->size() != 0) {
 		for (size_t i = 0; i < l->getListeClub()->size(); i++) {
 			cout << i+1 << " : " << *l->getListeClub()->at(i)->getNom() << endl;
@@ -128,11 +128,10 @@ void Screen::menuSupprClub(Ligue* l)
 	else {
 		cout << "Il n'ya pas de clubs dans cette ligue." << endl;
 	}
-
 	cout << "0 : Retour au menu principal" << endl;
-
 	cout << endl << "Votre choix: ";// << endl;
 	
+	//Suppression du club en fonction du choix de l'utilisateur
 	bool choix_ok = false;
 	do
 	{
@@ -142,33 +141,20 @@ void Screen::menuSupprClub(Ligue* l)
 		}
 		else if (reponse > 0) {
 			delete(l->getListeClub()->at(reponse - 1));
-			system("PAUSE");
 			l->getListeClub()->erase(l->getListeClub()->begin() + (reponse-1));
+			system("PAUSE");
 			choix_ok = true;
 		}
 		else choix_ok = true;
 	} while (!choix_ok);
-	
-
-	//system("PAUSE");
 }
 
 void Screen::menuListeClub(Ligue* l) {
-	system("CLS");
-
-	cout << "Menu d'affichage des joueurs. Choisissez le club dont vous souhaitez afficher les joueurs: " << endl << endl;
 	int reponse = 0;
-	if (l->getListeClub()->size() != 0) {
-		for (size_t i = 0; i < l->getListeClub()->size(); i++) {
-			cout << i + 1 << " : " << *l->getListeClub()->at(i)->getNom() << endl;
-		}
-	}
-	else {
-		cout << "Il n'ya pas de clubs dans cette ligue." << endl;
-	}
-	cout << "0 : Retour au menu principal" << endl;
-	cout << endl << "Votre choix: ";// << endl;
 
+	//Affichage du choix de club
+	Screen::affiche_choix_liste_club(l);
+	//Recuperation du choix de l'utilisateur
 	bool choix_ok = false;
 	do
 	{
@@ -178,23 +164,14 @@ void Screen::menuListeClub(Ligue* l) {
 		}
 		else if (reponse > 0) {
 			system("CLS");
+
+			//Affichage de la liste des joueurs
 			cout << "Voici la liste des joueurs du club : " << *l->getListeClub()->at(reponse - 1)->getNom() << endl;
 			l->getListeClub()->at(reponse - 1)->afficher_joueurs();
+			//Pause de la console pour voir la liste des joueurs
 			system("PAUSE");
-			
-			system("CLS");
-			cout << "Menu d'affichage des joueurs. Choisissez le club dont vous souhaitez afficher les joueurs: " << endl;
-			int reponse = 0;
-			if (l->getListeClub()->size() != 0) {
-				for (size_t i = 0; i < l->getListeClub()->size(); i++) {
-					cout << i + 1 << " : " << *l->getListeClub()->at(i)->getNom() << endl;
-				}
-			}
-			else {
-				cout << "Il n'ya pas de clubs dans cette ligue." << endl;
-			}
-			cout << "0 : Retour au menu principal" << endl;
-			cout << endl << "Votre choix: ";// << endl;
+			//Reaffichage du choix
+			Screen::affiche_choix_liste_club(l);
 		}
 		else
 		{
@@ -209,6 +186,7 @@ void Screen::menuBestTrainer(Ligue* l)
 	Entraineur* best_trainer;
 	best_trainer = &Entraineur("", "", 1);
 
+	//Recherche de l'entraineur ayant le plus de titres
 	for (size_t i = 0; i < l->getListeClub()->size();++i) {
 		size_t tbest = best_trainer->getPalmares()->size();
 		size_t tcurrent = l->getListeClub()->at(i)->getTrainer()->getPalmares()->size();
@@ -230,6 +208,7 @@ void Screen::menuBestclub(Ligue* l)
 	Club* best_club;
 	best_club = &Club();
 
+	//Recherche du club ayant le plus de titres
 	for (size_t i = 0; i < l->getListeClub()->size(); ++i) {
 		size_t tbest = best_club->getPalmares()->size();
 		size_t tcurrent = l->getListeClub()->at(i)->getPalmares()->size();
@@ -243,4 +222,21 @@ void Screen::menuBestclub(Ligue* l)
 	best_club->afficher_palmares();
 
 	system("PAUSE");
+}
+
+void Screen::affiche_choix_liste_club(Ligue* l) {
+	system("CLS");
+	cout << "Menu d'affichage des joueurs. Choisissez le club dont vous souhaitez afficher les joueurs: " << endl << endl;
+
+	//Affichage du choix de club
+	if (l->getListeClub()->size() != 0) {
+		for (size_t i = 0; i < l->getListeClub()->size(); i++) {
+			cout << i + 1 << " : " << *l->getListeClub()->at(i)->getNom() << endl;
+		}
+	}
+	else {
+		cout << "Il n'ya pas de clubs dans cette ligue." << endl;
+	}
+	cout << "0 : Retour au menu principal" << endl;
+	cout << endl << "Votre choix: ";
 }
