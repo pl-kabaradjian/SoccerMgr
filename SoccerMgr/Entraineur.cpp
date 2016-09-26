@@ -24,6 +24,7 @@ void Entraineur::afficher()
 }
 
 void Entraineur::afficher_palmares() {
+	//Affichage de tous les titres presents dans le palmares
 	for (size_t i = 0; i < palmares.size(); ++i) {
 		palmares.at(i)->afficher();
 		cout << endl;

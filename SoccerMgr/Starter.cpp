@@ -1,5 +1,6 @@
 #include "Starter.h"
 
+//Cette fonction permet d'instancier des club et des joeurs au demarrage de l'application
 void Starter::load(Ligue* ligue)
 {
 	//Ajout des clubs

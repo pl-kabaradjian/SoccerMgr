@@ -5,6 +5,8 @@
 #include "saisie.h"
 #include "enum.h"
 
+//Fonction permettant de faire rentrer un int 
+//sans bloquer le programme dans le cas ou une lettre est saisie
 int Saisie::safe_int_cin(){
 	int res = -1;
 	bool is_an_int = false;
@@ -25,12 +27,14 @@ int Saisie::safe_int_cin(){
 	return res;
 }
 
+//Fonction permettant de saisir des strings avec des espaces
 string Saisie::saisie_string() {
 	string s;
 	std::getline(std::cin, s);
 	return s;
 }
 
+//Fonction permettant de faire choisir une couleur a l'utilisateur
 Couleur Saisie::saisie_couleur()
 {
 	std::map<std::string, Couleur> m;
@@ -65,6 +69,7 @@ Couleur Saisie::saisie_couleur()
 	return c;
 }
 
+//Fonction permettant de faire choisir un type de terrain a l'utilisateur
 Terrain Saisie::saisie_terrain()
 {
 	std::map<std::string, Terrain> m;

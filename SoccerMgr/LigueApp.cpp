@@ -7,8 +7,12 @@
 
 int main()
 {
+	//Instanciation de la ligue
 	Ligue SoccerLigue("Ligue 1");
+	//Chargement des clubs/joueurs/titres
 	Starter::load(&SoccerLigue);
+
+	//Affichage du menu principal
 	while(true)
 	{
 		Screen::menuPrincipal(&SoccerLigue);

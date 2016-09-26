@@ -37,6 +37,7 @@ void Club::ajouter_entraineur(Entraineur* e)
 
 void Club::afficher_joueurs()
 {
+	//Affichage de tous les joueurs presents dans l'effectif
 	for (size_t i = 0; i < effectif.size(); ++i) {
 		effectif.at(i)->afficher();
 		cout << endl;
@@ -45,6 +46,7 @@ void Club::afficher_joueurs()
 
 void Club::afficher_palmares()
 {
+	//Affichage de tous les titres presents dans le palmares
 	for (size_t i = 0; i < palmares.size(); ++i) {
 		palmares.at(i)->afficher();
 		cout << endl;

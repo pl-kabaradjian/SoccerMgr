@@ -29,6 +29,7 @@ Date::~Date()
 	//cout << "Date detruite" << endl;
 }
 
+//Cette fonction renvoie un objet date avec la date du jour
 Date Date::getDate()
 {
 	time_t t = time(0);   // get time now
