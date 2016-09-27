@@ -184,43 +184,54 @@ void Screen::menuBestTrainer(Ligue* l)
 {
 	system("CLS");
 	Entraineur* best_trainer;
-	best_trainer = &Entraineur("", "", 1);
 
-	//Recherche de l'entraineur ayant le plus de titres
-	for (size_t i = 0; i < l->getListeClub()->size();++i) {
-		size_t tbest = best_trainer->getPalmares()->size();
-		size_t tcurrent = l->getListeClub()->at(i)->getTrainer()->getPalmares()->size();
-		if (tcurrent > tbest) {
-			best_trainer = l->getListeClub()->at(i)->getTrainer();
+	if (l->getListeClub()->size() != 0) {
+		best_trainer = l->getListeClub()->at(0)->getTrainer();
+		//Recherche de l'entraineur ayant le plus de titres
+		for (size_t i = 0; i < l->getListeClub()->size(); ++i) {
+			size_t tbest = best_trainer->getPalmares()->size();
+			size_t tcurrent = l->getListeClub()->at(i)->getTrainer()->getPalmares()->size();
+			if (tcurrent > tbest) {
+				best_trainer = l->getListeClub()->at(i)->getTrainer();
+			}
 		}
-	}
 
-	cout << "L'entraineur avec le plus de titres est : " << best_trainer->getNomPrenom() << endl;
-	cout << "Liste des titres :" << endl;
-	best_trainer->afficher_palmares();
+		cout << "L'entraineur avec le plus de titres est : " << best_trainer->getNomPrenom() << endl;
+		cout << "Liste des titres :" << endl;
+		best_trainer->afficher_palmares();
+	}
+	else
+	{
+		cout << "Il n'y a pas de clubs dans ligue." << endl << endl;
+	}
 	system("PAUSE");
 }
 
 void Screen::menuBestclub(Ligue* l)
 {
 	system("CLS");
-	
 	Club* best_club;
-	best_club = &Club();
 
-	//Recherche du club ayant le plus de titres
-	for (size_t i = 0; i < l->getListeClub()->size(); ++i) {
-		size_t tbest = best_club->getPalmares()->size();
-		size_t tcurrent = l->getListeClub()->at(i)->getPalmares()->size();
-		if (tcurrent > tbest) {
-			best_club = l->getListeClub()->at(i);
+	if (l->getListeClub()->size() != 0) {
+		best_club = l->getListeClub()->at(0);
+
+		//Recherche du club ayant le plus de titres
+		for (size_t i = 0; i < l->getListeClub()->size(); ++i) {
+			size_t tbest = best_club->getPalmares()->size();
+			size_t tcurrent = l->getListeClub()->at(i)->getPalmares()->size();
+			if (tcurrent > tbest) {
+				best_club = l->getListeClub()->at(i);
+			}
 		}
+
+		cout << "Le club avec le plus de titres est : " << *best_club->getNom() << endl;
+		cout << "Liste des titres :" << endl;
+		best_club->afficher_palmares();
 	}
-
-	cout << "Le club avec le plus de titres est : " << *best_club->getNom() << endl;
-	cout << "Liste des titres :" << endl;
-	best_club->afficher_palmares();
-
+	else
+	{
+		cout << "Il n'y a pas de clubs dans ligue." << endl << endl;
+	}
 	system("PAUSE");
 }
 
