@@ -1,8 +1,3 @@
-/**
- * Project Untitled
- */
-
-
 #include "Rencontre.h"
 
 /**

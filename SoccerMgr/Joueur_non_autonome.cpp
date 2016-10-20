@@ -1,8 +1,3 @@
-/**
- * Project Untitled
- */
-
-
 #include "Joueur_non_autonome.h"
 
 /**
