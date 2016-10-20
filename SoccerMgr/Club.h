@@ -1,3 +1,6 @@
+#ifndef _CLUB_H
+#define _CLUB_H
+
 #include <iostream>
 #include <string>
 #include <vector>
@@ -10,9 +13,6 @@
 #include "Entraineur.h"
 
 using namespace std;
-
-#ifndef _CLUB_H
-#define _CLUB_H
 
 class Club {
 	string nom;

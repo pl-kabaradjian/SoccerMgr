@@ -146,10 +146,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Arbitre.h" />
+    <ClInclude Include="Calendrier_rencontre.h" />
     <ClInclude Include="Club.h" />
+    <ClInclude Include="Contrat_engagement.h" />
     <ClInclude Include="Date.h" />
     <ClInclude Include="Entraineur.h" />
     <ClInclude Include="enum.h" />
+    <ClInclude Include="Equipe.h" />
+    <ClInclude Include="Joueur_autonome.h" />
+    <ClInclude Include="Joueur_non_autonome.h" />
+    <ClInclude Include="Match.h" />
+    <ClInclude Include="Periode.h" />
+    <ClInclude Include="Reglement.h" />
+    <ClInclude Include="Rencontre.h" />
+    <ClInclude Include="Resultat.h" />
+    <ClInclude Include="Sportif.h" />
     <ClInclude Include="Starter.h" />
     <ClInclude Include="Ligue.h" />
     <ClInclude Include="Parcours.h" />
@@ -162,16 +174,28 @@
     <ClInclude Include="Titre.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Arbitre.cpp" />
+    <ClCompile Include="Calendrier_rencontre.cpp" />
     <ClCompile Include="Club.cpp" />
+    <ClCompile Include="Contrat_engagement.cpp" />
     <ClCompile Include="Date.cpp" />
     <ClCompile Include="Entraineur.cpp" />
+    <ClCompile Include="Equipe.cpp" />
     <ClCompile Include="Joueur.cpp" />
+    <ClCompile Include="Joueur_autonome.cpp" />
+    <ClCompile Include="Joueur_non_autonome.cpp" />
     <ClCompile Include="Ligue.cpp" />
     <ClCompile Include="LigueApp.cpp" />
+    <ClCompile Include="Match.cpp" />
     <ClCompile Include="Parcours.cpp" />
+    <ClCompile Include="Periode.cpp" />
     <ClCompile Include="Personne.cpp" />
+    <ClCompile Include="Reglement.cpp" />
+    <ClCompile Include="Rencontre.cpp" />
+    <ClCompile Include="Resultat.cpp" />
     <ClCompile Include="Saisie.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Sportif.cpp" />
     <ClCompile Include="Stade.cpp" />
     <ClCompile Include="Staff.cpp" />
     <ClCompile Include="Starter.cpp" />

@@ -72,6 +72,42 @@
     <ClInclude Include="Starter.h">
       <Filter>Header Files\tools</Filter>
     </ClInclude>
+    <ClInclude Include="Resultat.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Sportif.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Arbitre.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Calendrier_rencontre.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Contrat_engagement.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Equipe.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur_autonome.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Joueur_non_autonome.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Match.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Periode.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Reglement.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
+    <ClInclude Include="Rencontre.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp">
@@ -115,6 +151,42 @@
     </ClCompile>
     <ClCompile Include="Starter.cpp">
       <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="Sportif.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Arbitre.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Calendrier_rencontre.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Contrat_engagement.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Equipe.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Joueur_autonome.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Joueur_non_autonome.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Match.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Periode.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Reglement.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Rencontre.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Resultat.cpp">
+      <Filter>Source Files\Soccer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -1,8 +1,8 @@
-#include <string>
-#include "Date.h"
-
 #ifndef _TITRE_H
 #define _TITRE_H
+
+#include <string>
+#include "Date.h"
 
 using namespace std;
 

@@ -1,8 +1,10 @@
+#ifndef _PERSONNE_H
+#define _PERSONNE_H
+
 #include <string>
 
 using namespace std;
-#ifndef _PERSONNE_H
-#define _PERSONNE_H
+
 class Personne {
 protected:
 	string lastname;

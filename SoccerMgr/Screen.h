@@ -1,11 +1,12 @@
+#ifndef _SCREEN_H
+#define _SCREEN_H
+
 #include <iostream>
 #include <string>
 #include "Ligue.h"
 
 using namespace std;
 
-#ifndef _SCREEN_H
-#define _SCREEN_H
 class Screen {
 	static void affiche_choix_liste_club(Ligue * l);
 public:

@@ -1,9 +1,9 @@
+#ifndef _ENTRAINEUR_H
+#define _ENTRAINEUR_H
+
 #include "Staff.h"
 #include <vector>
 #include "Titre.h"
-
-#ifndef _ENTRAINEUR_H
-#define _ENTRAINEUR_H
 
 class Entraineur : public Staff {
 	string lieu_obtention_grade;

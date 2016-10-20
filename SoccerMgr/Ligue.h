@@ -1,9 +1,9 @@
+#ifndef _LIGUE_H
+#define _LIGUE_H
+
 #include <vector>
 #include <string>
 #include "Club.h"
-
-#ifndef _LIGUE_H
-#define _LIGUE_H
 
 class Ligue {
 	string name;

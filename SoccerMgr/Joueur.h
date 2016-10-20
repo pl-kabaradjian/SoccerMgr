@@ -1,11 +1,11 @@
-#include "Personne.h"
-#include "Parcours.h"
-#include <vector>
-
 #ifndef _JOUEUR_H
 #define _JOUEUR_H
 
-class Joueur : public Personne {
+#include "Sportif.h"
+#include "Parcours.h"
+#include <vector>
+
+class Joueur : public Sportif {
 	float taille;
 	int poids;
 	string ville_naissance;

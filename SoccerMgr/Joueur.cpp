@@ -18,15 +18,15 @@ void Joueur::afficher()
 	cout << ", Taille :" << taille;
 }
 
-Joueur::Joueur(string nom, string prenom, int age,float t, int p, string vn):Personne(nom,prenom,age){
+Joueur::Joueur(string nom, string prenom, int age,float t, int p, string vn): Sportif(nom,prenom,age){
 	taille = t;
 	poids = p;
 	ville_naissance = vn;
 }
 
-Joueur::Joueur()
-{
-}
+//Joueur::Joueur()
+//{
+//}
 
 Joueur::~Joueur()
 {

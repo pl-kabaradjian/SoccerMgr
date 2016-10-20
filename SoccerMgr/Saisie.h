@@ -1,11 +1,11 @@
+#ifndef _SAISIE_H
+#define _SAISIE_H
+
 #include <iostream>
 #include <string>
 #include "enum.h"
 
 using namespace std;
-
-#ifndef _SAISIE_H
-#define _SAISIE_H
 
 class Saisie {
 public: 

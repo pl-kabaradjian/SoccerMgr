@@ -1,4 +1,5 @@
 #ifndef _ENUM_H
+
 enum Couleur {
 	jaune,
 	rouge,
