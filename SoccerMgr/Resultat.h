@@ -7,6 +7,7 @@ class Resultat {
 public: 
 	void afficher();
 	Resultat(int loc, int adv);
+	Resultat();
 };
 
 #endif //_RESULTAT_H
