@@ -68,6 +68,11 @@ Entraineur * Club::getTrainer()
 	return trainer;
 }
 
+void Club::ajouter_contrat(Contrat_engagement c_r)
+{
+	liste_contrats.push_back(c_r);
+}
+
 Club::~Club()
 {
 	cout << "Club detruit" << endl;

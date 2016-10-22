@@ -15,7 +15,6 @@ public :
 	void ajoute_parcours(Parcours* p);
 	void afficher();
 	Joueur(string nom, string prenom, int age, float t, int poids, string vn);
-	Joueur();
 	~Joueur();
 };
 #endif

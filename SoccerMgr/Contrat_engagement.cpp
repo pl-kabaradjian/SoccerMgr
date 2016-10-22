@@ -1,5 +1,6 @@
 #include "Contrat_engagement.h"
 
-/**
- * Contrat_engagement implementation
- */
+Reglement Contrat_engagement::getReglement()
+{
+	return reglement;
+}

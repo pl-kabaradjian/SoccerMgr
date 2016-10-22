@@ -2,9 +2,11 @@
 #define _RESULTAT_H
 
 class Resultat {
+	int score_equipe_locale;
+	int score_equipe_adverse;
 public: 
-    int score_equipe_locale;
-    int score_equipe_adverse;
+	void afficher();
+	Resultat(int loc, int adv);
 };
 
 #endif //_RESULTAT_H

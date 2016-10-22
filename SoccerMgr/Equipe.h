@@ -5,11 +5,12 @@ class Joueur;
 class Club;
 
 class Equipe {
-public: 
     Club* Club;
     int nb_joueurs;
     int nb_gardiens;
     Joueur* capitaine;
+public:
+
 };
 
 #endif //_EQUIPE_H

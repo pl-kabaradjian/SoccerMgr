@@ -5,8 +5,10 @@
 
 
 class Joueur_non_autonome: public Joueur {
+	Date date_anciennete;
 public: 
-    int nb_annees_anciennete;
+	int get_annees_anciennete();
+	Joueur_non_autonome();
 };
 
 #endif //_JOUEUR_NON_AUTONOME_H

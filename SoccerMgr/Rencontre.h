@@ -6,11 +6,13 @@
 class Club;
 
 class Rencontre {
+	Date date_rencontre;
+	Club* club_local;
+	Club* club_adverse;
+	Match match;
 public: 
-    Date date_rencontre;
-    Club* club_local;
-    Club* club_adverse;
-    Match resultat;
+	void afficher();
+	Rencontre();
 };
 
 #endif //_RENCONTRE_H

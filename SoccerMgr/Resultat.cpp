@@ -1,5 +1,7 @@
 #include "Resultat.h"
 
-/**
- * Resultat implementation
- */
+Resultat::Resultat(int loc, int adv)
+{
+	score_equipe_adverse = adv;
+	score_equipe_locale = loc;
+}
