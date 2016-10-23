@@ -1,0 +1,5 @@
+﻿1>------ Build started: Project: SoccerMgr, Configuration: Release Win32 ------
+1>  Ligue.cpp
+1>Ligue.cpp(14): error C2512: 'Calendrier_rencontre': no appropriate default constructor available
+1>  c:\users\plk\documents\visual studio 2015\projects\soccermgr\soccermgr\Calendrier_rencontre.h(10): note: see declaration of 'Calendrier_rencontre'
+========== Build: 0 succeeded, 1 failed, 0 up-to-date, 0 skipped ==========

@@ -14,3 +14,7 @@ Calendrier_rencontre::Calendrier_rencontre(string n)
 {
 	nom = n;
 }
+
+Calendrier_rencontre::Calendrier_rencontre()
+{
+}

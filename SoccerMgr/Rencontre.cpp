@@ -7,3 +7,7 @@ Rencontre::Rencontre(Date d, Club * loc, Club * adv, Match m)
 	club_local = loc;
 	match_rencontre = m;
 }
+
+Rencontre::Rencontre()
+{
+}

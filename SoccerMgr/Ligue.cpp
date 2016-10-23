@@ -13,4 +13,5 @@ void Ligue::ajouterClub(Club * c)
 Ligue::Ligue(string name)
 {
 	this->name = name;
+	this->calendrier = Calendrier_rencontre("Calendrier des rencontres");
 }

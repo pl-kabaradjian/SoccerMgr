@@ -15,6 +15,7 @@ public:
 	void afficher_calendrier();
 	vector<Rencontre>* get_calendrier();
 	Calendrier_rencontre(string n);
+	Calendrier_rencontre();
 };
 
 #endif //_CALENDRIER_RENCONTRE_H

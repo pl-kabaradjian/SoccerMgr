@@ -4,10 +4,12 @@
 #include <vector>
 #include <string>
 #include "Club.h"
+#include "Calendrier_rencontre.h"
 
 class Ligue {
 	string name;
 	vector<Club*> liste_club;
+	Calendrier_rencontre calendrier;
 
 public:
 	vector<Club*>* getListeClub();
