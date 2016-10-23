@@ -5,7 +5,7 @@
 
 class Joueur_autonome: public Joueur {
 public:
-	Joueur_autonome();
+	Joueur_autonome(string nom, string prenom, int age, float t, int poids, string vn);
 };
 
 #endif //_JOUEUR_AUTONOME_H

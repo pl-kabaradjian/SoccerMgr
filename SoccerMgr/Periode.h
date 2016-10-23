@@ -10,6 +10,7 @@ public:
 	int get_nb_buts_adverse();
 
 	Periode();
+	Periode(int d, int loc, int adv);
 };
 
 #endif //_PERIODE_H

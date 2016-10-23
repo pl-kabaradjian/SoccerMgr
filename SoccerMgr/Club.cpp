@@ -68,6 +68,16 @@ Entraineur * Club::getTrainer()
 	return trainer;
 }
 
+vector<Rencontre*> Club::getRencontres()
+{
+	return vector<Rencontre*>();
+}
+
+vector<Joueur*>* Club::getEffectif()
+{
+	return &effectif;
+}
+
 void Club::ajouter_contrat(Contrat_engagement c_r)
 {
 	liste_contrats.push_back(c_r);

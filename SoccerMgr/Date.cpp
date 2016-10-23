@@ -58,3 +58,18 @@ int Date::getDay()
 {
 	return day;
 }
+
+void Date::setYear(int y)
+{
+	year = y;
+}
+
+void Date::setMonth(int m)
+{
+	month = m;
+}
+
+void Date::setDay(int d)
+{
+	day = d;
+}

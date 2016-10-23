@@ -11,10 +11,11 @@
 #include "Titre.h"
 #include "Staff.h"
 #include "Entraineur.h"
-#include "Rencontre.h"
 #include "Contrat_engagement.h"
 
 using namespace std;
+
+class Rencontre;
 
 class Club {
 	string nom;
@@ -34,21 +35,25 @@ class Club {
 public:
 	Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, string adr);
 	Club();
+
 	void ajouter_joueur(Joueur* j);
 	void ajouter_titre(Titre* t);
 	void ajouter_staff(Staff* s);
 	void ajouter_entraineur(Entraineur* e);
+	void ajouter_contrat(Contrat_engagement c_r);
+	//void ajouter_rupture(Rupture r);
+
 	void afficher_joueurs();
 	void afficher_palmares();
+	void afficher_rencontres();
+	void afficher_contrats();
+
 	string* getNom();
 	vector<Titre*>* getPalmares();
 	Entraineur* getTrainer();
-	vector<Rencontre> getRencontres;
-	void afficher_rencontres();
-	void ajouter_contrat(Contrat_engagement c_r);
-	void afficher_contrats();
+	vector<Rencontre*> getRencontres();
+	vector<Joueur*>* getEffectif();
 	vector<Contrat_engagement>* getListe_contrats;
-	//void ajouter_rupture(Rupture r);
 
 	~Club();
 };

@@ -1,16 +1,18 @@
 #ifndef _EQUIPE_H
 #define _EQUIPE_H
-
-class Joueur;
-class Club;
+#include "Joueur.h"
+#include "Club.h"
 
 class Equipe {
-    Club* Club;
+    Club * club;
+	Joueur * capitaine;
     int nb_joueurs;
     int nb_gardiens;
-    Joueur* capitaine;
+    
 public:
-
+	Equipe(Club* c, Joueur* cap, int nb_joueurs, int nb_gardiens);
+	Equipe(Club* cl, Joueur* capi);
+	Equipe();
 };
 
 #endif //_EQUIPE_H

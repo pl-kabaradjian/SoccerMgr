@@ -6,6 +6,11 @@ Match::Match(Equipe locale, Equipe adverse)
 	equipe_adverse = adverse;
 }
 
+Match::Match()
+{
+	
+}
+
 void Match::ajouter_periode(Periode p)
 {
 	periodes.push_back(p);

@@ -1,14 +1,11 @@
 #ifndef _CALENDRIER_RENCONTRE_H
 #define _CALENDRIER_RENCONTRE_H
+
 #include <vector>
 #include <string>
-#include "Match.h"
-#include "Date.h"
 #include "Rencontre.h"
 
 using namespace std;
-
-class Club;
 
 class Calendrier_rencontre {
 	string nom;
