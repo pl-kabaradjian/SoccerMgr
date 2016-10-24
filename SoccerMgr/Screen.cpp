@@ -465,7 +465,10 @@ start:;
 
 	//Affichage des choix
 	system("CLS");
-	cout << "Vous etes dans le menu de gestion des calendriers. Veuillez choisir parmi les choix suivants:" << endl << endl;
+	cout << "**********"
+		<< cal->getNom()
+		 << "**********"
+		<<endl << "Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
 	cout << "3 : " << choix3 << endl;
@@ -570,4 +573,9 @@ void Screen::menuCreaRencontre(Ligue * l, Calendrier_rencontre * cal)
 	cal->ajouter_rencontre(new Rencontre(d, c_loc, c_adv));
 
 	//system("PAUSE");
+}
+
+void Screen::menuListeRencontreClub(Ligue * l, Calendrier_rencontre * cal)
+{
+
 }

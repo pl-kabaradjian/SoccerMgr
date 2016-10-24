@@ -33,6 +33,11 @@ Calendrier_rencontre::Calendrier_rencontre()
 {
 }
 
+string Calendrier_rencontre::getNom()
+{
+	return nom;
+}
+
 Calendrier_rencontre::~Calendrier_rencontre()
 {
 	cout << "Calendrier detruit" << endl;

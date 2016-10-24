@@ -17,7 +17,7 @@ public:
 	vector<Rencontre*>* get_liste_rencontre();
 	Calendrier_rencontre(string n);
 	Calendrier_rencontre();
-
+	string getNom();
 	~Calendrier_rencontre();
 };
 
