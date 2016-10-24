@@ -319,13 +319,13 @@ void Screen::menuCalendrier(Ligue * l)
 		switch (reponse)
 		{
 		case 1:
-			//Screen::menuCreaClub(l);
+			//Screen::menuListeCalendriers(l);
 			break;
 		case 2:
-			//Screen::menuSupprClub(l);
+			Screen::menuCreaCalendrier(l);
 			break;
 		case 3:
-			//Screen::menuListeClub(l);
+			//Screen::menuSupprCalendrier(l);
 			break;
 		case 0:
 			Screen::menuPrincipal(l);
@@ -336,5 +336,20 @@ void Screen::menuCalendrier(Ligue * l)
 			choix = true;
 			break;
 		}
+		Screen::menuCalendrier(l);
 	} while (choix);
+}
+
+void Screen::menuCreaCalendrier(Ligue * l)
+{
+	string nom_calendrier;
+	//liste de choix
+	system("CLS");
+	cout << "Menu de creation de calendrier: " << endl << endl;
+	//nom du club
+	cout << "Nom du calendrier ?" << endl;
+	nom_calendrier = Saisie::saisie_string();
+
+	//Instanciation du calendrier
+	l->ajouterCalendrier(new Calendrier_rencontre(nom_calendrier));
 }

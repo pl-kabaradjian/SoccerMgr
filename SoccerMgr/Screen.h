@@ -23,6 +23,7 @@ public:
 	//Gestion des calendriers
 	static void menuCalendrier(Ligue* l);
 	static void menuCreaCalendrier(Ligue* l);
+	static void menuSupprCalendrier(Ligue* l);
 
 	//Gestion des rencontres
 	static void menuRencontres(Ligue* l);
