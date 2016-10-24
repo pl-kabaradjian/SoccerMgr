@@ -12,12 +12,9 @@ using namespace std;
 void Screen::menuPrincipal(Ligue* l)
 {
 	//liste de choix
-	string choix1, choix2, choix3, choix4, choix5, choix0;
-	choix1 = "Ajouter un club";
-	choix2 = "Supprimer un club";
-	choix3 = "Afficher la liste des joueurs";
-	choix4 = "Afficher l'entraineur avec le plus de titres";
-	choix5 = "Afficher le club avec le plus de titres";
+	string choix1, choix2, choix0;
+	choix1 = "Gestion des clubs";
+	choix2 = "Gestion des calendriers";
 	choix0 = "Quitter le programme";
 
 	//Affichage des choix
@@ -25,9 +22,6 @@ void Screen::menuPrincipal(Ligue* l)
 	cout << "Vous etes dans le menu principal. Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
-	cout << "3 : " << choix3 << endl;
-	cout << "4 : " << choix4 << endl;
-	cout << "5 : " << choix5 << endl;
 	cout << "0 : " << choix0 << endl;
 	
 	//Recuperation du choix de l'utilisateur
@@ -40,19 +34,10 @@ void Screen::menuPrincipal(Ligue* l)
 		switch(reponse)
 		{
 		case 1:
-			Screen::menuCreaClub(l);
+			Screen::menuClub(l);
 			break;
 		case 2:
-			Screen::menuSupprClub(l);
-			break;
-		case 3:
-			Screen::menuListeClub(l);
-			break;
-		case 4:
-			Screen::menuBestTrainer(l);
-			break;
-		case 5:
-			Screen::menuBestclub(l);
+			Screen::menuCalendrier(l);
 			break;
 		case 0:
 			exit(-1);
@@ -65,6 +50,62 @@ void Screen::menuPrincipal(Ligue* l)
 		}
 	}
 	while (choix);
+}
+
+void Screen::menuClub(Ligue * l)
+{
+	//liste de choix
+	string choix1, choix2, choix3, choix4, choix5;
+	choix1 = "Afficher la liste des joueurs";
+	choix2 = "Ajouter un club";
+	choix3 = "Supprimer un club";
+	choix4 = "Afficher l'entraineur avec le plus de titres";
+	choix5 = "Afficher le club avec le plus de titres";
+
+	//Affichage des choix
+	system("CLS");
+	cout << "GESTION DES CLUBS" << endl << "Veuillez choisir parmi les choix suivants:" << endl << endl;
+	cout << "1 : " << choix1 << endl;
+	cout << "2 : " << choix2 << endl;
+	cout << "3 : " << choix3 << endl;
+	cout << "4 : " << choix4 << endl;
+	cout << "5 : " << choix5 << endl;
+	cout << endl << "0 : Retour au menu principal" << endl;
+
+	//Recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix;
+	do {
+		choix = false;
+		cout << endl << "Votre choix ? ";
+		reponse = Saisie::safe_int_cin();
+		switch (reponse)
+		{
+		case 1:
+			Screen::menuListeClub(l);
+			break;
+		case 2:
+			Screen::menuCreaClub(l);
+			break;
+		case 3:
+			Screen::menuSupprClub(l);
+			break;
+		case 4:
+			Screen::menuBestTrainer(l);
+			break;
+		case 5:
+			Screen::menuBestclub(l);
+			break;
+		case 0:
+			Screen::menuPrincipal(l);
+			break;
+		default:
+			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
+			reponse = 0;
+			choix = true;
+			break;
+		}
+	} while (choix);
 }
 
 void Screen::menuCreaClub(Ligue* l){
@@ -246,9 +287,54 @@ void Screen::affiche_choix_liste_club(Ligue* l) {
 		}
 	}
 	else {
-		cout << "Il n'ya pas de clubs dans cette ligue." << endl;
+		cout << "Il n'y a pas de clubs dans cette ligue." << endl;
 	}
 	cout << "0 : Retour au menu principal" << endl;
 	cout << endl << "Votre choix: ";
 }
 
+void Screen::menuCalendrier(Ligue * l)
+{
+	//liste de choix
+	string choix1, choix2, choix3;
+	choix1 = "Afficher la liste des calendriers";
+	choix2 = "Creer un calendrier";
+	choix3 = "Supprimer un calendrier";
+
+	//Affichage des choix
+	system("CLS");
+	cout << "Vous etes dans le menu de gestion des calendriers. Veuillez choisir parmi les choix suivants:" << endl << endl;
+	cout << "1 : " << choix1 << endl;
+	cout << "2 : " << choix2 << endl;
+	cout << "3 : " << choix3 << endl;
+	cout << endl << "0 : Retour au menu principal" << endl;
+
+	//Recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix;
+	do {
+		choix = false;
+		cout << endl << "Votre choix ? ";
+		reponse = Saisie::safe_int_cin();
+		switch (reponse)
+		{
+		case 1:
+			//Screen::menuCreaClub(l);
+			break;
+		case 2:
+			//Screen::menuSupprClub(l);
+			break;
+		case 3:
+			//Screen::menuListeClub(l);
+			break;
+		case 0:
+			Screen::menuPrincipal(l);
+			break;
+		default:
+			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
+			reponse = 0;
+			choix = true;
+			break;
+		}
+	} while (choix);
+}
