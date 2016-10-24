@@ -15,6 +15,7 @@ class Rencontre {
 public: 
 	void afficher();
 	Rencontre(Date d, Club* loc, Club* adv, Match m);
+	Rencontre(Date d, Club * loc, Club * adv);
 	Rencontre();
 };
 

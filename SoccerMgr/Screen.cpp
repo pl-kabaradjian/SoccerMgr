@@ -251,3 +251,4 @@ void Screen::affiche_choix_liste_club(Ligue* l) {
 	cout << "0 : Retour au menu principal" << endl;
 	cout << endl << "Votre choix: ";
 }
+

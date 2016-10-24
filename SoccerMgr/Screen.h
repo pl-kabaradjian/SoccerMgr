@@ -16,5 +16,15 @@ public:
 	static void menuListeClub(Ligue * l);
 	static void menuBestTrainer(Ligue* l);
 	static void menuBestclub(Ligue* l);
+
+	static void menuCalendrier(Ligue* l);
+		static void menuCreaCalendrier(Ligue* l);
+	static void menuRencontres(Ligue* l);
+		static void afficherRencontres(Ligue* l);
+		static void menuCreaRencontre(Ligue* l);
+		static void menuListeRencontreClub(Ligue* l);
+	static void menuTransaction(Ligue* l);
+	static void menuTotalTransferts(Ligue* l);
+	
 };
 #endif
