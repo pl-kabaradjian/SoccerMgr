@@ -105,6 +105,7 @@ void Screen::menuClub(Ligue * l)
 			choix = true;
 			break;
 		}
+		Screen::menuClub(l);
 	} while (choix);
 }
 
@@ -169,7 +170,7 @@ void Screen::menuSupprClub(Ligue* l)
 	else {
 		cout << "Il n'ya pas de clubs dans cette ligue." << endl;
 	}
-	cout << "0 : Retour au menu principal" << endl;
+	cout << "0 : Retour au menu de gestion des clubs" << endl;
 	cout << endl << "Votre choix: ";// << endl;
 	
 	//Suppression du club en fonction du choix de l'utilisateur
@@ -231,7 +232,10 @@ void Screen::menuBestTrainer(Ligue* l)
 		//Recherche de l'entraineur ayant le plus de titres
 		for (size_t i = 0; i < l->getListeClub()->size(); ++i) {
 			size_t tbest = best_trainer->getPalmares()->size();
-			size_t tcurrent = l->getListeClub()->at(i)->getTrainer()->getPalmares()->size();
+			size_t tcurrent = tbest;
+			if (l->getListeClub()->at(i)->getTrainer() != nullptr) {
+				size_t tcurrent = l->getListeClub()->at(i)->getTrainer()->getPalmares()->size();
+			}
 			if (tcurrent > tbest) {
 				best_trainer = l->getListeClub()->at(i)->getTrainer();
 			}
@@ -289,7 +293,7 @@ void Screen::affiche_choix_liste_club(Ligue* l) {
 	else {
 		cout << "Il n'y a pas de clubs dans cette ligue." << endl;
 	}
-	cout << "0 : Retour au menu principal" << endl;
+	cout << "0 : Retour au menu de gestion des clubs" << endl;
 	cout << endl << "Votre choix: ";
 }
 
