@@ -61,12 +61,13 @@ void Screen::menuClub(Ligue * l)
 {
 start:;
 	//liste de choix
-	string choix1, choix2, choix3, choix4, choix5;
+	string choix1, choix2, choix3, choix4, choix5, choix6;
 	choix1 = "Afficher la liste des joueurs";
 	choix2 = "Ajouter un club";
 	choix3 = "Supprimer un club";
 	choix4 = "Afficher l'entraineur avec le plus de titres";
 	choix5 = "Afficher le club avec le plus de titres";
+	choix6 = "Afficher les rencontres d'un club";
 
 	//Affichage des choix
 	system("CLS");
@@ -81,6 +82,7 @@ start:;
 	cout << "3 : " << choix3 << endl;
 	cout << "4 : " << choix4 << endl;
 	cout << "5 : " << choix5 << endl;
+	cout << "6 : " << choix6 << endl;
 	cout << endl << "0 : Retour au menu principal" << endl;
 
 	//Recuperation du choix de l'utilisateur
@@ -106,6 +108,9 @@ start:;
 			break;
 		case 5:
 			Screen::menuBestclub(l);
+			break;
+		case 6:
+			Screen::menuListeRencontreClub(l);
 			break;
 		case 0:
 			Screen::menuPrincipal(l);
@@ -575,7 +580,30 @@ void Screen::menuCreaRencontre(Ligue * l, Calendrier_rencontre * cal)
 	//system("PAUSE");
 }
 
-void Screen::menuListeRencontreClub(Ligue * l, Calendrier_rencontre * cal)
+void Screen::menuListeRencontreClub(Ligue * l)
 {
-
+	system("CLS");
+	cout << "Veuillez choisir le club dont vous souhaitez afficher les rencontres :" << endl;
+	Club* club = Saisie::choix_club(l);
+	system("CLS");
+	cout << "Liste des rencontre pour le club : " << *club->getNom() << endl << endl;
+	
+	for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
+		Calendrier_rencontre* curr_cal = l->getListeCalendrier()->at(i);
+		cout << curr_cal->getNom() << endl;
+		if (curr_cal->get_liste_rencontre()->size() > 0) {
+			bool cal_has_club = false;
+			for (size_t j = 0; j < curr_cal->get_liste_rencontre()->size();j++) {
+				Rencontre* curr_renc = curr_cal->get_liste_rencontre()->at(j);
+				if (curr_renc->hasClub(club)) {
+					cal_has_club = true;
+					cout << "	" << curr_renc->toString() << endl;
+				}
+			}
+			if (!cal_has_club) cout << "le club n'est pas présents dans ce calendrier" << endl;
+		}
+		else cout << "	" << "Pas de rencontres dans ce calendrier" << endl;
+	}
+	cout << endl;
+	system("PAUSE");
 }

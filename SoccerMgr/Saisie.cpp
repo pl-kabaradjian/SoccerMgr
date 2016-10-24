@@ -133,7 +133,7 @@ Club * Saisie::choix_club(Ligue * l)
 	do
 	{
 		reponse = Saisie::safe_int_cin();
-		if (reponse < 0 || reponse >(int)l->getListeClub()->size()) {
+		if (reponse <= 0 || reponse >(int)l->getListeClub()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
 		else if (reponse > 0) {

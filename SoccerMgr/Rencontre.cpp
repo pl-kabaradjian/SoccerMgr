@@ -23,3 +23,11 @@ Rencontre::Rencontre(Date d, Club * loc, Club * adv)
 Rencontre::Rencontre()
 {
 }
+
+bool Rencontre::hasClub(Club * c)
+{
+	if (club_adverse == c || club_local == c) {
+		return true;
+	}
+	else return false;
+}

@@ -30,7 +30,7 @@ public:
 	static void menuRencontres(Ligue* l, Calendrier_rencontre* cal);
 	static void menuListeRencontres(Calendrier_rencontre* cal);
 	static void menuCreaRencontre(Ligue* l, Calendrier_rencontre* cal);
-	static void menuListeRencontreClub(Ligue* l, Calendrier_rencontre* cal);
+	static void menuListeRencontreClub(Ligue* l);
 
 	//Jouer le match
 

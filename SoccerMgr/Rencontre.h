@@ -17,6 +17,7 @@ public:
 	Rencontre(Date d, Club* loc, Club* adv, Match m);
 	Rencontre(Date d, Club * loc, Club * adv);
 	Rencontre();
+	bool hasClub(Club* c);
 };
 
 #endif //_RENCONTRE_H
