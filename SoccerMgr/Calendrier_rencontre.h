@@ -13,6 +13,7 @@ class Calendrier_rencontre {
 public:
 	void ajouter_rencontre(Rencontre r);
 	void afficher_calendrier();
+	string toString();
 	vector<Rencontre>* get_calendrier();
 	Calendrier_rencontre(string n);
 	Calendrier_rencontre();

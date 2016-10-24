@@ -323,7 +323,7 @@ void Screen::menuCalendrier(Ligue * l)
 		switch (reponse)
 		{
 		case 1:
-			//Screen::menuListeCalendriers(l);
+			Screen::menuListeCalendrier(l);
 			break;
 		case 2:
 			Screen::menuCreaCalendrier(l);
@@ -356,4 +356,41 @@ void Screen::menuCreaCalendrier(Ligue * l)
 
 	//Instanciation du calendrier
 	l->ajouterCalendrier(new Calendrier_rencontre(nom_calendrier));
+}
+
+void Screen::menuListeCalendrier(Ligue * l)
+{
+	//Affichage du choix de calendrier
+	system("CLS");
+	cout << "Menu d'affichage des calendrier. Choisissez le calendrier auquel vous souhaiter acceder : " << endl << endl;
+
+	//Affichage du choix de calendrier
+	if (l->getListeCalendrier() != 0) {
+		for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
+			cout << i + 1 << " : " << l->getListeCalendrier()->at(i)->toString() << endl;
+		}
+	}
+	else {
+		cout << "Il n'y a pas de clubs dans cette ligue." << endl;
+	}
+	cout << endl << "0 : Retour au menu de gestion des clubs" << endl;
+	cout << endl << "Votre choix: ";
+
+	//recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse < 0 || reponse >(int)l->getListeClub()->size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			//Screen::menuRencontres(l, l->getListeCalendrier()->at(reponse));
+		}
+		else
+		{
+			choix_ok = true;
+		}
+	} while (!choix_ok);
 }

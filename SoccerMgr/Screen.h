@@ -23,17 +23,17 @@ public:
 	//Gestion des calendriers
 	static void menuCalendrier(Ligue* l);
 	static void menuCreaCalendrier(Ligue* l);
+	static void menuListeCalendrier(Ligue* l);
 	static void menuSupprCalendrier(Ligue* l);
 
 	//Gestion des rencontres
-	static void menuRencontres(Ligue* l);
-	static void afficherRencontres(Ligue* l);
-	static void menuCreaRencontre(Ligue* l);
-	static void menuListeRencontreClub(Ligue* l);
+	static void menuRencontres(Ligue* l, Calendrier_rencontre* cal);
+	static void menuListeRencontres(Calendrier_rencontre* cal);
+	static void menuCreaRencontre(Calendrier_rencontre* cal);
+	static void menuListeRencontreClub(Ligue* l, Calendrier_rencontre* cal);
 
 	//gestion des transferts
 	static void menuTransaction(Ligue* l);
 	static void menuTotalTransferts(Ligue* l);
-	
 };
 #endif

@@ -13,7 +13,7 @@ class Ligue {
 
 public:
 	vector<Club*>* getListeClub();
-	vector<Calendrier_rencontre*>* getListeCalednrier();
+	vector<Calendrier_rencontre*>* getListeCalendrier();
 	void ajouterCalendrier(Calendrier_rencontre* c_r);
 	void ajouterClub(Club * c);
 	Ligue(string name);

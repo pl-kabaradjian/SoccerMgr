@@ -5,7 +5,7 @@ vector<Club*>* Ligue::getListeClub()
 	return &liste_club;
 }
 
-vector<Calendrier_rencontre*>* Ligue::getListeCalednrier()
+vector<Calendrier_rencontre*>* Ligue::getListeCalendrier()
 {
 	return &liste_calendrier;
 }
