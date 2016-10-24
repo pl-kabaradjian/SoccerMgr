@@ -329,7 +329,7 @@ void Screen::menuCalendrier(Ligue * l)
 			Screen::menuCreaCalendrier(l);
 			break;
 		case 3:
-			//Screen::menuSupprCalendrier(l);
+			Screen::menuSupprCalendrier(l);
 			break;
 		case 0:
 			Screen::menuPrincipal(l);
@@ -365,13 +365,13 @@ void Screen::menuListeCalendrier(Ligue * l)
 	cout << "Menu d'affichage des calendrier. Choisissez le calendrier auquel vous souhaiter acceder : " << endl << endl;
 
 	//Affichage du choix de calendrier
-	if (l->getListeCalendrier() != 0) {
+	if (l->getListeCalendrier()->size() > 0) {
 		for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
 			cout << i + 1 << " : " << l->getListeCalendrier()->at(i)->toString() << endl;
 		}
 	}
 	else {
-		cout << "Il n'y a pas de clubs dans cette ligue." << endl;
+		cout << "Il n'y a pas de calendriers dans cette ligue." << endl;
 	}
 	cout << endl << "0 : Retour au menu de gestion des clubs" << endl;
 	cout << endl << "Votre choix: ";
@@ -390,6 +390,42 @@ void Screen::menuListeCalendrier(Ligue * l)
 		}
 		else
 		{
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+}
+
+void Screen::menuSupprCalendrier(Ligue * l)
+{
+	//Affichage du choix de calendrier
+	system("CLS");
+	cout << "Menu de suppression de calendrier. Choisissez le calendrier que vous souhaiter supprimer : " << endl << endl;
+
+	//Affichage du choix de calendrier
+	if (l->getListeCalendrier()->size() > 0) {
+		for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
+			cout << i + 1 << " : " << l->getListeCalendrier()->at(i)->toString() << endl;
+		}
+	}
+	else {
+		cout << "Il n'y a pas de calendriers dans cette ligue." << endl;
+	}
+	cout << endl << "0 : Retour au menu de gestion des clubs" << endl;
+	cout << endl << "Votre choix: ";
+
+	//recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse < 0 || reponse >(int)l->getListeCalendrier()->size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			delete(l->getListeCalendrier()->at(reponse - 1));
+			l->getListeCalendrier()->erase(l->getListeCalendrier()->begin() + (reponse - 1));
+			system("PAUSE");
 			choix_ok = true;
 		}
 	} while (!choix_ok);

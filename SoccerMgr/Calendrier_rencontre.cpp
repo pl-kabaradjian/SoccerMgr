@@ -29,3 +29,8 @@ Calendrier_rencontre::Calendrier_rencontre(string n)
 Calendrier_rencontre::Calendrier_rencontre()
 {
 }
+
+Calendrier_rencontre::~Calendrier_rencontre()
+{
+	cout << "Calendrier detruit" << endl;
+}
