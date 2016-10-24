@@ -1,7 +1,7 @@
 #include "Calendrier_rencontre.h"
 #include <string>
 
-void Calendrier_rencontre::ajouter_rencontre(Rencontre r)
+void Calendrier_rencontre::ajouter_rencontre(Rencontre* r)
 {
 	calendrier.push_back(r);
 }
@@ -16,7 +16,7 @@ string Calendrier_rencontre::toString()
 	return result;
 }
 
-vector<Rencontre>* Calendrier_rencontre::get_calendrier()
+vector<Rencontre*>* Calendrier_rencontre::get_calendrier()
 {
 	return &calendrier;
 }

@@ -32,6 +32,8 @@ public:
 	static void menuCreaRencontre(Calendrier_rencontre* cal);
 	static void menuListeRencontreClub(Ligue* l, Calendrier_rencontre* cal);
 
+	//Jouer le match
+
 	//gestion des transferts
 	static void menuTransaction(Ligue* l);
 	static void menuTotalTransferts(Ligue* l);

@@ -9,12 +9,12 @@ using namespace std;
 
 class Calendrier_rencontre {
 	string nom;
-	vector<Rencontre> calendrier;
+	vector<Rencontre*> calendrier;
 public:
-	void ajouter_rencontre(Rencontre r);
+	void ajouter_rencontre(Rencontre* r);
 	void afficher_calendrier();
 	string toString();
-	vector<Rencontre>* get_calendrier();
+	vector<Rencontre*>* get_calendrier();
 	Calendrier_rencontre(string n);
 	Calendrier_rencontre();
 

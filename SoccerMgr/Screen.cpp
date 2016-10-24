@@ -54,6 +54,7 @@ void Screen::menuPrincipal(Ligue* l)
 
 void Screen::menuClub(Ligue * l)
 {
+start:;
 	//liste de choix
 	string choix1, choix2, choix3, choix4, choix5;
 	choix1 = "Afficher la liste des joueurs";
@@ -105,7 +106,7 @@ void Screen::menuClub(Ligue * l)
 			choix = true;
 			break;
 		}
-		Screen::menuClub(l);
+		goto start;// Screen::menuClub(l);
 	} while (choix);
 }
 
@@ -299,6 +300,7 @@ void Screen::affiche_choix_liste_club(Ligue* l) {
 
 void Screen::menuCalendrier(Ligue * l)
 {
+start:;
 	//liste de choix
 	string choix1, choix2, choix3;
 	choix1 = "Afficher la liste des calendriers";
@@ -340,7 +342,7 @@ void Screen::menuCalendrier(Ligue * l)
 			choix = true;
 			break;
 		}
-		Screen::menuCalendrier(l);
+		goto start;// Screen::menuCalendrier(l);
 	} while (choix);
 }
 
@@ -372,8 +374,10 @@ void Screen::menuListeCalendrier(Ligue * l)
 	}
 	else {
 		cout << "Il n'y a pas de calendriers dans cette ligue." << endl;
+		system("PAUSE");
+		goto end;
 	}
-	cout << endl << "0 : Retour au menu de gestion des clubs" << endl;
+	cout << endl << "0 : Retour au menu de gestion des calendriers" << endl;
 	cout << endl << "Votre choix: ";
 
 	//recuperation du choix de l'utilisateur
@@ -393,6 +397,7 @@ void Screen::menuListeCalendrier(Ligue * l)
 			choix_ok = true;
 		}
 	} while (!choix_ok);
+end:;
 }
 
 void Screen::menuSupprCalendrier(Ligue * l)
@@ -429,4 +434,65 @@ void Screen::menuSupprCalendrier(Ligue * l)
 			choix_ok = true;
 		}
 	} while (!choix_ok);
+}
+
+void Screen::menuRencontres(Ligue * l, Calendrier_rencontre * cal)
+{
+start:;
+	//liste de choix
+	string choix1, choix2, choix3;
+	choix1 = "Afficher la liste des rencontres";
+	choix2 = "Ajouter une rencontre";
+	choix3 = "Supprimer une rencontre";
+
+	//Affichage des choix
+	system("CLS");
+	cout << "Vous etes dans le menu de gestion des calendriers. Veuillez choisir parmi les choix suivants:" << endl << endl;
+	cout << "1 : " << choix1 << endl;
+	cout << "2 : " << choix2 << endl;
+	cout << "3 : " << choix3 << endl;
+	cout << endl << "0 : Retour au menu principal" << endl;
+
+	//Recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix;
+	do {
+		choix = false;
+		cout << endl << "Votre choix ? ";
+		reponse = Saisie::safe_int_cin();
+		switch (reponse)
+		{
+		case 1:
+			Screen::menuListeCalendrier(l);
+			break;
+		case 2:
+			Screen::menuCreaCalendrier(l);
+			break;
+		case 3:
+			Screen::menuSupprCalendrier(l);
+			break;
+		case 0:
+			Screen::menuPrincipal(l);
+			break;
+		default:
+			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
+			reponse = 0;
+			choix = true;
+			break;
+		}
+		goto start;// Screen::menuRencontres(l, cal);
+	} while (choix);
+}
+
+void Screen::menuCreaRencontre(Calendrier_rencontre * cal)
+{
+	Club* c_loc(0);
+	Club* c_adv(0);
+	Date d;
+
+	//Instanciation des objets
+	d = Date();
+	cal->ajouter_rencontre(new Rencontre(d, c_loc, c_adv));
+
+	//system("PAUSE");
 }
