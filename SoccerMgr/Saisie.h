@@ -5,6 +5,8 @@
 #include <string>
 #include "enum.h"
 #include "Date.h"
+#include "Club.h"
+#include "Ligue.h"
 
 using namespace std;
 
@@ -15,5 +17,6 @@ public:
 	static Couleur saisie_couleur();
 	static Terrain saisie_terrain();
 	static Date saisie_date();
+	static Club* choix_club(Ligue* l);
 };
 #endif

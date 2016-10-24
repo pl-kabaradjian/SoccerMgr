@@ -13,7 +13,7 @@ class Rencontre {
 	Club * club_adverse;
 	Match match_rencontre;
 public: 
-	void afficher();
+	string toString();
 	Rencontre(Date d, Club* loc, Club* adv, Match m);
 	Rencontre(Date d, Club * loc, Club * adv);
 	Rencontre();

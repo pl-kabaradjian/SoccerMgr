@@ -73,3 +73,9 @@ void Date::setDay(int d)
 {
 	day = d;
 }
+
+string Date::toString()
+{
+	string res = to_string(year) + "-" + to_string(month) + "-" + to_string(day);
+	return (res);
+}

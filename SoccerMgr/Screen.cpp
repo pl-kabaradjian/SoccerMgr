@@ -19,6 +19,11 @@ void Screen::menuPrincipal(Ligue* l)
 
 	//Affichage des choix
 	system("CLS");
+	cout 
+		<< "****************" << endl
+		<< "*SOCCER MANAGER*" << endl
+		<< "****************" << endl
+		<< endl;
 	cout << "Vous etes dans le menu principal. Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
@@ -65,7 +70,12 @@ start:;
 
 	//Affichage des choix
 	system("CLS");
-	cout << "GESTION DES CLUBS" << endl << "Veuillez choisir parmi les choix suivants:" << endl << endl;
+	cout << endl
+		 << "*******************"
+		 << "*GESTION DES CLUBS*" 
+		 << "*******************" << endl
+		 << endl 
+		 << "Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
 	cout << "3 : " << choix3 << endl;
@@ -309,6 +319,11 @@ start:;
 
 	//Affichage des choix
 	system("CLS");
+	cout << endl
+		<< "*************************"
+		<< "*GESTION DES CALENDRIERS*"
+		<< "*************************" << endl
+		<< endl;
 	cout << "Vous etes dans le menu de gestion des calendriers. Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
@@ -362,6 +377,7 @@ void Screen::menuCreaCalendrier(Ligue * l)
 
 void Screen::menuListeCalendrier(Ligue * l)
 {
+start:;
 	//Affichage du choix de calendrier
 	system("CLS");
 	cout << "Menu d'affichage des calendrier. Choisissez le calendrier auquel vous souhaiter acceder : " << endl << endl;
@@ -386,11 +402,12 @@ void Screen::menuListeCalendrier(Ligue * l)
 	do
 	{
 		reponse = Saisie::safe_int_cin();
-		if (reponse < 0 || reponse >(int)l->getListeClub()->size()) {
+		if (reponse < 0 || reponse >(int)l->getListeCalendrier()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
 		else if (reponse > 0) {
-			//Screen::menuRencontres(l, l->getListeCalendrier()->at(reponse));
+			Screen::menuRencontres(l,l->getListeCalendrier()->at(reponse - 1));
+			goto start;
 		}
 		else
 		{
@@ -433,6 +450,7 @@ void Screen::menuSupprCalendrier(Ligue * l)
 			system("PAUSE");
 			choix_ok = true;
 		}
+		else break;
 	} while (!choix_ok);
 }
 
@@ -463,16 +481,16 @@ start:;
 		switch (reponse)
 		{
 		case 1:
-			Screen::menuListeCalendrier(l);
+			Screen::menuListeRencontres(cal);
 			break;
 		case 2:
-			Screen::menuCreaCalendrier(l);
+			Screen::menuCreaRencontre(l, cal);
 			break;
 		case 3:
-			Screen::menuSupprCalendrier(l);
+			//Screen::menuSupprRencontre();
 			break;
 		case 0:
-			Screen::menuPrincipal(l);
+			goto end;
 			break;
 		default:
 			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
@@ -482,16 +500,73 @@ start:;
 		}
 		goto start;// Screen::menuRencontres(l, cal);
 	} while (choix);
+end:;
 }
 
-void Screen::menuCreaRencontre(Calendrier_rencontre * cal)
+void Screen::menuListeRencontres(Calendrier_rencontre * cal)
+{
+//start:;
+	//Affichage des rencontres
+	system("CLS");
+	cout << "Menu d'affichage des rencontres. Choisissez la rencontre que vous souhaitez modifer : " << endl << endl;
+
+	//Affichage du choix de calendrier
+	if (cal->get_liste_rencontre()->size() > 0) {
+		cal->afficher_calendrier();
+	}
+	else {
+		cout << "Il n'y a pas de rencontres dans ce calendrier." << endl;
+		system("PAUSE");
+		goto end;
+	}
+	cout << endl << "0 : Retour au menu de gestion des calendriers" << endl;
+	cout << endl << "Votre choix: ";
+
+	//recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse < 0 || reponse >(int)cal->get_liste_rencontre()->size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			//Menu de gestion de rencontre
+		}
+		else
+		{
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+end:;
+}
+
+void Screen::menuCreaRencontre(Ligue * l, Calendrier_rencontre * cal)
 {
 	Club* c_loc(0);
 	Club* c_adv(0);
 	Date d;
+	
+	//liste des choix
+	system("CLS");
+	cout << "Menu de creation de rencontre: " << endl << endl;
+	//Date de la rencontre
+	cout << "Date de la rencontre ?" << endl;
+	d = Saisie::saisie_date();
+	
+	//Choix club local
+	system("CLS");
+	cout << "Club local ? " << endl;
+	c_loc = Saisie::choix_club(l);
 
+	//Choix club adverse
+	system("CLS");
+	cout << "Club adverse ? " << endl;
+	c_adv = Saisie::choix_club(l);
+
+	//system("PAUSE");
 	//Instanciation des objets
-	d = Date();
 	cal->ajouter_rencontre(new Rencontre(d, c_loc, c_adv));
 
 	//system("PAUSE");

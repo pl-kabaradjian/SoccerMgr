@@ -1,5 +1,10 @@
 #include "Rencontre.h"
 
+string Rencontre::toString()
+{
+	return date_rencontre.toString() + " " + *club_local->getNom() + " vs " + *club_adverse->getNom();
+}
+
 Rencontre::Rencontre(Date d, Club * loc, Club * adv, Match m)
 {
 	date_rencontre = d;

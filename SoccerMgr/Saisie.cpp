@@ -4,6 +4,7 @@
 #include <map>
 #include "saisie.h"
 #include "enum.h"
+#include "Ligue.h"
 
 //Fonction permettant de faire rentrer un int 
 //sans bloquer le programme dans le cas ou une lettre est saisie
@@ -94,4 +95,50 @@ Terrain Saisie::saisie_terrain()
 		}
 	}
 	return t;
+}
+
+Date Saisie::saisie_date()
+{
+	int j, m, a;
+	cout << ("Annee AAAA ? ") << endl;
+	a = safe_int_cin();
+
+	cout << ("Mois MM ? ") << endl;
+	m = safe_int_cin();
+
+	cout << ("Jour JJ ? ") << endl;
+	j = safe_int_cin();
+
+	return Date(a,m,j);
+}
+
+Club * Saisie::choix_club(Ligue * l)
+{
+	//cout << "Choissisez le club :" << endl << endl;
+
+	//Affichage du choix de club
+	if (l->getListeClub()->size() != 0) {
+		for (size_t i = 0; i < l->getListeClub()->size(); i++) {
+			cout << i + 1 << " : " << *l->getListeClub()->at(i)->getNom() << endl;
+		}
+	}
+	else {
+		cout << "Il n'y a pas de clubs dans cette ligue." << endl;
+	}
+	
+
+	//Recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse < 0 || reponse >(int)l->getListeClub()->size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+	return l->getListeClub()->at(reponse-1);
 }

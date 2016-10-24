@@ -1,5 +1,8 @@
 #ifndef _DATE_H
 #define _DATE_H
+#include <string>
+
+using namespace std;
 
 class Date {
 	int year;
@@ -18,5 +21,6 @@ public:
 	void setYear(int y);
 	void setMonth(int m);
 	void setDay(int d);
+	string toString();
 };
 #endif
