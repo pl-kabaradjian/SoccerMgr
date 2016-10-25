@@ -2,7 +2,10 @@
 
 string Rencontre::toString()
 {
-	return date_rencontre.toString() + " " + *club_local->getNom() + " vs " + *club_adverse->getNom();
+	string statut;
+	if (this->est_terminee()) statut = "Terminee";
+	else statut = "Non-jouee";
+	return date_rencontre.toString() + " " + *club_local->getNom() + " vs " + *club_adverse->getNom() + " | Statut : " + statut;
 }
 
 Rencontre::Rencontre(Date d, Club * loc, Club * adv, Match m)
@@ -57,7 +60,7 @@ bool Rencontre::hasClub(Club * c)
 
 bool Rencontre::est_terminee()
 {
-	if ((match_rencontre.getResultat()->score_equipe_adverse != -1) || (match_rencontre.getResultat()->score_equipe_locale != -1)) {
+	if ((match_rencontre.getResultat()->score_equipe_adverse != -1) && (match_rencontre.getResultat()->score_equipe_locale != -1)) {
 		return true;
 	}
 	else return false;

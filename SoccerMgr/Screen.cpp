@@ -35,7 +35,7 @@ void Screen::menuPrincipal(Ligue* l)
 	cout << "2 : " << choix2 << endl;
 	cout << "3 : " << choix3 << endl;
 	cout << "4 : " << choix4 << endl;
-	cout << "0 : " << choix0 << endl;
+	cout << endl << "0 : " << choix0 << endl;
 	
 	//Recuperation du choix de l'utilisateur
 	int reponse = 0;
@@ -631,14 +631,7 @@ void Screen::menuJouerRencontre(Calendrier_rencontre * cal)
 	cout << "Menu d'affichage des rencontres. Choisissez la rencontre que vous souhaitez modifer : " << endl << endl;
 
 	//Affichage des rencontres du calendrier
-	if (cal->get_liste_rencontre()->size() > 0) {
-		cal->afficher_calendrier();
-	}
-	else {
-		cout << "Il n'y a pas de rencontres dans ce calendrier." << endl;
-		system("PAUSE");
-		goto end;
-	}
+	cal->afficher_rencontre_non_jouee();
 	cout << endl << "0 : Retour au menu de gestion des rencontres" << endl;
 	cout << endl << "Votre choix: ";
 
@@ -648,13 +641,14 @@ void Screen::menuJouerRencontre(Calendrier_rencontre * cal)
 	do
 	{
 		reponse = Saisie::safe_int_cin();
-		if (reponse < 0 || reponse >(int)cal->get_liste_rencontre()->size()) {
+		if (reponse < 0 || reponse >(int)cal->get_liste_rencontre_non_jouees().size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
 		else if (reponse > 0) {
 			system("CLS");
-			cal->get_liste_rencontre()->at(reponse - 1)->jouer_auto();
-			cal->get_liste_rencontre()->at(reponse - 1)->afficher_resultat();
+			vector<Rencontre*> l = cal->get_liste_rencontre_non_jouees();
+			l.at(reponse - 1)->jouer_auto();
+			l.at(reponse - 1)->afficher_resultat();
 			system("PAUSE");
 			goto end;
 		}

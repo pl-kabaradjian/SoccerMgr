@@ -13,8 +13,10 @@ class Calendrier_rencontre {
 public:
 	void ajouter_rencontre(Rencontre* r);
 	void afficher_calendrier();
+	void afficher_rencontre_non_jouee();
 	string toString();
 	vector<Rencontre*>* get_liste_rencontre();
+	vector<Rencontre *> get_liste_rencontre_non_jouees();
 	Calendrier_rencontre(string n);
 	Calendrier_rencontre();
 	string getNom();
