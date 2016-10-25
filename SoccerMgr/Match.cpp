@@ -1,4 +1,6 @@
 #include "Match.h"
+#include <stdlib.h>
+#include <time.h>
 
 Match::Match(Equipe locale, Equipe adverse)
 {
@@ -34,4 +36,8 @@ Resultat * Match::getResultat()
 
 void Match::jouerMatch()
 {
+	srand(time(NULL));
+	ajouter_periode(Periode(45, rand() % 4, rand() % 4));
+	ajouter_periode(Periode(45, rand() % 4, rand() % 4));
+	calculer_resultat();
 }

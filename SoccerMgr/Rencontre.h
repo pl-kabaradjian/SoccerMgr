@@ -17,6 +17,8 @@ public:
 	Rencontre(Date d, Club* loc, Club* adv, Match m);
 	Rencontre(Date d, Club * loc, Club * adv);
 	Rencontre();
+	void jouer_auto();
+	void afficher_resultat();
 	bool hasClub(Club* c);
 };
 

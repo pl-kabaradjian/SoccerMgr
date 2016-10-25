@@ -20,7 +20,6 @@ public:
 	void ajouter_periode(Periode p);
 	void calculer_resultat();
 	Resultat* getResultat();
-	void afficher_resultat();
 	void jouerMatch();
 };
 

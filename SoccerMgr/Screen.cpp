@@ -16,10 +16,11 @@ using namespace std;
 void Screen::menuPrincipal(Ligue* l)
 {
 	//liste de choix
-	string choix1, choix2, choix3, choix0;
+	string choix1, choix2, choix3, choix4, choix0;
 	choix1 = "Gestion des clubs";
 	choix2 = "Gestion des calendriers";
 	choix3 = "Gestion des contrats";
+	choix4 = "Gestion des rencontres";
 	choix0 = "Quitter le programme";
 
 	//Affichage des choix
@@ -33,6 +34,7 @@ void Screen::menuPrincipal(Ligue* l)
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
 	cout << "3 : " << choix3 << endl;
+	cout << "4 : " << choix4 << endl;
 	cout << "0 : " << choix0 << endl;
 	
 	//Recuperation du choix de l'utilisateur
@@ -52,6 +54,9 @@ void Screen::menuPrincipal(Ligue* l)
 			break;
 		case 3:
 			Screen::menuContrat(l);
+			break;
+		case 4:
+			Screen::menuRencontres(l);
 			break;
 		case 0:
 			exit(-1);
@@ -625,10 +630,9 @@ void Screen::menuContrat(Ligue * l)
 {
 start:;
 	//liste de choix
-	string choix1, choix2, choix3;
+	string choix1, choix2;
 	choix1 = "Nouveau transfert";
-	//choix2 = "Renouvellement contrat";
-	choix3 = "Afficher total encaisse par club";
+	choix2 = "Afficher total encaisse par club";
 
 	//Affichage des choix
 	system("CLS");
@@ -639,8 +643,7 @@ start:;
 		<< endl;
 	cout << "Vous etes dans le menu de gestion des contrats. Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
-	//cout << "2 : " << choix2 << endl;
-	cout << "2 : " << choix3 << endl;
+	cout << "2 : " << choix2 << endl;
 	cout << endl << "0 : Retour au menu principal" << endl;
 
 	//Recuperation du choix de l'utilisateur
@@ -655,9 +658,6 @@ start:;
 		case 1:
 			Screen::menuTransfert(l);
 			break;
-		//case 2:
-		//	//Screen::menuRenouvellementContrat(l);
-		//	break;
 		case 2:
 			Screen::menuTotauxClub(l);
 			break;
