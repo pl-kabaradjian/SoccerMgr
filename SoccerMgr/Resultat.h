@@ -6,7 +6,7 @@ class Resultat {
 public: 
 	int score_equipe_locale;
 	int score_equipe_adverse;
-	void afficher();
+	//void afficher();
 	Resultat(int loc, int adv);
 	Resultat();
 };

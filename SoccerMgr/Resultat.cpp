@@ -8,6 +8,6 @@ Resultat::Resultat(int loc, int adv)
 
 Resultat::Resultat()
 {
-	score_equipe_adverse = 0;
-	score_equipe_locale = 0;
+	score_equipe_adverse = -1;
+	score_equipe_locale = -1;
 }

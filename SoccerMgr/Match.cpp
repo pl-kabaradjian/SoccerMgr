@@ -10,7 +10,6 @@ Match::Match(Equipe locale, Equipe adverse)
 
 Match::Match()
 {
-	
 }
 
 void Match::ajouter_periode(Periode p)

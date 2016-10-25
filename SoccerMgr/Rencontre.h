@@ -13,6 +13,7 @@ class Rencontre {
 	Club * club_adverse;
 	Match match_rencontre;
 public: 
+
 	string toString();
 	Rencontre(Date d, Club* loc, Club* adv, Match m);
 	Rencontre(Date d, Club * loc, Club * adv);
@@ -20,6 +21,7 @@ public:
 	void jouer_auto();
 	void afficher_resultat();
 	bool hasClub(Club* c);
+	bool est_terminee();
 };
 
 #endif //_RENCONTRE_H

@@ -56,7 +56,7 @@ void Screen::menuPrincipal(Ligue* l)
 			Screen::menuContrat(l);
 			break;
 		case 4:
-			Screen::menuRencontres(l);
+			Screen::menuRencontresChoixCalendrier(l);
 			break;
 		case 0:
 			exit(-1);
@@ -504,14 +504,57 @@ void Screen::menuSupprCalendrier(Ligue * l)
 }
 
 //Menu et sous-menus de gestion des rencontres
-void Screen::menuRencontres(Ligue * l, Calendrier_rencontre * cal)
+void Screen::menuRencontresChoixCalendrier(Ligue * l)
+{
+	Calendrier_rencontre* cal(0);
+	//Affichage du choix de calendrier
+	system("CLS");
+	cout << "Choisissez le calendrier auquel vous souhaiter acceder : " << endl << endl;
+
+	//Affichage du choix de calendrier
+	if (l->getListeCalendrier()->size() > 0) {
+		for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
+			cout << i + 1 << " : " << l->getListeCalendrier()->at(i)->toString() << endl;
+		}
+	}
+	else {
+		cout << "Il n'y a pas de calendriers dans cette ligue." << endl;
+		system("PAUSE");
+		goto end;
+	}
+	cout << endl << "0 : Retour au menu principal" << endl;
+	cout << endl << "Votre choix: ";
+
+	//recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse < 0 || reponse >(int)l->getListeCalendrier()->size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			Screen::menuRencontres(l, l->getListeCalendrier()->at(reponse - 1));
+			goto end;
+		}
+		else
+		{
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+end:;
+}
+
+void Screen::menuRencontres(Ligue * l, Calendrier_rencontre* cal)
 {
 start:;
 	//liste de choix
-	string choix1, choix2, choix3;
+	string choix1, choix2, choix3, choix4;
 	choix1 = "Afficher la liste des rencontres";
 	choix2 = "Ajouter une rencontre";
-	choix3 = "Supprimer une rencontre";
+	choix3 = "Jouer une rencontre automatiquement";
+	choix4 = "Supprimer une rencontre";
 
 	//Affichage des choix
 	system("CLS");
@@ -522,6 +565,7 @@ start:;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
 	cout << "3 : " << choix3 << endl;
+	cout << "4 : " << choix4 << endl;
 	cout << endl << "0 : Retour au menu principal" << endl;
 
 	//Recuperation du choix de l'utilisateur
@@ -540,6 +584,9 @@ start:;
 			Screen::menuCreaRencontre(l, cal);
 			break;
 		case 3:
+			Screen::menuJouerRencontre(cal);
+			break;
+		case 4:
 			//Screen::menuSupprRencontre();
 			break;
 		case 0:
@@ -561,9 +608,29 @@ void Screen::menuListeRencontres(Calendrier_rencontre * cal)
 //start:;
 	//Affichage des rencontres
 	system("CLS");
+	cout << "Affichage de la liste des rencontres de " << cal->getNom() << endl << endl;
+
+	//Affichage des rencontres du calendrier
+	if (cal->get_liste_rencontre()->size() > 0) {
+		for (size_t i = 0; i < cal->get_liste_rencontre()->size(); i++) {
+			cout << cal->get_liste_rencontre()->at(i)->toString() << endl;
+		}
+		system("PAUSE");
+	}
+	else {
+		cout << "Il n'y a pas de rencontres dans ce calendrier." << endl << endl;
+		system("PAUSE");
+	}
+}
+
+void Screen::menuJouerRencontre(Calendrier_rencontre * cal)
+{
+	//start:;
+	//Affichage des rencontres
+	system("CLS");
 	cout << "Menu d'affichage des rencontres. Choisissez la rencontre que vous souhaitez modifer : " << endl << endl;
 
-	//Affichage du choix de calendrier
+	//Affichage des rencontres du calendrier
 	if (cal->get_liste_rencontre()->size() > 0) {
 		cal->afficher_calendrier();
 	}
@@ -572,7 +639,7 @@ void Screen::menuListeRencontres(Calendrier_rencontre * cal)
 		system("PAUSE");
 		goto end;
 	}
-	cout << endl << "0 : Retour au menu de gestion des calendriers" << endl;
+	cout << endl << "0 : Retour au menu de gestion des rencontres" << endl;
 	cout << endl << "Votre choix: ";
 
 	//recuperation du choix de l'utilisateur
@@ -585,7 +652,11 @@ void Screen::menuListeRencontres(Calendrier_rencontre * cal)
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
 		else if (reponse > 0) {
-			//Menu de gestion de rencontre
+			system("CLS");
+			cal->get_liste_rencontre()->at(reponse - 1)->jouer_auto();
+			cal->get_liste_rencontre()->at(reponse - 1)->afficher_resultat();
+			system("PAUSE");
+			goto end;
 		}
 		else
 		{

@@ -27,13 +27,14 @@ public:
 	static void menuSupprCalendrier(Ligue* l);
 
 	//Gestion des rencontres
+	static void menuRencontresChoixCalendrier(Ligue * l);
 	static void menuRencontres(Ligue* l, Calendrier_rencontre* cal);
 	static void menuListeRencontres(Calendrier_rencontre* cal);
 	static void menuCreaRencontre(Ligue* l, Calendrier_rencontre* cal);
 	static void menuListeRencontreClub(Ligue* l);
 
 	//Jouer le match && Afficher le score
-	static void menuJouerMatch();
+	static void menuJouerRencontre(Calendrier_rencontre * cal);
 
 	//gestion des transferts
 	static void menuContrat(Ligue * l);
