@@ -5,16 +5,21 @@
 #include "Date.h"
 #include "Ligue.h"
 #include "Entraineur.h"
-
+#include "Joueur.h"
+#include "Joueur_autonome.h"
+#include "Joueur_non_autonome.h"
+#include "Rupture.h"
 
 using namespace std;
 
+//Menu principal
 void Screen::menuPrincipal(Ligue* l)
 {
 	//liste de choix
-	string choix1, choix2, choix0;
+	string choix1, choix2, choix3, choix0;
 	choix1 = "Gestion des clubs";
 	choix2 = "Gestion des calendriers";
+	choix3 = "Gestion des contrats";
 	choix0 = "Quitter le programme";
 
 	//Affichage des choix
@@ -27,6 +32,7 @@ void Screen::menuPrincipal(Ligue* l)
 	cout << "Vous etes dans le menu principal. Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
+	cout << "3 : " << choix3 << endl;
 	cout << "0 : " << choix0 << endl;
 	
 	//Recuperation du choix de l'utilisateur
@@ -44,6 +50,9 @@ void Screen::menuPrincipal(Ligue* l)
 		case 2:
 			Screen::menuCalendrier(l);
 			break;
+		case 3:
+			Screen::menuContrat(l);
+			break;
 		case 0:
 			exit(-1);
 			break;
@@ -57,6 +66,7 @@ void Screen::menuPrincipal(Ligue* l)
 	while (choix);
 }
 
+//Menus et sous-menus de gestion de club
 void Screen::menuClub(Ligue * l)
 {
 start:;
@@ -313,6 +323,35 @@ void Screen::affiche_choix_liste_club(Ligue* l) {
 	cout << endl << "Votre choix: ";
 }
 
+void Screen::menuListeRencontreClub(Ligue * l)
+{
+	system("CLS");
+	cout << "Veuillez choisir le club dont vous souhaitez afficher les rencontres :" << endl;
+	Club* club = Saisie::choix_club(l);
+	system("CLS");
+	cout << "Liste des rencontre pour le club : " << *club->getNom() << endl << endl;
+
+	for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
+		Calendrier_rencontre* curr_cal = l->getListeCalendrier()->at(i);
+		cout << curr_cal->getNom() << endl;
+		if (curr_cal->get_liste_rencontre()->size() > 0) {
+			bool cal_has_club = false;
+			for (size_t j = 0; j < curr_cal->get_liste_rencontre()->size(); j++) {
+				Rencontre* curr_renc = curr_cal->get_liste_rencontre()->at(j);
+				if (curr_renc->hasClub(club)) {
+					cal_has_club = true;
+					cout << "	" << curr_renc->toString() << endl;
+				}
+			}
+			if (!cal_has_club) cout << "le club n'est pas présents dans ce calendrier" << endl;
+		}
+		else cout << "	" << "Pas de rencontres dans ce calendrier" << endl;
+	}
+	cout << endl;
+	system("PAUSE");
+}
+
+//Menus et sous-menus de gestion de calendriers
 void Screen::menuCalendrier(Ligue * l)
 {
 start:;
@@ -459,6 +498,7 @@ void Screen::menuSupprCalendrier(Ligue * l)
 	} while (!choix_ok);
 }
 
+//Menu et sous-menus de gestion des rencontres
 void Screen::menuRencontres(Ligue * l, Calendrier_rencontre * cal)
 {
 start:;
@@ -580,30 +620,204 @@ void Screen::menuCreaRencontre(Ligue * l, Calendrier_rencontre * cal)
 	//system("PAUSE");
 }
 
-void Screen::menuListeRencontreClub(Ligue * l)
+//Menu contrats
+void Screen::menuContrat(Ligue * l)
+{
+start:;
+	//liste de choix
+	string choix1, choix2, choix3;
+	choix1 = "Nouveau transfert";
+	//choix2 = "Renouvellement contrat";
+	choix3 = "Afficher total encaisse par club";
+
+	//Affichage des choix
+	system("CLS");
+	cout << endl
+		<< "*************************"
+		<< "*GESTION DES CONTRATS*"
+		<< "*************************" << endl
+		<< endl;
+	cout << "Vous etes dans le menu de gestion des contrats. Veuillez choisir parmi les choix suivants:" << endl << endl;
+	cout << "1 : " << choix1 << endl;
+	//cout << "2 : " << choix2 << endl;
+	cout << "2 : " << choix3 << endl;
+	cout << endl << "0 : Retour au menu principal" << endl;
+
+	//Recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix;
+	do {
+		choix = false;
+		cout << endl << "Votre choix ? ";
+		reponse = Saisie::safe_int_cin();
+		switch (reponse)
+		{
+		case 1:
+			Screen::menuTransfert(l);
+			break;
+		//case 2:
+		//	//Screen::menuRenouvellementContrat(l);
+		//	break;
+		case 2:
+			//Screen::menuTotauxClub(l);
+			break;
+		case 0:
+			Screen::menuPrincipal(l);
+			break;
+		default:
+			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
+			reponse = 0;
+			choix = true;
+			break;
+		}
+		goto start;
+	} while (choix);
+}
+
+void Screen::menuTransfert(Ligue * l)
+{
+	vector<Joueur*> lst = l->getListeJoueurs();
+
+	system("CLS");
+	cout << endl
+		<< "*************************"
+		<< "*Ajout d'un transfert*"
+		<< "*************************" << endl
+		<< endl;
+	cout << "Veuillez choisir le joueur contractant :" << endl <<
+		"Remarque : Un joueur non autonome ne peut pas etre transfere avant 3 ans d'experience " << endl;
+
+	//affichage du joueur
+	for (size_t i = 0; i < lst.size(); i++) {
+		Joueur* x = lst.at(i);
+		Joueur_non_autonome* x_na = (Joueur_non_autonome*)x;
+		string c, a;
+		if (x->has_contrat()) c = "Oui";
+		else c = "Non";
+		if (x->est_autonome()) a = "Oui";
+		else a = "Non | Experience : " + to_string(x_na->getExperience());
+		cout << i + 1 << " : " << x->getNomPrenom() + " | Contrat : " + c + " | Est autonome : " + a << endl;
+	}
+
+	//Recuperation choix du joueur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse <= 0 || reponse >(int)lst.size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			Joueur* j = lst.at(reponse - 1);
+			Joueur_non_autonome* j_a = (Joueur_non_autonome*) j;
+
+			if (j->has_contrat()) {
+				if (j->est_autonome()) {
+					cout << "Rupture";//Rupture;
+					Screen::menuCreaTransfert(l, j);
+				}	
+				else if (j_a->getExperience() > 3) {
+					cout << "Transfert OK";
+					Screen::menuCreaTransfert(l, j);
+				}
+				else cout << "Transfert impossible : pas assez d'experience";
+			}
+			else {
+				Screen::menuCreaTransfert(l, j);
+			}
+				
+			goto end;
+		}
+		//else if (reponse == 0) goto end;
+		else
+		{
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+end:;
+}
+
+void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
 {
 	system("CLS");
-	cout << "Veuillez choisir le club dont vous souhaitez afficher les rencontres :" << endl;
-	Club* club = Saisie::choix_club(l);
+	cout << endl
+		<< "*************************"
+		<< "*Ajout d'un transfert*"
+		<< "*************************" << endl
+		<< endl;
+
+	Joueur* joueur_contractant = j;
+	cout << "Nouveau club ?" << endl;
+	Club* club_contractant = Saisie::choix_club(l);
+	Club* club_libere = l->getClubJoueur(j);
+
 	system("CLS");
-	cout << "Liste des rencontre pour le club : " << *club->getNom() << endl << endl;
-	
-	for (size_t i = 0; i < l->getListeCalendrier()->size(); i++) {
-		Calendrier_rencontre* curr_cal = l->getListeCalendrier()->at(i);
-		cout << curr_cal->getNom() << endl;
-		if (curr_cal->get_liste_rencontre()->size() > 0) {
-			bool cal_has_club = false;
-			for (size_t j = 0; j < curr_cal->get_liste_rencontre()->size();j++) {
-				Rencontre* curr_renc = curr_cal->get_liste_rencontre()->at(j);
-				if (curr_renc->hasClub(club)) {
-					cal_has_club = true;
-					cout << "	" << curr_renc->toString() << endl;
-				}
-			}
-			if (!cal_has_club) cout << "le club n'est pas présents dans ce calendrier" << endl;
-		}
-		else cout << "	" << "Pas de rencontres dans ce calendrier" << endl;
-	}
-	cout << endl;
+	cout << endl
+		<< "*************************"
+		<< "*Ajout d'un transfert*"
+		<< "*************************" << endl
+		<< endl;
+
+	cout << "Duree du contrat ?" << endl;
+	int duree_contrat = Saisie::safe_int_cin();
+	cout << "Date de debut ?" << endl;
+	Date date_debut = Saisie::saisie_date();
+
+	//Detail du reglement
+	system("CLS");
+	cout << endl
+		<< "*************************"
+		<< "*Ajout d'un transfert*"
+		<< "*************************" << endl
+		<< endl;
+
+	cout << "Seuil du reglement ?" << endl;
+	int seuil = Saisie::safe_int_cin();
+	cout << "Description des droits du joueur ?" << endl;
+	string ddj = Saisie::saisie_string();
+	cout << "Montant qui va au club ?" << endl;
+	float montant_club = (float)Saisie::safe_int_cin();
+	cout << "Montant qui va au joueur ?" << endl;
+	float montant_joueur = (float)Saisie::safe_int_cin();
+
+	float montant_transfert = montant_club + montant_joueur;
+
+	//Instanciation
+	Reglement r(seuil, ddj, montant_transfert, montant_club, montant_joueur);
+	Contrat_engagement* c_a = new Contrat_engagement(j, club_contractant, club_libere, duree_contrat, date_debut, r);
+
+	if (joueur_contractant->has_contrat() && joueur_contractant->est_autonome()) Screen::menuCreaRupture(l, joueur_contractant, club_contractant, club_libere);
+	//Ajout contrat au joueur et au nouveau club
+	joueur_contractant->setContrat(c_a);
+	club_contractant->ajouter_contrat(c_a);
+
+	//Suppression/Ajout du joueur dans les effectifs de chaque club
+	club_contractant->ajouter_joueur(joueur_contractant);
+	club_libere->supprimer_joueur(joueur_contractant);
+
+	cout << endl << "Le contrat a ete cree avec succes !" << endl;
 	system("PAUSE");
+}
+
+void Screen::menuCreaRupture(Ligue * l, Joueur * j, Club * nouv_club, Club* ancien_club)
+{
+	system("CLS");
+	cout << endl
+		<< "*************************"
+		<< "*Rupture*"
+		<< "*************************" << endl
+		<< endl;
+	cout << "Comme le joueur est autonome et dispose deja d'un contrat : il faut faire une rupture" << endl;
+	cout << "Raisons de la rupture ?" << endl;
+	string r = Saisie::saisie_string();
+	cout << "Montant de la penalite  ?" << endl;
+	float p = (float)Saisie::safe_int_cin();
+
+	//ajout de la rupture au club lese
+	ancien_club->ajouter_rupture(new Rupture(j, nouv_club, r, p));
+}
+
+void Screen::menuTotauxClub(Ligue * l)
+{
 }

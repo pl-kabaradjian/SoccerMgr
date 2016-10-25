@@ -108,6 +108,9 @@
     <ClInclude Include="Rencontre.h">
       <Filter>Header Files\Soccer</Filter>
     </ClInclude>
+    <ClInclude Include="Rupture.h">
+      <Filter>Header Files\Soccer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp">
@@ -186,6 +189,9 @@
       <Filter>Source Files\Soccer</Filter>
     </ClCompile>
     <ClCompile Include="Resultat.cpp">
+      <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Rupture.cpp">
       <Filter>Source Files\Soccer</Filter>
     </ClCompile>
   </ItemGroup>

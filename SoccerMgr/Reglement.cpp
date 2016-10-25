@@ -8,3 +8,7 @@ Reglement::Reglement(int s, string desc, float m_trans, float m_club, float m_jo
 	montant_club = m_club;
 	montant_joueur = m_joueur;
 }
+
+Reglement::Reglement()
+{
+}

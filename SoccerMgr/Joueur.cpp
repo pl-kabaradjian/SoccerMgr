@@ -22,11 +22,25 @@ Joueur::Joueur(string nom, string prenom, int age,float t, int p, string vn): Sp
 	taille = t;
 	poids = p;
 	ville_naissance = vn;
+	contrat = nullptr;
 }
 
-//Joueur::Joueur()
-//{
-//}
+
+bool Joueur::has_contrat()
+{
+	if (contrat != nullptr) return true;
+	else return false;
+}
+
+void Joueur::setContrat(Contrat_engagement * c)
+{
+	contrat = c;
+}
+
+string Joueur::getNomPrenom()
+{
+	return (firstname + " " + lastname);
+}
 
 Joueur::~Joueur()
 {

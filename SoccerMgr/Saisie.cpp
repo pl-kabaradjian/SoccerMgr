@@ -6,7 +6,7 @@
 #include "enum.h"
 #include "Ligue.h"
 
-//Fonction permettant de faire rentrer un int 
+//Fonction permettant de faire saisir un int 
 //sans bloquer le programme dans le cas ou une lettre est saisie
 int Saisie::safe_int_cin(){
 	int res = -1;

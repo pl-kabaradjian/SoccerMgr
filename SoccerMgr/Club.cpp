@@ -78,9 +78,26 @@ vector<Joueur*>* Club::getEffectif()
 	return &effectif;
 }
 
-void Club::ajouter_contrat(Contrat_engagement c_r)
+void Club::ajouter_contrat(Contrat_engagement* c_r)
 {
 	liste_contrats.push_back(c_r);
+}
+
+void Club::ajouter_rupture(Rupture * r)
+{
+	liste_ruptures.push_back(r);
+}
+
+void Club::supprimer_joueur(Joueur * j)
+{
+	if (effectif.size() > 0) {
+		for (size_t i = 0; i < effectif.size(); i++) {
+			if (effectif.at(i) == j) {
+				delete(effectif.at(i));
+				effectif.erase(effectif.begin() + i);
+			}
+		}
+	}
 }
 
 Club::~Club()

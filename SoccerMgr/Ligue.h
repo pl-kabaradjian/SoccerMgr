@@ -5,6 +5,7 @@
 #include <string>
 #include "Club.h"
 #include "Calendrier_rencontre.h"
+#include "Joueur.h"
 
 class Ligue {
 	string name;
@@ -17,5 +18,7 @@ public:
 	void ajouterCalendrier(Calendrier_rencontre* c_r);
 	void ajouterClub(Club * c);
 	Ligue(string name);
+	vector<Joueur*> getListeJoueurs();
+	Club* getClubJoueur(Joueur* j);
 };
 #endif

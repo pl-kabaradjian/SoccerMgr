@@ -12,6 +12,9 @@
 #include "Staff.h"
 #include "Entraineur.h"
 #include "Contrat_engagement.h"
+#include "Rupture.h"
+
+//class Rupture;
 
 using namespace std;
 
@@ -29,8 +32,8 @@ class Club {
 	string adresse;
 	vector<Staff*> staff;
 	Entraineur* trainer;
-	vector<Contrat_engagement> liste_contrats;
-	//vector<Rupture> liste_ruptures;
+	vector<Contrat_engagement*> liste_contrats;
+	vector<Rupture*> liste_ruptures;
 
 public:
 	Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, string adr);
@@ -40,13 +43,13 @@ public:
 	void ajouter_titre(Titre* t);
 	void ajouter_staff(Staff* s);
 	void ajouter_entraineur(Entraineur* e);
-	void ajouter_contrat(Contrat_engagement c_r);
-	//void ajouter_rupture(Rupture r);
+	void ajouter_contrat(Contrat_engagement* c_r);
+	void ajouter_rupture(Rupture* r);
+	void supprimer_joueur(Joueur* j);
 
 	void afficher_joueurs();
 	void afficher_palmares();
-	void afficher_rencontres();
-	void afficher_contrats();
+	//void afficher_contrats();
 
 	string* getNom();
 	vector<Titre*>* getPalmares();

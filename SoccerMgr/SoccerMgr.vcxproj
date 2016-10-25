@@ -161,6 +161,7 @@
     <ClInclude Include="Reglement.h" />
     <ClInclude Include="Rencontre.h" />
     <ClInclude Include="Resultat.h" />
+    <ClInclude Include="Rupture.h" />
     <ClInclude Include="Sportif.h" />
     <ClInclude Include="Starter.h" />
     <ClInclude Include="Ligue.h" />
@@ -193,6 +194,7 @@
     <ClCompile Include="Reglement.cpp" />
     <ClCompile Include="Rencontre.cpp" />
     <ClCompile Include="Resultat.cpp" />
+    <ClCompile Include="Rupture.cpp" />
     <ClCompile Include="Saisie.cpp" />
     <ClCompile Include="Screen.cpp" />
     <ClCompile Include="Sportif.cpp" />

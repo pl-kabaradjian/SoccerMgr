@@ -32,10 +32,14 @@ public:
 	static void menuCreaRencontre(Ligue* l, Calendrier_rencontre* cal);
 	static void menuListeRencontreClub(Ligue* l);
 
-	//Jouer le match
+	//Jouer le match && Afficher le score
+	static void menuJouerMatch();
 
 	//gestion des transferts
-	static void menuTransaction(Ligue* l);
-	static void menuTotalTransferts(Ligue* l);
+	static void menuContrat(Ligue * l);
+	static void menuTransfert(Ligue * l);
+	static void menuCreaRupture(Ligue * l, Joueur* j, Club* nouv_club, Club* ancien_club);
+	static void menuCreaTransfert(Ligue* l, Joueur* j);
+	static void menuTotauxClub(Ligue* l);
 };
 #endif

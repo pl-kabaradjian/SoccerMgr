@@ -14,25 +14,25 @@ void Starter::load(Ligue* ligue)
 	Club* club_om = ligue->getListeClub()->at(2);
 
 	club_psg->ajouter_entraineur(new Entraineur("Blanc","Laurent",45));
-	club_psg->ajouter_joueur(new Joueur("Benarfa","Atem",18, 1.80f, 75,"Corbeil"));
-	club_psg->ajouter_joueur(new Joueur("Elquaidaifi","Nasser",24, 1.80f, 75,"Rambouillet"));
-	club_psg->ajouter_joueur(new Joueur("Edison","Khavani",32, 1.80f, 75,"La Defense"));
-	club_psg->ajouter_joueur(new Joueur("Matuidi","Blaise",25, 1.80f, 75,"Marseille"));
-	club_psg->ajouter_joueur(new Joueur("Meunier","Thomas",22, 1.80f, 80,"Versailles"));
+	club_psg->ajouter_joueur(new Joueur_autonome("Benarfa","Atem",18, 1.80f, 75,"Corbeil"));
+	club_psg->ajouter_joueur(new Joueur_autonome("Elquaidaifi","Nasser",24, 1.80f, 75,"Rambouillet"));
+	club_psg->ajouter_joueur(new Joueur_non_autonome("Edison","Khavani",32, 1.80f, 75,"La Defense"));
+	club_psg->ajouter_joueur(new Joueur_non_autonome("Matuidi","Blaise",25, 1.80f, 75,"Marseille"));
+	club_psg->ajouter_joueur(new Joueur_non_autonome("Meunier","Thomas",22, 1.80f, 80,"Versailles"));
 
 	club_ol->ajouter_entraineur(new Entraineur("Legrand","Jean-Louis",65));
-	club_ol->ajouter_joueur(new Joueur("Valbuena", "Mathieu",36, 1.81f, 81, "Lyon"));
-	club_ol->ajouter_joueur(new Joueur("Grenier", "Clement",32, 1.81f, 82, "Lyon"));
-	club_ol->ajouter_joueur(new Joueur("LaCazette", "Alexandre",41, 1.81f, 74, "Annecy"));
-	club_ol->ajouter_joueur(new Joueur("Massiege", "Rybus",28, 1.81f, 68, "Saint-Etienne"));
-	club_ol->ajouter_joueur(new Joueur("Gonalons", "Maxime",34, 1.81f, 71, "Villefranche"));
+	club_ol->ajouter_joueur(new Joueur_autonome("Valbuena", "Mathieu",36, 1.81f, 81, "Lyon"));
+	club_ol->ajouter_joueur(new Joueur_autonome("Grenier", "Clement",32, 1.81f, 82, "Lyon"));
+	club_ol->ajouter_joueur(new Joueur_non_autonome("LaCazette", "Alexandre",41, 1.81f, 74, "Annecy"));
+	club_ol->ajouter_joueur(new Joueur_non_autonome("Massiege", "Rybus",28, 1.81f, 68, "Saint-Etienne"));
+	club_ol->ajouter_joueur(new Joueur_non_autonome("Gonalons", "Maxime",34, 1.81f, 71, "Villefranche"));
 
 	club_om->ajouter_entraineur(new Entraineur("Peuchere","Marius",52));
-	club_om->ajouter_joueur(new Joueur("Lassara", "Diala",42, 1.76f, 82, "Marseille"));
-	club_om->ajouter_joueur(new Joueur("Clinton", "Njie",37, 1.76f, 89, "Les pennes mirabeau"));
-	club_om->ajouter_joueur(new Joueur("Bafetimbi", "Gomis",26, 1.76f, 74, "Montpellier"));
-	club_om->ajouter_joueur(new Joueur("Machache", "Zinedine",26, 1.76f, 78, "Aubagne"));
-	club_om->ajouter_joueur(new Joueur("Vainqueur", "William",29, 1.77f, 86, "Vitrolles"));
+	club_om->ajouter_joueur(new Joueur_autonome("Lassara", "Diala",42, 1.76f, 82, "Marseille"));
+	club_om->ajouter_joueur(new Joueur_autonome("Clinton", "Njie",37, 1.76f, 89, "Les pennes mirabeau"));
+	club_om->ajouter_joueur(new Joueur_non_autonome("Bafetimbi", "Gomis",26, 1.76f, 74, "Montpellier"));
+	club_om->ajouter_joueur(new Joueur_non_autonome("Machache", "Zinedine",26, 1.76f, 78, "Aubagne"));
+	club_om->ajouter_joueur(new Joueur_non_autonome("Vainqueur", "William",29, 1.77f, 86, "Vitrolles"));
 		
 	//Creation des titres
 	Titre* t1 = new Titre("Coupe de France", Date(1998));
