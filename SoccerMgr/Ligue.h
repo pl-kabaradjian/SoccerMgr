@@ -6,6 +6,7 @@
 #include "Club.h"
 #include "Calendrier_rencontre.h"
 #include "Joueur.h"
+#include "Contrat_engagement.h"
 
 class Ligue {
 	string name;
@@ -19,6 +20,7 @@ public:
 	void ajouterClub(Club * c);
 	Ligue(string name);
 	vector<Joueur*> getListeJoueurs();
+	vector<Contrat_engagement*> getListeContrats();
 	Club* getClubJoueur(Joueur* j);
 };
 #endif

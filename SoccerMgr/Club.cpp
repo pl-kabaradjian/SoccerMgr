@@ -53,6 +53,14 @@ void Club::afficher_palmares()
 	}
 }
 
+//void Club::afficher_contrats()
+//{
+//	cout << nom << " : " << endl;
+//	for (size_t i = 0; i < liste_contrats.size(); i++) {
+//		cout << liste_contrats.at(i)->toString();
+//	}
+//}
+
 string * Club::getNom()
 {
 	return &nom;
@@ -76,6 +84,11 @@ vector<Rencontre*> Club::getRencontres()
 vector<Joueur*>* Club::getEffectif()
 {
 	return &effectif;
+}
+
+vector<Contrat_engagement*>* Club::getListe_contrats()
+{
+	return &liste_contrats;
 }
 
 void Club::ajouter_contrat(Contrat_engagement* c_r)

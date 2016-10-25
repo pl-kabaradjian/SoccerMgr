@@ -43,6 +43,23 @@ vector<Joueur*> Ligue::getListeJoueurs()
 	return liste_joueurs;
 }
 
+vector<Contrat_engagement*> Ligue::getListeContrats()
+{
+	vector<Contrat_engagement*> liste_contrats;
+	Club* curr_club(0);
+
+	for (size_t i = 0; i < liste_club.size(); i++) {
+		curr_club = liste_club.at(i);
+		vector<Contrat_engagement*>* curr_liste_contrats = curr_club->getListe_contrats();
+		if (curr_liste_contrats->size() > 0) {
+			for (size_t j = 0; j < curr_liste_contrats->size(); j++) {
+				liste_contrats.push_back(curr_liste_contrats->at(j));
+			}
+		}
+	}
+	return liste_contrats;
+}
+
 Club * Ligue::getClubJoueur(Joueur* joueur)
 {
 	Club* reponse = nullptr;

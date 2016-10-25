@@ -17,6 +17,7 @@ class Contrat_engagement {
 	Reglement reglement;
 public:
 	Reglement getReglement();
+	Club* getClubLibere();
 	Contrat_engagement(Joueur* j, Club* c_contractant, Club* c_libere, int duree, Date d_debut, Reglement rglmnt);
 };
 

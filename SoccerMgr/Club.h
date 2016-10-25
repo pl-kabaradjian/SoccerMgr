@@ -56,7 +56,7 @@ public:
 	Entraineur* getTrainer();
 	vector<Rencontre*> getRencontres();
 	vector<Joueur*>* getEffectif();
-	vector<Contrat_engagement>* getListe_contrats;
+	vector<Contrat_engagement*>* getListe_contrats();
 
 	~Club();
 };

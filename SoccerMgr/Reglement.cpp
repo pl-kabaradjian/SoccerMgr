@@ -12,3 +12,8 @@ Reglement::Reglement(int s, string desc, float m_club, float m_joueur)
 Reglement::Reglement()
 {
 }
+
+float Reglement::getMontant()
+{
+	return montant_transfert;
+}

@@ -659,7 +659,7 @@ start:;
 		//	//Screen::menuRenouvellementContrat(l);
 		//	break;
 		case 2:
-			//Screen::menuTotauxClub(l);
+			Screen::menuTotauxClub(l);
 			break;
 		case 0:
 			Screen::menuPrincipal(l);
@@ -685,7 +685,7 @@ void Screen::menuTransfert(Ligue * l)
 		<< "*************************" << endl
 		<< endl;
 	cout << "Veuillez choisir le joueur contractant :" << endl <<
-		"Remarque : Un joueur non autonome ne peut pas etre transfere avant 3 ans d'experience " << endl;
+		"Remarque : Un joueur non autonome ne peut pas etre transfere avant 3 ans d'experience " << endl << endl;
 
 	//affichage du joueur
 	for (size_t i = 0; i < lst.size(); i++) {
@@ -714,14 +714,17 @@ void Screen::menuTransfert(Ligue * l)
 
 			if (j->has_contrat()) {
 				if (j->est_autonome()) {
-					cout << "Rupture";//Rupture;
+					//cout << "Rupture";//Rupture;
 					Screen::menuCreaTransfert(l, j);
 				}	
 				else if (j_a->getExperience() > 3) {
 					cout << "Transfert OK";
 					Screen::menuCreaTransfert(l, j);
 				}
-				else cout << "Transfert impossible : pas assez d'experience";
+				else {
+					cout << endl << "Transfert impossible : pas assez d'experience" << endl;
+					system("PAUSE");
+				}
 			}
 			else {
 				Screen::menuCreaTransfert(l, j);
@@ -818,4 +821,25 @@ void Screen::menuCreaRupture(Ligue * l, Joueur * j, Club * nouv_club, Club* anci
 
 void Screen::menuTotauxClub(Ligue * l)
 {
+	int reponse = 0;
+
+	//Choix du club
+	system("CLS");
+	cout << "Veuillez choisir le club dont vous souhaitez afficher le total des transferts" << endl;
+	Club* club = Saisie::choix_club(l);
+	
+	//Calcul du montant
+	vector<Contrat_engagement*> liste_contrats = l->getListeContrats();
+	float total = 0.0f;
+
+	for (size_t i = 0; i < liste_contrats.size(); i++) {
+		if (liste_contrats.at(i)->getClubLibere() == club) {
+			total += liste_contrats.at(i)->getReglement().getMontant();
+		}
+	}
+	system("CLS");
+	cout << "Total des transferts encaisses par le club " << *club->getNom() << " : " << total << endl << endl;
+
+	cout << endl;
+	system("PAUSE");
 }

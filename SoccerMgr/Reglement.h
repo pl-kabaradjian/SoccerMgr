@@ -14,6 +14,7 @@ class Reglement {
 public: 
 	Reglement(int s, string desc, float m_club, float m_joueur);
 	Reglement();
+	float getMontant();
 };
 
 #endif //_REGLEMENT_H
