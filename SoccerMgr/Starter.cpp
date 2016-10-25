@@ -12,7 +12,10 @@ void Starter::load(Ligue* ligue)
 	Club* club_psg = ligue->getListeClub()->at(0);
 	Club* club_ol = ligue->getListeClub()->at(1);
 	Club* club_om = ligue->getListeClub()->at(2);
-
+	Reglement r(1000000, "Droit de jouer au foot", 500000, 500000);
+	Date d = Date(2010, 9, 16);
+	Contrat_engagement* c_a;
+	
 	club_psg->ajouter_entraineur(new Entraineur("Blanc","Laurent",45));
 	club_psg->ajouter_joueur(new Joueur_autonome("Benarfa","Atem",18, 1.80f, 75,"Corbeil"));
 	club_psg->ajouter_joueur(new Joueur_autonome("Elquaidaifi","Nasser",24, 1.80f, 75,"Rambouillet"));
@@ -33,6 +36,27 @@ void Starter::load(Ligue* ligue)
 	club_om->ajouter_joueur(new Joueur_non_autonome("Bafetimbi", "Gomis",26, 1.76f, 74, "Montpellier"));
 	club_om->ajouter_joueur(new Joueur_non_autonome("Machache", "Zinedine",26, 1.76f, 78, "Aubagne"));
 	club_om->ajouter_joueur(new Joueur_non_autonome("Vainqueur", "William",29, 1.77f, 86, "Vitrolles"));
+
+	//Ajout des contrats
+
+	for (size_t i = 0; i < club_psg->getEffectif()->size(); i++) {
+		c_a = new Contrat_engagement(club_psg->getEffectif()->at(i), club_psg, nullptr, 2, d, r);
+		club_psg->getEffectif()->at(i)->setContrat(c_a);
+		club_psg->ajouter_contrat(c_a);
+	}
+
+	for (size_t i = 0; i < club_ol->getEffectif()->size(); i++) {
+		c_a = new Contrat_engagement(club_ol->getEffectif()->at(i), club_ol, nullptr, 2, d, r);
+		club_ol->getEffectif()->at(i)->setContrat(c_a);
+		club_ol->ajouter_contrat(c_a);
+	}
+
+	for (size_t i = 0; i < club_om->getEffectif()->size(); i++) {
+		c_a = new Contrat_engagement(club_om->getEffectif()->at(i), club_om, nullptr, 2, d, r);
+		club_om->getEffectif()->at(i)->setContrat(c_a);
+		club_om->ajouter_contrat(c_a);
+	}
+
 		
 	//Creation des titres
 	Titre* t1 = new Titre("Coupe de France", Date(1998));

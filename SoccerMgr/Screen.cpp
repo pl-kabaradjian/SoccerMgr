@@ -781,10 +781,8 @@ void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
 	cout << "Montant qui va au joueur ?" << endl;
 	float montant_joueur = (float)Saisie::safe_int_cin();
 
-	float montant_transfert = montant_club + montant_joueur;
-
 	//Instanciation
-	Reglement r(seuil, ddj, montant_transfert, montant_club, montant_joueur);
+	Reglement r(seuil, ddj, montant_club, montant_joueur);
 	Contrat_engagement* c_a = new Contrat_engagement(j, club_contractant, club_libere, duree_contrat, date_debut, r);
 
 	if (joueur_contractant->has_contrat() && joueur_contractant->est_autonome()) Screen::menuCreaRupture(l, joueur_contractant, club_contractant, club_libere);

@@ -12,7 +12,7 @@ class Reglement {
 	float montant_club;
 	float montant_joueur;
 public: 
-	Reglement(int s, string desc, float m_trans, float m_club, float m_joueur);
+	Reglement(int s, string desc, float m_club, float m_joueur);
 	Reglement();
 };
 

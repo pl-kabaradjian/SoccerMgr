@@ -93,7 +93,6 @@ void Club::supprimer_joueur(Joueur * j)
 	if (effectif.size() > 0) {
 		for (size_t i = 0; i < effectif.size(); i++) {
 			if (effectif.at(i) == j) {
-				delete(effectif.at(i));
 				effectif.erase(effectif.begin() + i);
 			}
 		}
