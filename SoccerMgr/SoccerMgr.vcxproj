@@ -164,7 +164,6 @@
     <ClInclude Include="Message.h" />
     <ClInclude Include="NegoAcheteur.h" />
     <ClInclude Include="Negociateur.h" />
-    <ClInclude Include="Negociation.h" />
     <ClInclude Include="NegoVendeur.h" />
     <ClInclude Include="Periode.h" />
     <ClInclude Include="Reglement.h" />
@@ -199,7 +198,9 @@
     <ClCompile Include="LigueApp.cpp" />
     <ClCompile Include="Match.cpp" />
     <ClCompile Include="Message.cpp" />
+    <ClCompile Include="NegoAcheteur.cpp" />
     <ClCompile Include="Negociateur.cpp" />
+    <ClCompile Include="NegoVendeur.cpp" />
     <ClCompile Include="Parcours.cpp" />
     <ClCompile Include="Periode.cpp" />
     <ClCompile Include="Personne.cpp" />

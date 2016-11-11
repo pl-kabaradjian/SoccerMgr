@@ -13,6 +13,11 @@ protected:
 	Club* club;
 	std::queue<Message>* envoi;
 	std::queue<Message>* reception;
+	
+	void proposerOffre(double montant);
+	void rejeterOffre(double montant);
+	void accepterOffre(double montant);
+	
 	virtual void Negocier()=0;
 public:
 	Negociateur(double m_s, Club* c);

@@ -3,11 +3,8 @@
 #include "Negociateur.h"
 #include "Negociation.h"
 
-class NegoAcheteur : Negociateur, Negociation {
+class NegoAcheteur : Negociateur{
 	friend class Simulation;
-	void proposerOffre(double montant);
-	void rejeterOffre(double montant);
-	void accepterOffre(double montant);
 	void Negocier();
 };
 #endif // !_NEGOACHETEUR_H
