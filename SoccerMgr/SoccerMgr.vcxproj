@@ -161,11 +161,17 @@
     <ClInclude Include="Joueur_autonome.h" />
     <ClInclude Include="Joueur_non_autonome.h" />
     <ClInclude Include="Match.h" />
+    <ClInclude Include="Message.h" />
+    <ClInclude Include="NegoAcheteur.h" />
+    <ClInclude Include="Negociateur.h" />
+    <ClInclude Include="Negociation.h" />
+    <ClInclude Include="NegoVendeur.h" />
     <ClInclude Include="Periode.h" />
     <ClInclude Include="Reglement.h" />
     <ClInclude Include="Rencontre.h" />
     <ClInclude Include="Resultat.h" />
     <ClInclude Include="Rupture.h" />
+    <ClInclude Include="Simulation.h" />
     <ClInclude Include="Sportif.h" />
     <ClInclude Include="Starter.h" />
     <ClInclude Include="Ligue.h" />
@@ -192,6 +198,8 @@
     <ClCompile Include="Ligue.cpp" />
     <ClCompile Include="LigueApp.cpp" />
     <ClCompile Include="Match.cpp" />
+    <ClCompile Include="Message.cpp" />
+    <ClCompile Include="Negociateur.cpp" />
     <ClCompile Include="Parcours.cpp" />
     <ClCompile Include="Periode.cpp" />
     <ClCompile Include="Personne.cpp" />
@@ -201,6 +209,7 @@
     <ClCompile Include="Rupture.cpp" />
     <ClCompile Include="Saisie.cpp" />
     <ClCompile Include="Screen.cpp" />
+    <ClCompile Include="Simulation.cpp" />
     <ClCompile Include="Sportif.cpp" />
     <ClCompile Include="Stade.cpp" />
     <ClCompile Include="Staff.cpp" />

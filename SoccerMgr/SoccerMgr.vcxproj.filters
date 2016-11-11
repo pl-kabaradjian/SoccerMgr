@@ -28,6 +28,12 @@
     <Filter Include="Header Files\Soccer">
       <UniqueIdentifier>{5cce93f9-4a32-4963-b446-7faf19de4327}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\Simulation">
+      <UniqueIdentifier>{defdb5c6-3335-46a7-bc44-544b58054862}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Simulation">
+      <UniqueIdentifier>{7d727bc6-ee72-4ad7-81f1-3507bd5dd74f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Screen.h">
@@ -111,6 +117,24 @@
     <ClInclude Include="Rupture.h">
       <Filter>Header Files\Soccer</Filter>
     </ClInclude>
+    <ClInclude Include="Negociateur.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Negociation.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Message.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="NegoAcheteur.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="NegoVendeur.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
+    <ClInclude Include="Simulation.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp">
@@ -193,6 +217,15 @@
     </ClCompile>
     <ClCompile Include="Rupture.cpp">
       <Filter>Source Files\Soccer</Filter>
+    </ClCompile>
+    <ClCompile Include="Negociateur.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Message.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Simulation.cpp">
+      <Filter>Source Files\Simulation</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
