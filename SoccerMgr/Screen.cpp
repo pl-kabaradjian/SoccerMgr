@@ -607,20 +607,55 @@ void Screen::menuListeRencontres(Calendrier_rencontre * cal)
 {
 //start:;
 	//Affichage des rencontres
+start:;
 	system("CLS");
-	cout << "Affichage de la liste des rencontres de " << cal->getNom() << endl << endl;
+	cout << "Affichage de la liste des rencontres de " << cal->getNom() << endl;
+	cout << "Veuillez choisir la rencontre dont vous souhaitez afficher le resultat"<< endl << endl;
 
 	//Affichage des rencontres du calendrier
 	if (cal->get_liste_rencontre()->size() > 0) {
 		for (size_t i = 0; i < cal->get_liste_rencontre()->size(); i++) {
-			cout << cal->get_liste_rencontre()->at(i)->toString() << endl;
+			cout << i + 1 << " : " << cal->get_liste_rencontre()->at(i)->toString() << endl;
 		}
-		system("PAUSE");
+		//system("PAUSE");
 	}
 	else {
 		cout << "Il n'y a pas de rencontres dans ce calendrier." << endl << endl;
 		system("PAUSE");
+		goto end;
 	}
+	cout << endl << "0 : Retour au menu principal" << endl;
+	cout << endl << "Votre choix: ";
+
+	//recuperation du choix de l'utilisateur
+	int reponse = 0;
+	bool choix_ok = false;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse < 0 || reponse >(int)cal->get_liste_rencontre()->size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			system("CLS");
+			vector<Rencontre*>* l = cal->get_liste_rencontre();
+			if (l->at(reponse - 1)->est_terminee()) {
+				l->at(reponse - 1)->afficher_resultat();
+				system("PAUSE");
+			}
+			else {
+				cout << "Cette rencontre n'a pas encore eu lieu." << endl;
+				system("PAUSE");
+				goto start;
+			}
+			goto end;
+		}
+		else
+		{
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+end:;
 }
 
 void Screen::menuJouerRencontre(Calendrier_rencontre * cal)
