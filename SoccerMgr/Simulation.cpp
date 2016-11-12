@@ -13,6 +13,8 @@ void Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
 	Simulation::lier_negociateurs(n_a, n_v);
 
 	//creation des threads
+
+
 	std::thread t_acheteur(&NegoAcheteur::Negocier, n_a);
 	std::thread t_vendeur(&NegoVendeur::Negocier, n_v);
 	t_acheteur.join();

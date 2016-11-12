@@ -132,6 +132,9 @@
     <ClInclude Include="Simulation.h">
       <Filter>Header Files\Simulation</Filter>
     </ClInclude>
+    <ClInclude Include="Chronometre.h">
+      <Filter>Header Files\Simulation</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp">
@@ -228,6 +231,9 @@
       <Filter>Source Files\Simulation</Filter>
     </ClCompile>
     <ClCompile Include="NegoVendeur.cpp">
+      <Filter>Source Files\Simulation</Filter>
+    </ClCompile>
+    <ClCompile Include="Chronometre.cpp">
       <Filter>Source Files\Simulation</Filter>
     </ClCompile>
   </ItemGroup>

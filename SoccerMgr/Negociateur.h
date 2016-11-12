@@ -2,13 +2,12 @@
 #define _NEGOCIATEUR_H
 #include "Message.h"
 #include <queue>
-
-class Club;
+#include "Club.h"
 
 class Negociateur {
 protected:
 	friend class Simulation;
-	double montant_seuil;
+	double montant_seuil;//montant desire
 	static double duree_max;
 	Club* club;
 	std::queue<Message>* envoi;
@@ -17,6 +16,8 @@ protected:
 	void proposerOffre(double montant);
 	void rejeterOffre(double montant);
 	void accepterOffre(double montant);
+
+	Message attendreMessage();
 	
 	virtual void Negocier()=0;
 public:

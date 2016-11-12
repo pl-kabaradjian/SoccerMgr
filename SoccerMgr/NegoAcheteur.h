@@ -5,7 +5,6 @@
 
 class NegoAcheteur : Negociateur{
 	double montant_max;
-
 	friend class Simulation;
 	void Negocier();
 public:

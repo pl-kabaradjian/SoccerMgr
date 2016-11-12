@@ -35,7 +35,7 @@ Resultat * Match::getResultat()
 
 void Match::jouerMatch()
 {
-	srand(time(NULL));
+	srand((int)time(NULL));
 	ajouter_periode(Periode(45, rand() % 4, rand() % 4));
 	ajouter_periode(Periode(45, rand() % 4, rand() % 4));
 	calculer_resultat();
