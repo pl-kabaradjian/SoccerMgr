@@ -19,7 +19,7 @@ protected:
 
 	Message attendreMessage();
 	
-	virtual void Negocier()=0;
+	virtual void Negocier(bool* deal)=0;
 public:
 	Negociateur(double m_s, Club* c);
 };

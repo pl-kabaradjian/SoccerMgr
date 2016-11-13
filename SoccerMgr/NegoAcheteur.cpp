@@ -1,8 +1,7 @@
 #include "NegoAcheteur.h"
-#include <chrono>
 #include "Chronometre.h"
 
-void NegoAcheteur::Negocier()
+void NegoAcheteur::Negocier(bool* deal)
 {
 	auto start = chrono::system_clock::now();
 	double elapsed_t = chronometre::elapsed_time(start);
@@ -11,18 +10,17 @@ void NegoAcheteur::Negocier()
 	proposerOffre(montant_seuil);
 	Message offre_courante = attendreMessage();
 	bool end = false;
-	bool deal = false;
 
 	while (!end) {
 		elapsed_t = chronometre::elapsed_time(start);
 		if (offre_courante.type == "ACCEPTATION") {
 			end = true;
-			deal = true;
+			*deal = true;
 		}
 		else if (offre_courante.type == "REJET") {
 			if (elapsed_t < duree_max)// on peut encore negocier
 			{
-				Message offre_courante = attendreMessage();
+				offre_courante = attendreMessage();
 			}
 			else// on refuse et on termine
 			{
@@ -34,7 +32,8 @@ void NegoAcheteur::Negocier()
 				if (elapsed_t < duree_max)// on peut encore negocier
 				{
 					rejeterOffre(offre_courante.montant);
-					proposerOffre(offre_courante.montant / elapsed_t);
+					proposerOffre(offre_courante.montant + elapsed_t);
+					offre_courante = attendreMessage();
 				}
 				else// on refuse et on termine
 				{
@@ -47,25 +46,22 @@ void NegoAcheteur::Negocier()
 				{
 					rejeterOffre(offre_courante.montant);
 					proposerOffre(offre_courante.montant / elapsed_t);
+					offre_courante = attendreMessage();
 				}
 				else// on accepte et on termine
 				{
 					accepterOffre(offre_courante.montant);
-					deal = true;
+					*deal = true;
 					end = true;
 				}
 			}
 			else if (offre_courante.montant <= montant_seuil) {
 				accepterOffre(offre_courante.montant);//On accepte directement et on termine
-				deal = true;
+				*deal = true;
 				end = true;
 			}
 		}
 	}
-	//TODO Prendre en compte cas ou deal = true
-	/*if (deal) {
-
-	}*/
 }
 
 NegoAcheteur::NegoAcheteur(double m_s, Club * c, double max) : Negociateur(m_s, c)
