@@ -19,5 +19,8 @@ bool Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
 	t_acheteur.join();
 	t_vendeur.join();
 
+	if (deal) cout << "Negociation reussie !" << endl;
+	else cout << "Echec de la negociation !" << endl;
+
 	return deal;
 }

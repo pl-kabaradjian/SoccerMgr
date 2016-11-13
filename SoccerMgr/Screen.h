@@ -39,6 +39,7 @@ public:
 	//gestion des transferts
 	static void menuContrat(Ligue * l);
 	static void menuTransfert(Ligue * l);
+	static void menuNegociation(Ligue * l);
 	static void menuCreaRupture(Ligue * l, Joueur* j, Club* nouv_club, Club* ancien_club);
 	static void menuCreaTransfert(Ligue* l, Joueur* j);
 	static void menuTotauxClub(Ligue* l);

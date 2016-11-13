@@ -9,6 +9,7 @@
 #include "Joueur_autonome.h"
 #include "Joueur_non_autonome.h"
 #include "Rupture.h"
+#include "Simulation.h"
 
 using namespace std;
 
@@ -730,9 +731,10 @@ void Screen::menuContrat(Ligue * l)
 {
 start:;
 	//liste de choix
-	string choix1, choix2;
-	choix1 = "Nouveau transfert";
-	choix2 = "Afficher total encaisse par club";
+	string choix1, choix2, choix3;
+	choix1 = "Transferer un joueur (manuellement)";
+	choix2 = "Transferer un joueur (negociation auto)";
+	choix3 = "Afficher total encaisse par club";
 
 	//Affichage des choix
 	system("CLS");
@@ -744,6 +746,7 @@ start:;
 	cout << "Vous etes dans le menu de gestion des contrats. Veuillez choisir parmi les choix suivants:" << endl << endl;
 	cout << "1 : " << choix1 << endl;
 	cout << "2 : " << choix2 << endl;
+	cout << "3 : " << choix3 << endl;
 	cout << endl << "0 : Retour au menu principal" << endl;
 
 	//Recuperation du choix de l'utilisateur
@@ -759,6 +762,9 @@ start:;
 			Screen::menuTransfert(l);
 			break;
 		case 2:
+			Screen::menuNegociation(l);
+			break;
+		case 3:
 			Screen::menuTotauxClub(l);
 			break;
 		case 0:
@@ -839,6 +845,17 @@ void Screen::menuTransfert(Ligue * l)
 		}
 	} while (!choix_ok);
 end:;
+}
+
+void Screen::menuNegociation(Ligue * l)
+{
+	//choix du joueur
+	//choix du nouveau club
+	//creation des negociateurs
+	//simulation
+	////Simulation::simulerNegociation(n_a, n_v);
+
+	//si besoin creation du contrat
 }
 
 void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
