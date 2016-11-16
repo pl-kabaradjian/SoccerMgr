@@ -236,5 +236,8 @@
     <ClCompile Include="Chronometre.cpp">
       <Filter>Source Files\Simulation</Filter>
     </ClCompile>
+    <ClCompile Include="test_boost.cpp">
+      <Filter>Source Files\Tools</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

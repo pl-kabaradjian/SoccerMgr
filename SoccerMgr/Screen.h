@@ -11,6 +11,8 @@ class Screen {
 	static void affiche_choix_liste_club(Ligue * l);
 public:
 	static void menuPrincipal(Ligue* l);
+	//Fonctions d'affichages
+	static void afficher_titre(string titre);
 
 	//Gestion des clubs
 	static void menuClub(Ligue* l);

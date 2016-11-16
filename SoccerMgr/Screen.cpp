@@ -72,6 +72,16 @@ void Screen::menuPrincipal(Ligue* l)
 	while (choix);
 }
 
+void Screen::afficher_titre(string titre)
+{
+	system("CLS");
+	cout << endl
+		<< "*************************"
+		<< "*" << titre << "*"
+		<< "*************************" << endl
+		<< endl;
+}
+
 //Menus et sous-menus de gestion de club
 void Screen::menuClub(Ligue * l)
 {
@@ -782,116 +792,93 @@ start:;
 
 void Screen::menuTransfert(Ligue * l)
 {
-	vector<Joueur*> lst = l->getListeJoueurs();
+	string titre = "Ajout d'un transfert";
 
-	system("CLS");
-	cout << endl
-		<< "*************************"
-		<< "*Ajout d'un transfert*"
-		<< "*************************" << endl
-		<< endl;
+	Screen::afficher_titre(titre);
 	cout << "Veuillez choisir le joueur contractant :" << endl <<
 		"Remarque : Un joueur non autonome ne peut pas etre transfere avant 3 ans d'experience " << endl << endl;
 
-	//affichage du joueur
-	for (size_t i = 0; i < lst.size(); i++) {
-		Joueur* x = lst.at(i);
-		Joueur_non_autonome* x_na = (Joueur_non_autonome*)x;
-		string c, a;
-		if (x->has_contrat()) c = "Oui";
-		else c = "Non";
-		if (x->est_autonome()) a = "Oui";
-		else a = "Non | Experience : " + to_string(x_na->getExperience());
-		cout << i + 1 << " : " << x->getNomPrenom() + " | Contrat : " + c + " | Est autonome : " + a << endl;
+	Joueur* j = Saisie::choix_joueur(l);
+	Joueur_non_autonome* j_a = (Joueur_non_autonome*) j;
+
+	if (j->has_contrat()) {
+		if (j->est_autonome()) {
+			//cout << "Rupture";//Rupture
+			Screen::menuCreaTransfert(l, j);
+		}	
+		else if (j_a->getExperience() > 3) {
+			cout << "Transfert OK";
+			Screen::menuCreaTransfert(l, j);
+		}
+		else {
+			cout << endl << "Transfert impossible : pas assez d'experience" << endl;
+			system("PAUSE");
+		}
 	}
-
-	//Recuperation choix du joueur
-	int reponse = 0;
-	bool choix_ok = false;
-	do
-	{
-		reponse = Saisie::safe_int_cin();
-		if (reponse <= 0 || reponse >(int)lst.size()) {
-			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
-		}
-		else if (reponse > 0) {
-			Joueur* j = lst.at(reponse - 1);
-			Joueur_non_autonome* j_a = (Joueur_non_autonome*) j;
-
-			if (j->has_contrat()) {
-				if (j->est_autonome()) {
-					//cout << "Rupture";//Rupture;
-					Screen::menuCreaTransfert(l, j);
-				}	
-				else if (j_a->getExperience() > 3) {
-					cout << "Transfert OK";
-					Screen::menuCreaTransfert(l, j);
-				}
-				else {
-					cout << endl << "Transfert impossible : pas assez d'experience" << endl;
-					system("PAUSE");
-				}
-			}
-			else {
-				Screen::menuCreaTransfert(l, j);
-			}
-				
-			goto end;
-		}
-		//else if (reponse == 0) goto end;
-		else
-		{
-			choix_ok = true;
-		}
-	} while (!choix_ok);
-end:;
+	else {
+		Screen::menuCreaTransfert(l, j);
+	}
 }
 
 void Screen::menuNegociation(Ligue * l)
 {
+	string titre = "Simulation de transfert";
+	
+	Screen::afficher_titre(titre);
+	cout << "Veuillez choisir le joueur contractant :" << endl <<
+		"Remarque : Un joueur non autonome ne peut pas etre transfere avant 3 ans d'experience " << endl << endl;
 	//choix du joueur
+	Joueur* j = Saisie::choix_joueur(l);
+
 	//choix du nouveau club
-	//creation des negociateurs
-	//simulation
-	////Simulation::simulerNegociation(n_a, n_v);
-
-	//si besoin creation du contrat
-}
-
-void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
-{
-	system("CLS");
-	cout << endl
-		<< "*************************"
-		<< "*Ajout d'un transfert*"
-		<< "*************************" << endl
-		<< endl;
+	Screen::afficher_titre(titre);
 
 	Joueur* joueur_contractant = j;
 	cout << "Nouveau club ?" << endl;
 	Club* club_contractant = Saisie::choix_club(l);
 	Club* club_libere = l->getClubJoueur(j);
+	//creation des negociateurs
+	Screen::afficher_titre(titre);
+	////capacite du stade
+	double min, max, seuil_vente, seuil_achat;
+	cout << "Seuil de vente ?" << endl;
+	seuil_vente = Saisie::safe_int_cin();
+	cout << "Seuil d'achat ?" << endl;
+	seuil_achat = Saisie::safe_int_cin();
+	cout << "Montant minimal pour le vendeur ?" << endl;
+	min = Saisie::safe_int_cin();
+	cout << "Montant maximal pour l'acheteur ?" << endl;
+	max = Saisie::safe_int_cin();
 
-	system("CLS");
-	cout << endl
-		<< "*************************"
-		<< "*Ajout d'un transfert*"
-		<< "*************************" << endl
-		<< endl;
+	NegoVendeur n_v(seuil_vente, club_libere, min);
+	NegoAcheteur n_a(seuil_achat, club_contractant, max);
 
+	//simulation
+	Simulation::simulerNegociation(&n_a, &n_v);
+	system("PAUSE");
+	//si besoin creation du contrat
+}
+
+void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
+{
+	string titre = "Ajout d'un transfert";
+
+	//Choix du club
+	Screen::afficher_titre(titre);
+	Joueur* joueur_contractant = j;
+	cout << "Nouveau club ?" << endl;
+	Club* club_contractant = Saisie::choix_club(l);
+	Club* club_libere = l->getClubJoueur(j);
+
+	//Detail du contrat
+	Screen::afficher_titre(titre);
 	cout << "Duree du contrat ?" << endl;
 	int duree_contrat = Saisie::safe_int_cin();
 	cout << "Date de debut ?" << endl;
 	Date date_debut = Saisie::saisie_date();
 
 	//Detail du reglement
-	system("CLS");
-	cout << endl
-		<< "*************************"
-		<< "*Ajout d'un transfert*"
-		<< "*************************" << endl
-		<< endl;
-
+	Screen::afficher_titre(titre);
 	cout << "Seuil du reglement ?" << endl;
 	int seuil = Saisie::safe_int_cin();
 	cout << "Description des droits du joueur ?" << endl;
@@ -905,7 +892,11 @@ void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
 	Reglement r(seuil, ddj, montant_club, montant_joueur);
 	Contrat_engagement* c_a = new Contrat_engagement(j, club_contractant, club_libere, duree_contrat, date_debut, r);
 
-	if (joueur_contractant->has_contrat() && joueur_contractant->est_autonome()) Screen::menuCreaRupture(l, joueur_contractant, club_contractant, club_libere);
+	//Creation d'une rupture si besoin
+	if (joueur_contractant->has_contrat() && joueur_contractant->est_autonome())
+	{
+		Screen::menuCreaRupture(l, joueur_contractant, club_contractant, club_libere);
+	}
 	//Ajout contrat au joueur et au nouveau club
 	joueur_contractant->setContrat(c_a);
 	club_contractant->ajouter_contrat(c_a);

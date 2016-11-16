@@ -142,3 +142,36 @@ Club * Saisie::choix_club(Ligue * l)
 	} while (!choix_ok);
 	return l->getListeClub()->at(reponse-1);
 }
+
+Joueur * Saisie::choix_joueur(Ligue * l)
+{
+	vector<Joueur*> lst = l->getListeJoueurs();
+	//affichage du joueur
+	for (size_t i = 0; i < lst.size(); i++) {
+		Joueur* x = lst.at(i);
+		Joueur_non_autonome* x_na = (Joueur_non_autonome*)x;
+		string c, a;
+		if (x->has_contrat()) c = "Oui";
+		else c = "Non";
+		if (x->est_autonome()) a = "Oui";
+		else a = "Non | Experience : " + to_string(x_na->getExperience());
+		cout << i + 1 << " : " << x->getNomPrenom() + " | Contrat : " + c + " | Est autonome : " + a << endl;
+	}
+
+	//Recuperation choix du joueur
+	int reponse = 0;
+	bool choix_ok = false;
+	Joueur* j = nullptr;
+	do
+	{
+		reponse = Saisie::safe_int_cin();
+		if (reponse <= 0 || reponse >(int)lst.size()) {
+			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
+		}
+		else if (reponse > 0) {
+			j = lst.at(reponse - 1);
+			choix_ok = true;
+		}
+	} while (!choix_ok);
+	return j;
+}

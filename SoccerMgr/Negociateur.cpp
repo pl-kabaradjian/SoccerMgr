@@ -4,20 +4,20 @@ double Negociateur::duree_max = 10000;
 
 void Negociateur::proposerOffre(double montant)
 {
-	envoi->push(Message("PROPOSITON", club, montant));
-	cout << "Club : " << club->getNom() << "| Type : PROPOSITION " << "| Montant : " << montant << " €" << endl;
+	envoi->push(Message("PROPOSITION", club, montant));
+	cout << "Club : " << *club->getNom() << "| Type : PROPOSITION " << "| Montant : " << montant << " €" << endl;
 }
 
 void Negociateur::rejeterOffre(double montant)
 {
 	envoi->push(Message("REJET", club, montant));
-	cout << "Club : " << club->getNom() << "| Type : REJET " << "| Montant : " << montant << " €" << endl;
+	cout << "Club : " << *club->getNom() << "| Type : REJET " << "| Montant : " << montant << " €" << endl;
 }
 
 void Negociateur::accepterOffre(double montant)
 {
 	envoi->push(Message("ACCEPTATION", club, montant));
-	cout << "Club : " << club->getNom() << "| Type : ACCEPTATION " << "| Montant : " << montant << " €" << endl;
+	cout << "Club : " << *club->getNom() << "| Type : ACCEPTATION " << "| Montant : " << montant << " €" << endl;
 }
 
 Message Negociateur::attendreMessage()
