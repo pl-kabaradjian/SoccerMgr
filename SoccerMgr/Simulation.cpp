@@ -3,8 +3,9 @@
 
 void Simulation::lier_negociateurs(NegoAcheteur* a, NegoVendeur* b)
 {
-	a->envoi = b->reception;
-	b->envoi = a->reception;
+	queue<Message>* qm = new queue<Message>;
+	a->q = qm;
+	b->q = qm;
 }
 
 bool Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
