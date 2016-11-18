@@ -29,7 +29,7 @@
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
     <PlatformToolset>v140</PlatformToolset>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
@@ -154,6 +154,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\koolplot\BGI_util.h" />
+    <ClInclude Include="..\..\koolplot\dibapi.h" />
+    <ClInclude Include="..\..\koolplot\dibutil.h" />
+    <ClInclude Include="..\..\koolplot\graphics.h" />
+    <ClInclude Include="..\..\koolplot\koolplot.h" />
+    <ClInclude Include="..\..\koolplot\PlotData.h" />
+    <ClInclude Include="..\..\koolplot\Plotstream.h" />
+    <ClInclude Include="..\..\koolplot\winbgi.h" />
+    <ClInclude Include="..\..\koolplot\winbgim.h" />
+    <ClInclude Include="..\..\koolplot\winbgitypes.h" />
     <ClInclude Include="Arbitre.h" />
     <ClInclude Include="Calendrier_rencontre.h" />
     <ClInclude Include="Chronometre.h" />
@@ -189,6 +199,21 @@
     <ClInclude Include="Titre.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\koolplot\bgi.cxx" />
+    <ClCompile Include="..\..\koolplot\bgiout.cxx" />
+    <ClCompile Include="..\..\koolplot\BGI_util.cpp" />
+    <ClCompile Include="..\..\koolplot\dibutil.cxx" />
+    <ClCompile Include="..\..\koolplot\drawing.cxx" />
+    <ClCompile Include="..\..\koolplot\file.cxx" />
+    <ClCompile Include="..\..\koolplot\main.cxx" />
+    <ClCompile Include="..\..\koolplot\misc.cxx" />
+    <ClCompile Include="..\..\koolplot\mouse.cxx" />
+    <ClCompile Include="..\..\koolplot\palette.cxx" />
+    <ClCompile Include="..\..\koolplot\plotdata.cpp" />
+    <ClCompile Include="..\..\koolplot\Plotstream.cpp" />
+    <ClCompile Include="..\..\koolplot\text.cxx" />
+    <ClCompile Include="..\..\koolplot\winbgi.cxx" />
+    <ClCompile Include="..\..\koolplot\winthread.cxx" />
     <ClCompile Include="Arbitre.cpp" />
     <ClCompile Include="Calendrier_rencontre.cpp" />
     <ClCompile Include="Chronometre.cpp" />

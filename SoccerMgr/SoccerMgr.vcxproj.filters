@@ -141,6 +141,36 @@
     <ClInclude Include="Chronometre.h">
       <Filter>Header Files\Simulation</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\koolplot\BGI_util.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\dibapi.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\dibutil.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\graphics.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\koolplot.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\PlotData.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\Plotstream.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\winbgi.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\winbgim.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\koolplot\winbgitypes.h">
+      <Filter>Header Files\Koolplot</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp">
@@ -244,6 +274,51 @@
     </ClCompile>
     <ClCompile Include="test_boost.cpp">
       <Filter>Source Files\Tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\bgi.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\bgiout.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\dibutil.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\drawing.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\file.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\main.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\misc.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\mouse.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\palette.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\text.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\winbgi.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\winthread.cxx">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\BGI_util.cpp">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\plotdata.cpp">
+      <Filter>Source Files\Koolplot</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\koolplot\Plotstream.cpp">
+      <Filter>Source Files\Koolplot</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
