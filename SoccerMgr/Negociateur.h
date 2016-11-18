@@ -11,8 +11,7 @@ protected:
 	double montant_seuil;//montant desire
 	static double duree_max;
 	Club* club;
-	std::queue<Message>* envoi;
-	std::queue<Message>* reception;
+	std::queue<Message>* q;
 	static std::mutex m;
 	
 	void proposerOffre(double montant);

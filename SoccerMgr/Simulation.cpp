@@ -3,12 +3,9 @@
 
 void Simulation::lier_negociateurs(NegoAcheteur* a, NegoVendeur* b)
 {
-	queue<Message>* q1 = new queue<Message>;
-	queue<Message>* q2 = new queue<Message>;
-	a->envoi = q1;
-	b->reception = q1;
-	b->envoi = q2;
-	a->reception = q2;
+	queue<Message>* qm = new queue<Message>;
+	a->q = qm;
+	b->q = qm;
 }
 
 bool Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
@@ -18,8 +15,8 @@ bool Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
 
 	//creation des threads
 	bool deal = false;
-	std::thread t_vendeur(&NegoVendeur::Negocier, n_v,&deal);
 	std::thread t_acheteur(&NegoAcheteur::Negocier, n_a,&deal);
+	std::thread t_vendeur(&NegoVendeur::Negocier, n_v,&deal);
 	t_acheteur.join();
 	t_vendeur.join();
 

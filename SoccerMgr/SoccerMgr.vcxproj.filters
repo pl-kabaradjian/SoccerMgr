@@ -34,12 +34,6 @@
     <Filter Include="Source Files\Simulation">
       <UniqueIdentifier>{7d727bc6-ee72-4ad7-81f1-3507bd5dd74f}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Header Files\Koolplot">
-      <UniqueIdentifier>{1916ea66-b7de-4901-94ee-a174185b2502}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source Files\Koolplot">
-      <UniqueIdentifier>{9c3d916f-bd6a-4d2f-91eb-accdfda58f40}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Screen.h">

@@ -7,35 +7,35 @@ std::mutex Negociateur::m;
 void Negociateur::proposerOffre(double montant)
 {
 	std::lock_guard<std::mutex> lk(m);
-	envoi->push(Message("PROPOSITION", club, montant));
-	cout << "Club : " << *club->getNom() << "| Type : PROPOSITION " << "| Montant : " << montant << " $" << endl;
+	q->push(Message("PROPOSITION", club, montant));
+	cout << "Club : " << *club->getNom() << "| Type : PROPOSITION " << "| Montant : " << montant << " €" << endl;
 }
 
 void Negociateur::rejeterOffre(double montant)
 {
 	std::lock_guard<std::mutex> lk(m);
-	envoi->push(Message("REJET", club, montant));
-	cout << "Club : " << *club->getNom() << "| Type : REJET " << "| Montant : " << montant << " $" << endl;
+	q->push(Message("REJET", club, montant));
+	cout << "Club : " << *club->getNom() << "| Type : REJET " << "| Montant : " << montant << " €" << endl;
 }
 
 void Negociateur::accepterOffre(double montant)
 {
 	std::lock_guard<std::mutex> lk(m);
-	envoi->push(Message("ACCEPTATION", club, montant));
-	cout << "Club : " << *club->getNom() << "| Type : ACCEPTATION " << "| Montant : " << montant << " $" << endl;
+	q->push(Message("ACCEPTATION", club, montant));
+	cout << "Club : " << *club->getNom() << "| Type : ACCEPTATION " << "| Montant : " << montant << " €" << endl;
 }
 
 Message Negociateur::attendreMessage()
 {
 	//waiting for msg
-	while (reception->empty());
+	while (q->empty());
 
-	//getting message and removing it from queue
+	//getting message and romving it from queue
 	std::lock_guard<std::mutex> lk(m);
 	try {
-		Message msg = reception->front();
-		reception->pop();
+		Message msg = q->front();
 		return msg;
+		q->pop();
 	}
 	catch(exception e){
 		cout << e.what();

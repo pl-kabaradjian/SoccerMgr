@@ -31,7 +31,7 @@ void NegoVendeur::Negocier(bool* deal)
 				if (elapsed_t < duree_max)// on peut encore negocier
 				{
 					rejeterOffre(offre_courante.montant);
-					proposerOffre(offre_courante.montant*5*(elapsed_t/duree_max));
+					proposerOffre(montant_seuil / elapsed_t);
 					offre_courante = attendreMessage();
 				}
 				else// on refuse et on termine
@@ -44,7 +44,7 @@ void NegoVendeur::Negocier(bool* deal)
 				if (elapsed_t < duree_max)// on peut encore negocier
 				{
 					rejeterOffre(offre_courante.montant);
-					proposerOffre(offre_courante.montant + (montant_seuil*(elapsed_t/duree_max)));
+					proposerOffre(montant_seuil / elapsed_t);
 					offre_courante = attendreMessage();
 				}
 				else// on accepte et on termine
