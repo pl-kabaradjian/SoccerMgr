@@ -839,16 +839,19 @@ void Screen::menuNegociation(Ligue * l)
 	Club* club_libere = l->getClubJoueur(j);
 	//creation des negociateurs
 	Screen::afficher_titre(titre);
-	////capacite du stade
 	double min, max, seuil_vente, seuil_achat;
-	cout << "Seuil de vente ?" << endl;
+	min = 200;
+	max = 1200;
+	seuil_vente = 800;
+	seuil_achat = 400;
+	/*cout << "Seuil de vente ?" << endl;
 	seuil_vente = Saisie::safe_int_cin();
 	cout << "Seuil d'achat ?" << endl;
 	seuil_achat = Saisie::safe_int_cin();
 	cout << "Montant minimal pour le vendeur ?" << endl;
 	min = Saisie::safe_int_cin();
 	cout << "Montant maximal pour l'acheteur ?" << endl;
-	max = Saisie::safe_int_cin();
+	max = Saisie::safe_int_cin();*/
 
 	NegoVendeur n_v(seuil_vente, club_libere, min);
 	NegoAcheteur n_a(seuil_achat, club_contractant, max);
