@@ -21,5 +21,25 @@ public:
 	static Date saisie_date();
 	static Club* choix_club(Ligue* l);
 	static Joueur* choix_joueur(Ligue* l);
+
+	template<typename T> static T safe_number_cin() {
+		T res = -1;
+		bool is_a_number = false;
+
+		while (!is_a_number)
+		{
+			if (!(cin >> res)) {
+				cout << "erreur : nombre uniquement" << endl;
+				cin.clear();
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+			else
+			{
+				is_a_number = true;
+				cin.ignore(numeric_limits<streamsize>::max(), '\n');
+			}
+		}
+		return res;
+	}
 };
 #endif

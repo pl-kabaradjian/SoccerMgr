@@ -44,7 +44,7 @@ void Screen::menuPrincipal(Ligue* l)
 	do {
 		choix = false;
 		cout << endl << "Votre choix ? ";
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		switch(reponse)
 		{
 		case 1:
@@ -117,7 +117,7 @@ start:;
 	do {
 		choix = false;
 		cout << endl << "Votre choix ? ";
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		switch (reponse)
 		{
 		case 1:
@@ -188,7 +188,7 @@ void Screen::menuCreaClub(Ligue* l){
 	t = Saisie::saisie_terrain();
 	////capacite du stade
 	cout << "Capacite du stade" << endl;
-	cap = Saisie::safe_int_cin();
+	cap = Saisie::safe_number_cin<int>();
 
 	//Instanciation des objets
 	Stade* s = new Stade(nom_stade, cap, adresse_stade, t);
@@ -219,7 +219,7 @@ void Screen::menuSupprClub(Ligue* l)
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if(reponse < 0 || reponse > (int)l->getListeClub()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -242,7 +242,7 @@ void Screen::menuListeClub(Ligue* l) {
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if (reponse < 0 || reponse >(int)l->getListeClub()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -396,7 +396,7 @@ start:;
 	do {
 		choix = false;
 		cout << endl << "Votre choix ? ";
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		switch (reponse)
 		{
 		case 1:
@@ -461,7 +461,7 @@ start:;
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if (reponse < 0 || reponse >(int)l->getListeCalendrier()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -500,7 +500,7 @@ void Screen::menuSupprCalendrier(Ligue * l)
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if (reponse < 0 || reponse >(int)l->getListeCalendrier()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -541,7 +541,7 @@ void Screen::menuRencontresChoixCalendrier(Ligue * l)
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if (reponse < 0 || reponse >(int)l->getListeCalendrier()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -585,7 +585,7 @@ start:;
 	do {
 		choix = false;
 		cout << endl << "Votre choix ? ";
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		switch (reponse)
 		{
 		case 1:
@@ -643,7 +643,7 @@ start:;
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if (reponse < 0 || reponse >(int)cal->get_liste_rencontre()->size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -686,7 +686,7 @@ void Screen::menuJouerRencontre(Calendrier_rencontre * cal)
 	bool choix_ok = false;
 	do
 	{
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		if (reponse < 0 || reponse >(int)cal->get_liste_rencontre_non_jouees().size()) {
 			cout << "Votre reponse ne correspond pas a un des choix disponibles." << endl;
 		}
@@ -765,7 +765,7 @@ start:;
 	do {
 		choix = false;
 		cout << endl << "Votre choix ? ";
-		reponse = Saisie::safe_int_cin();
+		reponse = Saisie::safe_number_cin<int>();
 		switch (reponse)
 		{
 		case 1:
@@ -840,26 +840,66 @@ void Screen::menuNegociation(Ligue * l)
 	//creation des negociateurs
 	Screen::afficher_titre(titre);
 	double min, max, seuil_vente, seuil_achat;
-	min = 200;
+	/*min = 200;
 	max = 1200;
 	seuil_vente = 800;
-	seuil_achat = 400;
-	/*cout << "Seuil de vente ?" << endl;
-	seuil_vente = Saisie::safe_int_cin();
+	seuil_achat = 400;*/
+	cout << "Seuil de vente ?" << endl;
+	seuil_vente = Saisie::safe_number_cin<double>();
 	cout << "Seuil d'achat ?" << endl;
-	seuil_achat = Saisie::safe_int_cin();
+	seuil_achat = Saisie::safe_number_cin<double>();
 	cout << "Montant minimal pour le vendeur ?" << endl;
-	min = Saisie::safe_int_cin();
+	min = Saisie::safe_number_cin<double>();
 	cout << "Montant maximal pour l'acheteur ?" << endl;
-	max = Saisie::safe_int_cin();*/
+	max = Saisie::safe_number_cin<double>();
 
 	NegoVendeur n_v(seuil_vente, club_libere, min);
 	NegoAcheteur n_a(seuil_achat, club_contractant, max);
 
 	//simulation
-	Simulation::simulerNegociation(&n_a, &n_v);
-	system("PAUSE");
-	//si besoin creation du contrat
+	bool deal = Simulation::simulerNegociation(&n_a, &n_v);
+	// si besoin creation du contrat
+	if (deal) {
+		titre = "Creation d'un contrat suite a une negociation reussie";
+
+		//Detail du contrat
+		Screen::afficher_titre(titre);
+		cout << "Duree du contrat ?" << endl;
+		int duree_contrat = Saisie::safe_number_cin<int>();
+		cout << "Date de debut ?" << endl;
+		Date date_debut = Saisie::saisie_date();
+
+		Screen::afficher_titre(titre);
+		//cout << "Seuil du reglement ?" << endl;
+		//int seuil = Saisie::safe_number_cin<int>();
+		cout << "Description des droits du joueur ?" << endl;
+		string ddj = Saisie::saisie_string();
+
+		cout << "Montant qui va au club ?" << endl;
+		float montant_club = Saisie::safe_number_cin<float>();
+		cout << "Montant qui va au joueur ?" << endl;
+		float montant_joueur = Saisie::safe_number_cin<float>();
+
+		//instanciations
+		Reglement r(0, ddj, montant_club, montant_joueur);
+		Contrat_engagement* c_a = new Contrat_engagement(j, club_contractant, club_libere, duree_contrat, date_debut, r);
+
+		//Creation d'une rupture si besoin
+		if (joueur_contractant->has_contrat() && joueur_contractant->est_autonome())
+		{
+			Screen::menuCreaRupture(l, joueur_contractant, club_contractant, club_libere);
+		}
+		//Ajout contrat au joueur et au nouveau club
+		joueur_contractant->setContrat(c_a);
+		club_contractant->ajouter_contrat(c_a);
+
+		//Suppression/Ajout du joueur dans les effectifs de chaque club
+		club_contractant->ajouter_joueur(joueur_contractant);
+		club_libere->supprimer_joueur(joueur_contractant);
+
+		cout << endl << "Le contrat a ete cree avec succes !" << endl;
+	}
+	else system("PAUSE");
 }
 
 void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
@@ -876,23 +916,23 @@ void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
 	//Detail du contrat
 	Screen::afficher_titre(titre);
 	cout << "Duree du contrat ?" << endl;
-	int duree_contrat = Saisie::safe_int_cin();
+	int duree_contrat = Saisie::safe_number_cin<int>();
 	cout << "Date de debut ?" << endl;
 	Date date_debut = Saisie::saisie_date();
 
 	//Detail du reglement
 	Screen::afficher_titre(titre);
-	cout << "Seuil du reglement ?" << endl;
-	int seuil = Saisie::safe_int_cin();
+	//cout << "Seuil du reglement ?" << endl;
+	//int seuil = Saisie::safe_number_cin<int>();
 	cout << "Description des droits du joueur ?" << endl;
 	string ddj = Saisie::saisie_string();
 	cout << "Montant qui va au club ?" << endl;
-	float montant_club = (float)Saisie::safe_int_cin();
+	float montant_club = Saisie::safe_number_cin<float>();
 	cout << "Montant qui va au joueur ?" << endl;
-	float montant_joueur = (float)Saisie::safe_int_cin();
+	float montant_joueur = Saisie::safe_number_cin<float>();
 
 	//Instanciation
-	Reglement r(seuil, ddj, montant_club, montant_joueur);
+	Reglement r(0, ddj, montant_club, montant_joueur);
 	Contrat_engagement* c_a = new Contrat_engagement(j, club_contractant, club_libere, duree_contrat, date_debut, r);
 
 	//Creation d'une rupture si besoin
@@ -924,7 +964,7 @@ void Screen::menuCreaRupture(Ligue * l, Joueur * j, Club * nouv_club, Club* anci
 	cout << "Raisons de la rupture ?" << endl;
 	string r = Saisie::saisie_string();
 	cout << "Montant de la penalite  ?" << endl;
-	float p = (float)Saisie::safe_int_cin();
+	float p = Saisie::safe_number_cin<float>();
 
 	//ajout de la rupture au club lese
 	ancien_club->ajouter_rupture(new Rupture(j, nouv_club, r, p));

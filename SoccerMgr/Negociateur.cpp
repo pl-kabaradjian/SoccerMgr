@@ -39,6 +39,7 @@ Message Negociateur::attendreMessage()
 	}
 	catch(exception e){
 		cout << e.what();
+		return Message("Erreur", nullptr, 0);
 	}
 }
 

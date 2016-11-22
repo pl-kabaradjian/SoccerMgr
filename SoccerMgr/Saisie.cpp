@@ -15,7 +15,7 @@ int Saisie::safe_int_cin(){
 	while (!is_an_int)
 	{
 		if (!(cin >> res)) {
-			cout << "Erreur : Chiffres seulement" << endl;
+			cout << "erreur : nombre uniquement" << endl;
 			cin.clear();
 			cin.ignore(numeric_limits<streamsize>::max(), '\n');
 		}
@@ -114,8 +114,6 @@ Date Saisie::saisie_date()
 
 Club * Saisie::choix_club(Ligue * l)
 {
-	//cout << "Choissisez le club :" << endl << endl;
-
 	//Affichage du choix de club
 	if (l->getListeClub()->size() != 0) {
 		for (size_t i = 0; i < l->getListeClub()->size(); i++) {
