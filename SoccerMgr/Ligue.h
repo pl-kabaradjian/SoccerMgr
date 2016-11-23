@@ -22,5 +22,6 @@ public:
 	vector<Joueur*> getListeJoueurs();
 	vector<Contrat_engagement*> getListeContrats();
 	Club* getClubJoueur(Joueur* j);
+	void run();
 };
 #endif

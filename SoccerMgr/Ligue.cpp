@@ -1,4 +1,6 @@
 #include "Ligue.h"
+#include "Starter.h"
+#include "Screen.h"
 
 vector<Club*>* Ligue::getListeClub()
 {
@@ -78,4 +80,16 @@ Club * Ligue::getClubJoueur(Joueur* joueur)
 	}
 
 	return reponse;
+}
+
+void Ligue::run()
+{
+	//Chargement des clubs/joueurs/titres
+	Starter::load(this);
+
+	//Affichage du menu principal
+	while (true)
+	{
+		Screen::menuPrincipal(this);
+	}
 }

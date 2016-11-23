@@ -876,7 +876,7 @@ void Screen::menuNegociation(Ligue * l)
 		string ddj = Saisie::saisie_string();
 
 		//pourcentage
-		double montant = r.montant;
+		float montant = (float)r.montant;
 		float pc_club = 0, pc_joueur = 0;
 		while (pc_club + pc_joueur != 100.0f) {
 			cout << "Pourcentage qui va au club ?" << endl;
