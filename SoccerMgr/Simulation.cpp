@@ -11,19 +11,22 @@ void Simulation::lier_negociateurs(NegoAcheteur* a, NegoVendeur* b)
 	a->reception = q2;
 }
 
-bool Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
+result_simu Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
 {
 	//lier les negociateurs
 	Simulation::lier_negociateurs(n_a, n_v);
 
 	//creation des threads
 	bool deal = false;
-	std::thread t_vendeur(&NegoVendeur::Negocier, n_v,&deal);
-	std::thread t_acheteur(&NegoAcheteur::Negocier, n_a,&deal);
+	Message last_m = Message("ERREUR",nullptr,0);
+	std::thread t_vendeur(&NegoVendeur::Negocier, n_v,&deal,&last_m);
+	std::thread t_acheteur(&NegoAcheteur::Negocier, n_a,&deal,&last_m);
 	t_acheteur.join();
 	t_vendeur.join();
 
 	if (deal) cout << "Negociation reussie !" << endl;
 	else cout << "Echec de la negociation !" << endl;
-	return deal;
+
+	system("Pause");
+	return result_simu(deal,last_m.montant);
 }

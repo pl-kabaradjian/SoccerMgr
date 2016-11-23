@@ -6,7 +6,7 @@
 class NegoAcheteur : Negociateur{
 	double montant_max;
 	friend class Simulation;
-	void Negocier(bool* deal);
+	void Negocier(bool* deal, Message* last_m);
 public:
 	NegoAcheteur(double m_s, Club* c, double max);
 };

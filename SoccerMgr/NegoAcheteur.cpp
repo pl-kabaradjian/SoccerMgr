@@ -1,7 +1,7 @@
 #include "NegoAcheteur.h"
 #include "Chronometre.h"
 
-void NegoAcheteur::Negocier(bool* deal)
+void NegoAcheteur::Negocier(bool* deal, Message* last_m)
 {
 	auto start = chrono::system_clock::now();
 	double elapsed_t = chronometre::elapsed_time(start);
@@ -16,6 +16,7 @@ void NegoAcheteur::Negocier(bool* deal)
 		if (offre_courante.type == "ACCEPTATION") {
 			end = true;
 			*deal = true;
+			*last_m = offre_courante;
 		}
 		else if (offre_courante.type == "REJET") {
 			if (elapsed_t < duree_max)// on peut encore negocier
@@ -25,6 +26,7 @@ void NegoAcheteur::Negocier(bool* deal)
 			else// on refuse et on termine
 			{
 				end = true;
+				*last_m = offre_courante;
 			}
 		}
 		else if (offre_courante.type == "PROPOSITION") {
@@ -39,6 +41,7 @@ void NegoAcheteur::Negocier(bool* deal)
 				{
 					rejeterOffre(offre_courante.montant);
 					end = true;
+					*last_m = offre_courante;
 				}
 			}
 			else if (offre_courante.montant < montant_max && offre_courante.montant > montant_seuil) {
@@ -53,12 +56,14 @@ void NegoAcheteur::Negocier(bool* deal)
 					accepterOffre(offre_courante.montant);
 					*deal = true;
 					end = true;
+					*last_m = offre_courante;
 				}
 			}
 			else if (offre_courante.montant <= montant_seuil) {
 				accepterOffre(offre_courante.montant);//On accepte directement et on termine
 				*deal = true;
 				end = true;
+				*last_m = offre_courante;
 			}
 		}
 	}

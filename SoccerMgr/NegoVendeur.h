@@ -6,7 +6,7 @@
 class NegoVendeur : Negociateur{
 	double montant_min;
 	friend class Simulation;
-	void Negocier(bool* deal);
+	void Negocier(bool* deal, Message* last_m);
 public:
 	NegoVendeur(double m_s, Club* c, double min);
 };

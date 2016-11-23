@@ -857,9 +857,9 @@ void Screen::menuNegociation(Ligue * l)
 	NegoAcheteur n_a(seuil_achat, club_contractant, max);
 
 	//simulation
-	bool deal = Simulation::simulerNegociation(&n_a, &n_v);
+	result_simu r = Simulation::simulerNegociation(&n_a, &n_v);
 	// si besoin creation du contrat
-	if (deal) {
+	if (r.deal) {
 		titre = "Creation d'un contrat suite a une negociation reussie";
 
 		//Detail du contrat
@@ -875,10 +875,18 @@ void Screen::menuNegociation(Ligue * l)
 		cout << "Description des droits du joueur ?" << endl;
 		string ddj = Saisie::saisie_string();
 
-		cout << "Montant qui va au club ?" << endl;
-		float montant_club = Saisie::safe_number_cin<float>();
-		cout << "Montant qui va au joueur ?" << endl;
-		float montant_joueur = Saisie::safe_number_cin<float>();
+		//pourcentage
+		double montant = r.montant;
+		float pc_club = 0, pc_joueur = 0;
+		while (pc_club + pc_joueur != 100.0f) {
+			cout << "Pourcentage qui va au club ?" << endl;
+			pc_club = Saisie::safe_number_cin<float>();
+			cout << "Pourcentage qui va au joueur ?" << endl;
+			pc_joueur = Saisie::safe_number_cin<float>();
+			if (pc_club + pc_joueur != 100) cout << "La somme des deux pourcentages doit faire 100" << endl;
+		}
+		float montant_club = pc_club * montant;
+		float montant_joueur = pc_joueur * montant;
 
 		//instanciations
 		Reglement r(0, ddj, montant_club, montant_joueur);
@@ -926,10 +934,20 @@ void Screen::menuCreaTransfert(Ligue * l, Joueur* j)
 	//int seuil = Saisie::safe_number_cin<int>();
 	cout << "Description des droits du joueur ?" << endl;
 	string ddj = Saisie::saisie_string();
-	cout << "Montant qui va au club ?" << endl;
-	float montant_club = Saisie::safe_number_cin<float>();
-	cout << "Montant qui va au joueur ?" << endl;
-	float montant_joueur = Saisie::safe_number_cin<float>();
+	cout << "Montant de la transaction ?" << endl;
+	float montant = Saisie::safe_number_cin<float>();
+
+	//pourcentages
+	float pc_club = 0, pc_joueur = 0;
+	while (pc_club + pc_joueur != 100.0f) {
+		cout << "Pourcentage qui va au club ?" << endl;
+		pc_club = Saisie::safe_number_cin<float>();
+		cout << "Pourcentage qui va au joueur ?" << endl;
+		pc_joueur = Saisie::safe_number_cin<float>();
+		if (pc_club + pc_joueur != 100) cout << "La somme des deux pourcentages doit faire 100" << endl;
+	}
+	float montant_club = pc_club * montant;
+	float montant_joueur = pc_joueur * montant;
 
 	//Instanciation
 	Reglement r(0, ddj, montant_club, montant_joueur);
