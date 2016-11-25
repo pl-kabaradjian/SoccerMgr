@@ -17,9 +17,9 @@ protected:
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << lastname;
-		ar << firstname;
-		ar << age;
+		ar & lastname;
+		ar & firstname;
+		ar & age;
 	}
 
 public:

@@ -18,8 +18,8 @@ class Calendrier_rencontre {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << nom;
-		ar << liste_rencontre;
+		ar & nom;
+		ar & liste_rencontre;
 	}
 
 public:

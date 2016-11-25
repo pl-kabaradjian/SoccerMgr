@@ -16,12 +16,13 @@ class Parcours {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << nom_club;
-		ar << date_passage;
+		ar & nom_club;
+		ar & date_passage;
 	}
 
 public:
 	Parcours(string club, Date d);
+	Parcours() {};
 	~Parcours();
 };
 #endif

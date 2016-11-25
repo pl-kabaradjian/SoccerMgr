@@ -20,18 +20,19 @@ class Contrat_engagement {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << joueur_contractant;
-		ar club_contractant;
-		ar << club_libere;
-		ar << duree_contrat;
-		ar << date_debut;
-		ar << reglement;
+		ar & joueur_contractant;
+		ar & club_contractant;
+		ar & club_libere;
+		ar & duree_contrat;
+		ar & date_debut;
+		ar & reglement;
 	}
 
 public:
 	Reglement getReglement();
 	Club* getClubLibere();
 	Contrat_engagement(Joueur* j, Club* c_contractant, Club* c_libere, int duree, Date d_debut, Reglement rglmnt);
+	Contrat_engagement() {};
 };
 
 #endif //_CONTRAT_ENGAGEMENT_H

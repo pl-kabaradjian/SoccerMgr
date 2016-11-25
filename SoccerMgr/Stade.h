@@ -20,14 +20,15 @@ class Stade {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << capacity;
-		ar << nom;
-		ar << adresse;
-		ar << terrain;
+		ar & capacity;
+		ar & nom;
+		ar & adresse;
+		ar & terrain;
 	}
 
 public:
 	Stade(string n, int c, string a, Terrain t);
+	Stade() {};
 	~Stade();
 };
 #endif

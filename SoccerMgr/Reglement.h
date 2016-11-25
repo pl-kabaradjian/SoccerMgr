@@ -18,11 +18,11 @@ class Reglement {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << seuil;
-		ar << description_droits_joueur;
-		ar << montant_transfert;
-		ar << montant_club;
-		ar << montant_joueur;
+		ar & seuil;
+		ar & description_droits_joueur;
+		ar & montant_transfert;
+		ar & montant_club;
+		ar & montant_joueur;
 	}
 
 public: 

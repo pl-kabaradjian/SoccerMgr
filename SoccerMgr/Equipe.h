@@ -15,10 +15,10 @@ class Equipe {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << club;
-		ar << capitaine;
-		ar << nb_joueurs;
-		ar << nb_gardiens;
+		ar & club;
+		ar & capitaine;
+		ar & nb_joueurs;
+		ar & nb_gardiens;
 	}
     
 public:

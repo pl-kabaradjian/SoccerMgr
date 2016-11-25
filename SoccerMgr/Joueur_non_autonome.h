@@ -14,7 +14,7 @@ class Joueur_non_autonome: public Joueur {
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
 		ar & boost::serialization::base_object<Joueur>(*this);
-		ar << experience;
+		ar & experience;
 	}
 
 public:

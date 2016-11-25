@@ -19,10 +19,10 @@ class Rencontre {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << date_rencontre;
-		ar << club_local;
-		ar << club_adverse;
-		ar << match_rencontre;
+		ar & date_rencontre;
+		ar & club_local;
+		ar & club_adverse;
+		ar & match_rencontre;
 	}
 
 public: 

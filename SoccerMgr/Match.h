@@ -21,10 +21,10 @@ class Match {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << equipe_locale;
-		ar << equipe_adverse;
-		ar << resultat;
-		ar << periodes;
+		ar & equipe_locale;
+		ar & equipe_adverse;
+		ar & resultat;
+		ar & periodes;
 	}
 
 public: 

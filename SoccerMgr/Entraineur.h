@@ -20,12 +20,13 @@ class Entraineur : public Staff, public Sportif {
 	void serialize(Archive & ar, const unsigned int version) {
 		ar & boost::serialization::base_object<Staff>(*this);
 		ar & boost::serialization::base_object<Sportif>(*this);
-		ar << lieu_obtention_grade;
-		ar << palmares;
+		ar & lieu_obtention_grade;
+		ar & palmares;
 	}
 
 public:
 	Entraineur(string nom, string prenom, int age);
+	Entraineur() {};
 	vector<Titre*>* getPalmares();
 	void ajouter_titre(Titre* t);
 	void afficher();

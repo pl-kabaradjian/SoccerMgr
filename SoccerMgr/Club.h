@@ -40,19 +40,19 @@ class Club {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << nom;
-		ar << histoire;
-		ar << couleur;
-		ar << date_creation;
-		ar << effectif;
-		ar << palmares;
-		ar << stade_club;
-		ar << ville;
-		ar << adresse;
-		ar << staff;
-		ar << trainer;
-		ar << liste_contrats;
-		ar << liste_ruptures;
+		ar & nom;
+		ar & histoire;
+		ar & couleur;
+		ar & date_creation;
+		ar & effectif;
+		ar & palmares;
+		ar & stade_club;
+		ar & ville;
+		ar & adresse;
+		ar & staff;
+		ar & trainer;
+		ar & liste_contrats;
+		ar & liste_ruptures;
 	}
 
 public:

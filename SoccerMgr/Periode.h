@@ -12,9 +12,9 @@ class Periode {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << duree;
-		ar << nb_buts_locale;
-		ar << nb_buts_adverse;
+		ar & duree;
+		ar & nb_buts_locale;
+		ar & nb_buts_adverse;
 	}
 
 public: 

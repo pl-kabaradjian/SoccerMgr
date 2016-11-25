@@ -22,11 +22,11 @@ class Joueur : public Sportif {
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
 		ar & boost::serialization::base_object<Sportif>(*this);
-		ar << taille;
-		ar << poids;
-		ar << ville_naissance;
-		ar << liste_parcours;
-		ar << contrat;
+		ar & taille;
+		ar & poids;
+		ar & ville_naissance;
+		ar & liste_parcours;
+		ar & contrat;
 	}
 
 public :

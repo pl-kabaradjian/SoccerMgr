@@ -16,13 +16,14 @@ class Titre {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << nom_titre;
-		ar << date_titre;
+		ar & nom_titre;
+		ar & date_titre;
 	}
 
 public:
 	~Titre();
 	Titre(string n, Date d);
+	Titre() {};
 	void afficher();
 };
 #endif

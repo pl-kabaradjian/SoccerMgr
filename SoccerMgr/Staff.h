@@ -21,7 +21,7 @@ protected:
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
 		ar & boost::serialization::base_object<Personne>(*this);
-		ar << role;
+		ar & role;
 	}
 
 public:

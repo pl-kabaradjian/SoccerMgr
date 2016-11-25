@@ -8,8 +8,8 @@ class Resultat {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		ar << score_equipe_adverse;
-		ar << score_equipe_locale;
+		ar & score_equipe_adverse;
+		ar & score_equipe_locale;
 	}
 	
 public: 
