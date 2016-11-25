@@ -88,7 +88,8 @@ void Ligue::run()
 	Starter::load(this);
 
 	//Affichage du menu principal
-	while (true)
+	b_exit = false;
+	while (!b_exit)
 	{
 		Screen::menuPrincipal(this);
 	}

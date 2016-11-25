@@ -60,7 +60,9 @@ void Screen::menuPrincipal(Ligue* l)
 			Screen::menuRencontresChoixCalendrier(l);
 			break;
 		case 0:
-			exit(-1);
+			//exit(-1);
+			choix = false;
+			l->b_exit = true;
 			break;
 		default:
 			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
