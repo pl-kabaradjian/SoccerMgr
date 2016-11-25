@@ -3,7 +3,7 @@
 Club::Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, string adr)
 {
 	nom = n;
-	Histoire = hist;
+	histoire = hist;
 	couleur = c;
 	date_creation = crea;
 	stade_club = s;

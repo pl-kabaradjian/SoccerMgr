@@ -155,6 +155,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Arbitre.h" />
+    <ClInclude Include="boost_export.h" />
     <ClInclude Include="Calendrier_rencontre.h" />
     <ClInclude Include="Chronometre.h" />
     <ClInclude Include="Club.h" />

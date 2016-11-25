@@ -2,8 +2,9 @@
 #define _CONTRAT_ENGAGEMENT_H
 #include "Date.h"
 #include "Reglement.h"
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 
-class Reglement;
 class Joueur;
 class Club;
 
@@ -15,6 +16,18 @@ class Contrat_engagement {
 	int duree_contrat;
 	Date date_debut;
 	Reglement reglement;
+
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version) {
+		ar << joueur_contractant;
+		ar club_contractant;
+		ar << club_libere;
+		ar << duree_contrat;
+		ar << date_debut;
+		ar << reglement;
+	}
+
 public:
 	Reglement getReglement();
 	Club* getClubLibere();

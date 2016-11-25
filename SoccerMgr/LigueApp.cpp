@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include "boost_export.h"
 #include "Ligue.h"
 
 #include <boost/serialization/throw_exception.hpp>

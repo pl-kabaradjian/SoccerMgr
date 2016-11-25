@@ -14,7 +14,9 @@
 #include "Contrat_engagement.h"
 #include "Rupture.h"
 
-//class Rupture;
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+#include <boost/serialization/vector.hpp>
 
 using namespace std;
 
@@ -22,7 +24,7 @@ class Rencontre;
 
 class Club {
 	string nom;
-	string Histoire;
+	string histoire;
 	Couleur couleur;
 	Date date_creation;
 	vector<Joueur*> effectif;
@@ -34,6 +36,24 @@ class Club {
 	Entraineur* trainer;
 	vector<Contrat_engagement*> liste_contrats;
 	vector<Rupture*> liste_ruptures;
+
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version) {
+		ar << nom;
+		ar << histoire;
+		ar << couleur;
+		ar << date_creation;
+		ar << effectif;
+		ar << palmares;
+		ar << stade_club;
+		ar << ville;
+		ar << adresse;
+		ar << staff;
+		ar << trainer;
+		ar << liste_contrats;
+		ar << liste_ruptures;
+	}
 
 public:
 	Club(string n, string hist, Couleur c, Date crea, Stade* s, string v, string adr);

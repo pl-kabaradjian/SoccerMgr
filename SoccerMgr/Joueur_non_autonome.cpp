@@ -20,3 +20,8 @@ Joueur_non_autonome::Joueur_non_autonome(string nom, string prenom, int age, flo
 {
 	experience = 0;
 }
+
+Joueur_non_autonome::Joueur_non_autonome()
+{
+	experience = 0;
+}

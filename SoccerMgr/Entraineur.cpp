@@ -2,7 +2,7 @@
 #include <iostream>
 
 
-Entraineur::Entraineur(string nom, string prenom, int age):Staff(nom,prenom,age,entraineur)
+Entraineur::Entraineur(string nom, string prenom, int age) :Sportif(nom,prenom,age), Staff(entraineur)
 {
 	lieu_obtention_grade = "";
 }

@@ -25,6 +25,10 @@ Joueur::Joueur(string nom, string prenom, int age,float t, int p, string vn): Sp
 	contrat = nullptr;
 }
 
+Joueur::Joueur()
+{
+}
+
 
 bool Joueur::has_contrat()
 {

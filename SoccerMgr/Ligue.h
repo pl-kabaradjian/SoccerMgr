@@ -7,6 +7,7 @@
 #include "Calendrier_rencontre.h"
 #include "Joueur.h"
 #include "Contrat_engagement.h"
+//#include "boost_export.h"
 
 #include <boost/archive/text_oarchive.hpp>
 #include <boost/archive/text_iarchive.hpp>
@@ -21,8 +22,8 @@ class Ligue {
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
 		ar & name;
-		//ar & liste_club;
-		//ar & liste_calendrier;
+		ar & liste_club;
+		ar & liste_calendrier;
 	}
 
 public:

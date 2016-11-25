@@ -135,6 +135,9 @@
     <ClInclude Include="Chronometre.h">
       <Filter>Header Files\Simulation</Filter>
     </ClInclude>
+    <ClInclude Include="boost_export.h">
+      <Filter>Header Files\tools</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Date.cpp">

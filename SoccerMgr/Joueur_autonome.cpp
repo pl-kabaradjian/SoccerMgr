@@ -6,6 +6,10 @@ Joueur_autonome::Joueur_autonome(string nom, string prenom, int age, float t, in
 {
 }
 
+Joueur_autonome::Joueur_autonome()
+{
+}
+
 bool Joueur_autonome::est_autonome()
 {
 	return true;

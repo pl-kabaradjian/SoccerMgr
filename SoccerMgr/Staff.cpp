@@ -8,6 +8,11 @@ Staff::Staff(string nom, string prenom, int age, Role r) :Personne(nom, prenom, 
 	role = r;
 }
 
+Staff::Staff(Role r)
+{
+	role = r;
+}
+
 Staff::~Staff()
 {
 	//cout << "Membre du staff detruit" << endl;

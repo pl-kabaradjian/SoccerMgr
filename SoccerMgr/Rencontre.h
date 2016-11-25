@@ -5,6 +5,9 @@
 #include "Date.h"
 //#include "Club.h"
 
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
+
 class Club;
 
 class Rencontre {
@@ -12,6 +15,16 @@ class Rencontre {
 	Club * club_local;
 	Club * club_adverse;
 	Match match_rencontre;
+
+	friend class boost::serialization::access;
+	template<class Archive>
+	void serialize(Archive & ar, const unsigned int version) {
+		ar << date_rencontre;
+		ar << club_local;
+		ar << club_adverse;
+		ar << match_rencontre;
+	}
+
 public: 
 
 	string toString();
