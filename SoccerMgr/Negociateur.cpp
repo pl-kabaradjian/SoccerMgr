@@ -2,7 +2,7 @@
 #include "Chronometre.h"
 #include <exception>
 
-double Negociateur::duree_max = 10000;
+double Negociateur::duree_max = 3000;
 std::mutex Negociateur::m;
 
 void Negociateur::proposerOffre(double montant)
@@ -42,7 +42,8 @@ Message Negociateur::attendreMessage()
 	while (reception->empty()) {
 	}
 
-	std::this_thread::sleep_for(std::chrono::milliseconds(50));
+	//temporisation
+	//std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
 	//getting message and removing it from queue
 	std::lock_guard<std::mutex> lk(m);

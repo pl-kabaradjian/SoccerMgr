@@ -25,11 +25,11 @@ result_simu Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
 	t_acheteur.join();
 	t_vendeur.join();
 
-	//affichage de la negociation
-	store_n_plot(n_a, n_v);
-
 	if (deal) cout << "Negociation reussie !" << endl;
 	else cout << "Echec de la negociation !" << endl;
+
+	//affichage de la negociation
+	store_n_plot(n_a, n_v);
 
 	system("Pause");
 	return result_simu(deal,last_m.montant);

@@ -846,10 +846,10 @@ void Screen::menuNegociation(Ligue * l)
 	//creation des negociateurs
 	Screen::afficher_titre(titre);
 	double min, max, seuil_vente, seuil_achat;
-	min = 200;
-	max = 1200;
-	seuil_vente = 800;
-	seuil_achat = 400;
+	min = 1200;
+	max = 2000;
+	seuil_vente = 1600;
+	seuil_achat = 1000;
 	/*cout << "Seuil de vente ?" << endl;
 	seuil_vente = Saisie::safe_number_cin<double>();
 	cout << "Seuil d'achat ?" << endl;
@@ -913,7 +913,7 @@ void Screen::menuNegociation(Ligue * l)
 
 		cout << endl << "Le contrat a ete cree avec succes !" << endl;
 	}
-	else system("PAUSE");
+	system("PAUSE");
 }
 
 void Screen::menuCreaTransfert(Ligue * l, Joueur* j)

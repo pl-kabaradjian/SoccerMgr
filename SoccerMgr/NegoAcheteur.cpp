@@ -33,7 +33,7 @@ void NegoAcheteur::Negocier(bool* deal, Message* last_m)
 				if (!fin_mercato(start))// on peut encore negocier
 				{
 					rejeterOffre(offre_courante.montant);
-					proposerOffre(montant_seuil*(0.5+(elapsed_t/duree_max)));
+					proposerOffre((montant_max-montant_seuil)*(elapsed_t/duree_max)+montant_seuil);//lineaire
 					offre_courante = attendreMessage();
 				}
 				else// on refuse et on termine
@@ -47,7 +47,7 @@ void NegoAcheteur::Negocier(bool* deal, Message* last_m)
 				if (!fin_mercato(start))// on peut encore negocier
 				{
 					rejeterOffre(offre_courante.montant);
-					proposerOffre(montant_seuil - (offre_courante.montant- montant_seuil) * elapsed_t/duree_max);
+					proposerOffre(montant_max - (offre_courante.montant- montant_seuil) * elapsed_t/duree_max);
 					offre_courante = attendreMessage();
 				}
 				else// on accepte et on termine
