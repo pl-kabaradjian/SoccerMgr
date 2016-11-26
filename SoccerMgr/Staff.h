@@ -27,7 +27,7 @@ protected:
 public:
 	Staff();
 	Staff(string nom, string prenom, int age, Role r);
-	Staff(Role r);
+	//Staff(Role r);
 	~Staff();
 };
 #endif

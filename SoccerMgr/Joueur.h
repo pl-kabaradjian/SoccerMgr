@@ -2,6 +2,7 @@
 #define _JOUEUR_H
 
 #include "Sportif.h"
+#include "Personne.h"
 #include "Parcours.h"
 #include "Contrat_engagement.h"
 #include <vector>
@@ -11,7 +12,7 @@
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/vector.hpp>
 
-class Joueur : public Sportif {
+class Joueur : public Personne, public Sportif {
 	float taille;
 	int poids;
 	string ville_naissance;
@@ -21,6 +22,7 @@ class Joueur : public Sportif {
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
+		ar & boost::serialization::base_object<Personne>(*this);
 		ar & boost::serialization::base_object<Sportif>(*this);
 		ar & taille;
 		ar & poids;
