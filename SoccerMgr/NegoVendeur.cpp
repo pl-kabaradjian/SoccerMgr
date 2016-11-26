@@ -33,7 +33,7 @@ void NegoVendeur::Negocier(bool* deal, Message* last_m)
 				if (elapsed_t < duree_max)// on peut encore negocier
 				{
 					rejeterOffre(offre_courante.montant);
-					proposerOffre(offre_courante.montant*5*(elapsed_t/duree_max));
+					proposerOffre(5*montant_min*(elapsed_t/duree_max));
 					offre_courante = attendreMessage();
 				}
 				else// on refuse et on termine

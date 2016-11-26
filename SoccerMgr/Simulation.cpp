@@ -42,8 +42,8 @@ void Simulation::store_n_plot(NegoAcheteur* n_a, NegoVendeur* n_v)
 		std::vector<double> dataV = n_v->getHistMontant();
 		std::vector<double> dataA = n_a->getHistMontant();
 
-		size_t t = dataV.size();
+		int t = (int)dataV.size();
 		for (int i = 0; i < t; i++)
-			plot_data << i << "," << dataA[i] << "," << dataV[i] << std::endl;
-		std::system("python ../src/plot.py");
+			plot_data << i << " " << dataA[i] << " " << dataV[i] << std::endl;
+		std::system("python plot.py");
 }

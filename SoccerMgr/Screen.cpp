@@ -783,6 +783,7 @@ start:;
 			break;
 		case 0:
 			//Screen::menuPrincipal(l);
+			goto end;
 			break;
 		default:
 			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
@@ -792,6 +793,7 @@ start:;
 		}
 		goto start;
 	} while (choix);
+end:;
 }
 
 void Screen::menuTransfert(Ligue * l)
@@ -844,18 +846,18 @@ void Screen::menuNegociation(Ligue * l)
 	//creation des negociateurs
 	Screen::afficher_titre(titre);
 	double min, max, seuil_vente, seuil_achat;
-	/*min = 200;
+	min = 200;
 	max = 1200;
 	seuil_vente = 800;
-	seuil_achat = 400;*/
-	cout << "Seuil de vente ?" << endl;
+	seuil_achat = 400;
+	/*cout << "Seuil de vente ?" << endl;
 	seuil_vente = Saisie::safe_number_cin<double>();
 	cout << "Seuil d'achat ?" << endl;
 	seuil_achat = Saisie::safe_number_cin<double>();
 	cout << "Montant minimal pour le vendeur ?" << endl;
 	min = Saisie::safe_number_cin<double>();
 	cout << "Montant maximal pour l'acheteur ?" << endl;
-	max = Saisie::safe_number_cin<double>();
+	max = Saisie::safe_number_cin<double>();*/
 
 	NegoVendeur n_v(seuil_vente, club_libere, min);
 	NegoAcheteur n_a(seuil_achat, club_contractant, max);
