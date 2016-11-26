@@ -1,5 +1,6 @@
 #include "Simulation.h"
 #include <thread>
+#include <fstream>
 
 void Simulation::lier_negociateurs(NegoAcheteur* a, NegoVendeur* b)
 {
@@ -24,9 +25,25 @@ result_simu Simulation::simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v)
 	t_acheteur.join();
 	t_vendeur.join();
 
+	//affichage de la negociation
+	store_n_plot(n_a, n_v);
+
 	if (deal) cout << "Negociation reussie !" << endl;
 	else cout << "Echec de la negociation !" << endl;
 
 	system("Pause");
 	return result_simu(deal,last_m.montant);
+}
+
+void Simulation::store_n_plot(NegoAcheteur* n_a, NegoVendeur* n_v)
+{
+		std::ofstream plot_data("plot_data");
+
+		std::vector<double> dataV = n_v->getHistMontant();
+		std::vector<double> dataA = n_a->getHistMontant();
+
+		size_t t = dataV.size();
+		for (int i = 0; i < t; i++)
+			plot_data << i << "," << dataA[i] << "," << dataV[i] << std::endl;
+		std::system("python ../src/plot.py");
 }

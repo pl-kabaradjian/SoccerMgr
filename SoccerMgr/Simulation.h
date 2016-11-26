@@ -16,5 +16,5 @@ class Simulation {
 	static void lier_negociateurs(NegoAcheteur* a, NegoVendeur* b);
 public:
 	static result_simu simulerNegociation(NegoAcheteur* n_a, NegoVendeur* n_v);
+	static void store_n_plot(NegoAcheteur* n_a, NegoVendeur* n_v);
 };
-

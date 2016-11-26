@@ -8,6 +8,7 @@ void Negociateur::proposerOffre(double montant)
 {
 	std::lock_guard<std::mutex> lk(m);
 	envoi->push(Message("PROPOSITION", club, montant));
+	hist_montant.push_back(montant);
 	cout << "Club : " << *club->getNom() << "| Type : PROPOSITION " << "| Montant : " << montant << " $" << endl;
 }
 
