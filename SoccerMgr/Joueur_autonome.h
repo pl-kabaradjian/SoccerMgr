@@ -20,5 +20,4 @@ public:
 	Joueur_autonome();
 	virtual bool est_autonome();
 };
-
 #endif //_JOUEUR_AUTONOME_H

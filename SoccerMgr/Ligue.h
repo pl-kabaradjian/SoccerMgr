@@ -1,6 +1,7 @@
 #ifndef _LIGUE_H
 #define _LIGUE_H
 
+#include <boost/serialization/string.hpp>
 #include <vector>
 #include <string>
 #include "Club.h"

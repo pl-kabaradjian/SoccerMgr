@@ -13,7 +13,7 @@ enum Role {
 	recruteur,
 };
 
-class Staff :  public virtual Personne {
+class Staff : public Personne {
 protected:
 	Role role;
 

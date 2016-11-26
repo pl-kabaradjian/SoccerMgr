@@ -141,7 +141,8 @@ start:;
 			Screen::menuListeRencontreClub(l);
 			break;
 		case 0:
-			Screen::menuPrincipal(l);
+			//Screen::menuPrincipal(l);
+			goto end;
 			break;
 		default:
 			cout << "Votre reponse ne correspond pas a un des choix disponibles.";
@@ -151,6 +152,7 @@ start:;
 		}
 		goto start;// Screen::menuClub(l);
 	} while (choix);
+end:;
 }
 
 void Screen::menuCreaClub(Ligue* l){
@@ -780,7 +782,7 @@ start:;
 			Screen::menuTotauxClub(l);
 			break;
 		case 0:
-			Screen::menuPrincipal(l);
+			//Screen::menuPrincipal(l);
 			break;
 		default:
 			cout << "Votre reponse ne correspond pas a un des choix disponibles.";

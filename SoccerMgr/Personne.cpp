@@ -2,6 +2,7 @@
 #include <iostream>
 
 Personne::Personne(string ln = "", string fn = "", int a = 0)
+//Personne::Personne(string ln, string fn, int a)
 {
 	lastname = ln;
 	firstname = fn;
@@ -13,9 +14,9 @@ Personne::Personne(string ln = "", string fn = "", int a = 0)
 
 Personne::Personne()
 {
-	lastname = "";
+	/*lastname = "";
 	firstname = "";
-	age = 1;
+	age = 1;*/
 }
 
 Personne::~Personne()

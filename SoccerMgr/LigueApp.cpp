@@ -3,6 +3,7 @@
 #include <string>
 #include "Ligue.h"
 #include "boost_export.h"
+#include "Starter.h"
 
 #include <boost/serialization/throw_exception.hpp>
 
@@ -21,6 +22,9 @@ int main()
 	catch (boost::archive::archive_exception e)
 	{
 		std::cerr << "Error when loading data from file : " << e.what() << endl;
+		cout << "Loading default values" << endl;
+		//Chargement des clubs/joueurs/titres
+		Starter::load(&soccerLigue);
 	}
 	system("PAUSE");
 
