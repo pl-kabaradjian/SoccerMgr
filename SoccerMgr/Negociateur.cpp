@@ -1,4 +1,5 @@
 #include "Negociateur.h"
+#include "Chronometre.h"
 #include <exception>
 
 double Negociateur::duree_max = 10000;
@@ -26,10 +27,22 @@ void Negociateur::accepterOffre(double montant)
 	cout << "Club : " << *club->getNom() << "| Type : ACCEPTATION " << "| Montant : " << montant << " $" << endl;
 }
 
+bool Negociateur::fin_mercato(chrono::system_clock::time_point tp)
+{
+	elapsed_t = chronometre::elapsed_time(tp);
+	if (elapsed_t > duree_max)
+		return true;
+	else
+		return false;
+}
+
 Message Negociateur::attendreMessage()
 {
 	//waiting for msg
-	while (reception->empty());
+	while (reception->empty()) {
+	}
+
+	std::this_thread::sleep_for(std::chrono::milliseconds(50));
 
 	//getting message and removing it from queue
 	std::lock_guard<std::mutex> lk(m);

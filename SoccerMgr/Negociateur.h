@@ -11,6 +11,7 @@ protected:
 	friend class Simulation;
 	double montant_seuil;//montant desire
 	static double duree_max;
+	double elapsed_t;
 	Club* club;
 	std::queue<Message>* envoi;
 	std::queue<Message>* reception;
@@ -21,6 +22,8 @@ protected:
 	void proposerOffre(double montant);
 	void rejeterOffre(double montant);
 	void accepterOffre(double montant);
+
+	bool fin_mercato(chrono::system_clock::time_point tp);
 
 	Message attendreMessage();
 	
