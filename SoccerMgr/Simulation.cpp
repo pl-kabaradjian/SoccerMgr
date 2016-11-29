@@ -42,8 +42,12 @@ void Simulation::store_n_plot(NegoAcheteur* n_a, NegoVendeur* n_v)
 		std::vector<double> dataV = n_v->getHistMontant();
 		std::vector<double> dataA = n_a->getHistMontant();
 
-		int t = (int)dataV.size();
-		for (int i = 0; i < t; i++)
-			plot_data << i << " " << dataA[i] << " " << dataV[i] << std::endl;
-		std::system("python plot.py");
+		if (min(dataA.size(), dataV.size()) <= 1){
+			int t = (int)dataV.size();
+			for (int i = 0; i < t; i++) {
+				plot_data << i << " " << dataA[i] << " " << dataV[i] << std::endl;
+				std::system("python plot.py");
+			}
+		}
+		else cout << "Erreur Pas assez de donnees pour tracer un graph." << endl;
 }

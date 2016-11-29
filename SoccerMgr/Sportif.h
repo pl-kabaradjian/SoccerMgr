@@ -9,14 +9,15 @@
 using namespace std;
 
 class Sportif{
+	string sport;
 	friend class boost::serialization::access;
 	template<class Archive>
 	void serialize(Archive & ar, const unsigned int version) {
-		//ar & boost::serialization::base_object<Personne>(*this);
+		ar & sport;
 	}
 
 public:
-	Sportif(string nom, string prenom, int age);
+	//Sportif(string nom, string prenom, int age);
 	Sportif();
 };
 

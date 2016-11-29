@@ -24,6 +24,7 @@ int main()
 		std::cerr << "Error when loading data from file : " << e.what() << endl;
 		cout << "Loading default values" << endl;
 		//Chargement des clubs/joueurs/titres
+		soccerLigue.getListeClub()->clear();
 		Starter::load(&soccerLigue);
 	}
 	system("PAUSE");

@@ -1,18 +1,14 @@
 import numpy as np
-import matplotlib.pyplot as plt
+import matplotlib.pyplot as mplot
 
-values = np.loadtxt('plot_data')
+data = np.loadtxt('plot_data')
 
-x = values[:,0]
-vendeur = values[:,1]
-acheteur = values[:,2]
-
-V, = plt.plot(x, vendeur, label='Vendeur', color='red')
-A, = plt.plot(x, acheteur, label='Acheteur', color='blue')
-
-plt.legend(handles=[V, A])
-
-plt.ylabel('Montant')
-plt.xlabel('temps')
-
-plt.show()
+t = data[:,0]
+acheteur = data[:,1]
+vendeur = data[:,2]
+v_data, = mplot.plot(t, vendeur, label='Vendeur')
+a_data, = mplot.plot(t, acheteur, label='Acheteur')
+mplot.xlabel('Echanges')
+mplot.ylabel('Montant')
+mplot.legend(handles=[v_data, a_data])
+mplot.show()

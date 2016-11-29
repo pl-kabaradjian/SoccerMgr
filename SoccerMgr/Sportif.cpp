@@ -7,4 +7,5 @@
 
 Sportif::Sportif()
 {
+	sport = "Soccer";
 }
